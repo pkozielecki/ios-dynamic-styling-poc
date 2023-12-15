@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2A26D1E72B2B16EA00F68A9E /* DynamicStylingPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26D1E62B2B16EA00F68A9E /* DynamicStylingPOCTests.swift */; };
-		2A26D2012B2B228B00F68A9E /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 2A26D1FF2B2B228B00F68A9E /* Resources */; };
 		2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A26D2062B2B295300F68A9E /* AppFeature */; };
 		2A26D20F2B2B382F00F68A9E /* DynamicStylingPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26D20E2B2B382F00F68A9E /* DynamicStylingPOCApp.swift */; };
+		2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD272B2C8C190016163B /* DependenciesInitializer.swift */; };
+		2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3FAD2C2B2C91410016163B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +28,10 @@
 		2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicStylingPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A26D1E22B2B16EA00F68A9E /* DynamicStylingPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicStylingPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A26D1E62B2B16EA00F68A9E /* DynamicStylingPOCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStylingPOCTests.swift; sourceTree = "<group>"; };
-		2A26D1FF2B2B228B00F68A9E /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		2A26D20E2B2B382F00F68A9E /* DynamicStylingPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStylingPOCApp.swift; sourceTree = "<group>"; };
+		2A3FAD272B2C8C190016163B /* DependenciesInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesInitializer.swift; sourceTree = "<group>"; };
+		2A3FAD2C2B2C91410016163B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DynamicStylingPOC/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		2A3FAD2D2B2C91410016163B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = DynamicStylingPOC/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +75,8 @@
 		2A26D1D42B2B16E800F68A9E /* DynamicStylingPOC */ = {
 			isa = PBXGroup;
 			children = (
+				2A3FAD2B2B2C91330016163B /* Resources */,
 				2A26D20B2B2B381500F68A9E /* Code */,
-				2A26D1FF2B2B228B00F68A9E /* Resources */,
 			);
 			path = DynamicStylingPOC;
 			sourceTree = "<group>";
@@ -96,9 +99,27 @@
 		2A26D20B2B2B381500F68A9E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				2A3FAD292B2C8C370016163B /* DI */,
 				2A26D20E2B2B382F00F68A9E /* DynamicStylingPOCApp.swift */,
 			);
 			path = Code;
+			sourceTree = "<group>";
+		};
+		2A3FAD292B2C8C370016163B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD272B2C8C190016163B /* DependenciesInitializer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		2A3FAD2B2B2C91330016163B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD2C2B2C91410016163B /* Assets.xcassets */,
+				2A3FAD2D2B2C91410016163B /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A26D2012B2B228B00F68A9E /* Resources in Resources */,
+				2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A26D20F2B2B382F00F68A9E /* DynamicStylingPOCApp.swift in Sources */,
+				2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +383,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
@@ -396,6 +419,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
