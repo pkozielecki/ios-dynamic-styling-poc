@@ -18,7 +18,6 @@
 --exponentgrouping disabled
 --fractiongrouping disabled
 --fragment false
---header ignore
 --hexgrouping none
 --hexliteralcase lowercase
 --ifdef no-indent

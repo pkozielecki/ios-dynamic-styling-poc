@@ -1,7 +1,12 @@
+//
+//  PlaybookFeatureView.swift
+//  Dynamic Styling POC
+//
+
 import SwiftUI
 
-struct PlaybookFeatureView: View {
-    var body: some View {
+public struct PlaybookFeatureView: View {
+    public var body: some View {
         Text("Playbook Feature View")
     }
 }

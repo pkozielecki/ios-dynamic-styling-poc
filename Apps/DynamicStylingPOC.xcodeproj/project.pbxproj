@@ -11,7 +11,6 @@
 		2A26D2012B2B228B00F68A9E /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 2A26D1FF2B2B228B00F68A9E /* Resources */; };
 		2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A26D2062B2B295300F68A9E /* AppFeature */; };
 		2A26D20F2B2B382F00F68A9E /* DynamicStylingPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26D20E2B2B382F00F68A9E /* DynamicStylingPOCApp.swift */; };
-		2A26D2152B2B462D00F68A9E /* swiftformat in Frameworks */ = {isa = PBXBuildFile; productRef = 2A26D2142B2B462D00F68A9E /* swiftformat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */,
-				2A26D2152B2B462D00F68A9E /* swiftformat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +119,6 @@
 			name = DynamicStylingPOC;
 			packageProductDependencies = (
 				2A26D2062B2B295300F68A9E /* AppFeature */,
-				2A26D2142B2B462D00F68A9E /* swiftformat */,
 			);
 			productName = DynamicStylingPOC;
 			productReference = 2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */;
@@ -360,22 +357,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = "";
+				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.whitehatgaming.DynamicStylingPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -385,6 +379,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -397,22 +392,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = "";
+				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.whitehatgaming.DynamicStylingPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -422,6 +414,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -512,11 +505,6 @@
 		2A26D2062B2B295300F68A9E /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
-		};
-		2A26D2142B2B462D00F68A9E /* swiftformat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2A26D2112B2B45CF00F68A9E /* XCRemoteSwiftPackageReference "SwiftFormat" */;
-			productName = swiftformat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

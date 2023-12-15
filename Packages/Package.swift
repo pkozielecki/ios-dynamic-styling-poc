@@ -16,7 +16,6 @@ let package = Package(
         .package(url: "https://github.com/krzysztofzablocki/Inject.git", exact: "1.2.4"),
         .package(url: "https://github.com/krzysztofzablocki/Difference.git", exact: "1.0.2"),
         .package(url: "https://github.com/playbook-ui/playbook-ios", exact: "0.3.4"),
-        .package(url: "https://github.com/krzysztofzablocki/AutomaticSettings", exact: "1.1.0"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.12.0"),
         .package(url: "https://github.com/realm/SwiftLint", exact: "0.52.3"),
     ],
@@ -36,7 +35,7 @@ let package = Package(
             dependencies: [
                 "CommonUI",
                 "Common",
-                "Inject"
+                "Inject",
             ]
         ),
         .target(
@@ -44,7 +43,7 @@ let package = Package(
             dependencies: [
                 "CommonUI",
                 "Common",
-                "Inject"
+                "Inject",
             ]
         ),
         .target(
@@ -66,7 +65,6 @@ let package = Package(
         .target(
             name: "Common",
             dependencies: [
-                
             ]
         ),
         .target(
@@ -79,16 +77,15 @@ let package = Package(
         .testTarget(
             name: "CommonTests",
             dependencies: [
-                "TestUtils"
+                "TestUtils",
             ]
         ),
         .testTarget(
             name: "CommonUITests",
             dependencies: [
-                "TestUtils"
+                "TestUtils",
             ]
         ),
-        
     ]
 )
 
