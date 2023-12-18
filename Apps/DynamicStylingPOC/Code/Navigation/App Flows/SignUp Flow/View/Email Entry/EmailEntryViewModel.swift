@@ -15,6 +15,7 @@ enum EmailEntryViewState: Equatable {
 protocol EmailEntryViewModel: Observable {
     var viewState: EmailEntryViewState { get }
     func onViewAppeared()
+    func onEmailRegistrationRequested(email: String)
 }
 
 @Observable
@@ -28,6 +29,11 @@ final class LiveEmailEntryViewModel: EmailEntryViewModel {
     }
 
     func onViewAppeared() {}
+
+    func onEmailRegistrationRequested(email: String) {
+        print("🚀 Email registered: \(email)")
+        router.show(route: SignUpRoute.passwordEntry, withData: email)
+    }
 }
 
 private extension LiveEmailEntryViewModel {}

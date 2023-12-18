@@ -11,15 +11,18 @@ import UIKit
 final class SignUpFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
+    private let dependencyProvider: DependencyProvider
     var completionCallback: (() -> Void)?
     var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator? = nil
 
     init(
         navigator: Navigator,
+        dependencyProvider: DependencyProvider = LiveDependencyManager.shared,
         parent: FlowCoordinator? = nil
     ) {
         self.navigator = navigator
+        self.dependencyProvider = dependencyProvider
         self.parent = parent
     }
 
@@ -50,6 +53,8 @@ final class SignUpFlowCoordinator: FlowCoordinator {
         switch route {
         case .emailEntry:
             return [makeEmailEntryScreen()]
+        case .passwordEntry:
+            return [makePasswordEntryScreen()]
         }
     }
 
@@ -60,7 +65,12 @@ final class SignUpFlowCoordinator: FlowCoordinator {
 
 private extension SignUpFlowCoordinator {
     func makeEmailEntryScreen() -> UIViewController {
-        let model = LiveEmailEntryViewModel(router: resolve())
+        let model = LiveEmailEntryViewModel(router: dependencyProvider.resolve())
         return EmailEntryView(viewModel: model).viewController
+    }
+
+    func makePasswordEntryScreen() -> UIViewController {
+        let model = LivePasswordEntryViewModel(router: dependencyProvider.resolve())
+        return PasswordEntryView(viewModel: model).viewController
     }
 }

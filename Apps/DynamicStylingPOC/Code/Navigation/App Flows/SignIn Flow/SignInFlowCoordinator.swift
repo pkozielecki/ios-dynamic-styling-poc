@@ -11,15 +11,18 @@ import UIKit
 final class SignInFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
+    private let dependencyProvider: DependencyProvider
     var completionCallback: (() -> Void)?
     var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator? = nil
 
     init(
         navigator: Navigator,
+        dependencyProvider: DependencyProvider = LiveDependencyManager.shared,
         parent: FlowCoordinator? = nil
     ) {
         self.navigator = navigator
+        self.dependencyProvider = dependencyProvider
         self.parent = parent
     }
 
@@ -60,7 +63,7 @@ final class SignInFlowCoordinator: FlowCoordinator {
 
 private extension SignInFlowCoordinator {
     func makeEmailLoginScreen() -> UIViewController {
-        let model = LiveEmailPasswordLoginViewModel(router: resolve())
+        let model = LiveEmailPasswordLoginViewModel(router: dependencyProvider.resolve())
         return EmailPasswordLoginView(viewModel: model).viewController
     }
 }

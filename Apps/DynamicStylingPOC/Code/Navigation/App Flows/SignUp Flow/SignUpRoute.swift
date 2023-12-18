@@ -9,6 +9,7 @@ import Foundation
 
 enum SignUpRoute: String, Route {
     case emailEntry
+    case passwordEntry
 }
 
 extension SignUpRoute {

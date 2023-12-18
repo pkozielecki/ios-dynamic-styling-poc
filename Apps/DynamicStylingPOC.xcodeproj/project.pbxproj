@@ -25,6 +25,8 @@
 		2A3FAD572B3067CE0016163B /* EmailPasswordLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD562B3067CE0016163B /* EmailPasswordLoginModel.swift */; };
 		2A3FAD592B3068A60016163B /* SignInRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD582B3068A60016163B /* SignInRoute.swift */; };
 		2A3FAD5B2B3069A50016163B /* SignInFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD5A2B3069A50016163B /* SignInFlowCoordinator.swift */; };
+		2A3FAD602B3087CC0016163B /* PasswordEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD5F2B3087CC0016163B /* PasswordEntryView.swift */; };
+		2A3FAD622B3087E40016163B /* PasswordEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD612B3087E40016163B /* PasswordEntryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		2A3FAD562B3067CE0016163B /* EmailPasswordLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPasswordLoginModel.swift; sourceTree = "<group>"; };
 		2A3FAD582B3068A60016163B /* SignInRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRoute.swift; sourceTree = "<group>"; };
 		2A3FAD5A2B3069A50016163B /* SignInFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFlowCoordinator.swift; sourceTree = "<group>"; };
+		2A3FAD5F2B3087CC0016163B /* PasswordEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEntryView.swift; sourceTree = "<group>"; };
+		2A3FAD612B3087E40016163B /* PasswordEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEntryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,8 +238,8 @@
 		2A3FAD4E2B305CF20016163B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2A3FAD4F2B305D080016163B /* EmailEntryView.swift */,
-				2A3FAD512B305DAA0016163B /* EmailEntryViewModel.swift */,
+				2A3FAD5E2B3087B00016163B /* Password Entry */,
+				2A3FAD5D2B30878D0016163B /* Email Entry */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +251,24 @@
 				2A3FAD562B3067CE0016163B /* EmailPasswordLoginModel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2A3FAD5D2B30878D0016163B /* Email Entry */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD4F2B305D080016163B /* EmailEntryView.swift */,
+				2A3FAD512B305DAA0016163B /* EmailEntryViewModel.swift */,
+			);
+			path = "Email Entry";
+			sourceTree = "<group>";
+		};
+		2A3FAD5E2B3087B00016163B /* Password Entry */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD5F2B3087CC0016163B /* PasswordEntryView.swift */,
+				2A3FAD612B3087E40016163B /* PasswordEntryViewModel.swift */,
+			);
+			path = "Password Entry";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +378,7 @@
 			files = (
 				2A3FAD502B305D080016163B /* EmailEntryView.swift in Sources */,
 				2A3FAD412B3034A70016163B /* SignUpFlowCoordinator.swift in Sources */,
+				2A3FAD602B3087CC0016163B /* PasswordEntryView.swift in Sources */,
 				2A3FAD382B30283B0016163B /* MainAppFlowCoordinator.swift in Sources */,
 				2A3FAD592B3068A60016163B /* SignInRoute.swift in Sources */,
 				2A3FAD442B3047F00016163B /* WelcomeViewModel.swift in Sources */,
@@ -369,6 +392,7 @@
 				2A3FAD522B305DAA0016163B /* EmailEntryViewModel.swift in Sources */,
 				2A3FAD552B3067B80016163B /* EmailPasswordLoginView.swift in Sources */,
 				2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */,
+				2A3FAD622B3087E40016163B /* PasswordEntryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
