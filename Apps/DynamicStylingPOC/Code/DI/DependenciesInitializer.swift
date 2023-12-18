@@ -1,5 +1,11 @@
-import Foundation
+//
+//  DependenciesInitializer.swift
+//  Dynamic Styling POC
+//
+
 import Common
+import CommonUI
+import Foundation
 
 struct DependenciesInitializer {
     private let dependenciesRegistrator: DependencyManager
@@ -11,6 +17,6 @@ struct DependenciesInitializer {
     }
 
     func registerDependencies() {
-        // TODO: Register dependencies.
+        dependenciesRegistrator.register(LiveNavigationRouter(), for: NavigationRouter.self)
     }
 }

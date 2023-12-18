@@ -39,7 +39,7 @@ public final class LiveDependencyManager: DependencyManager {
             fatalError("No dependency found for \(id)! You have to register that dependency first!")
         }
     }
-    
+
     public func register<T>(_ dependency: T, for type: T.Type) {
         let id = String(describing: type)
         dependencies[id] = dependency

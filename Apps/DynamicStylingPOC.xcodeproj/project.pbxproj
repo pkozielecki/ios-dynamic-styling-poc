@@ -9,9 +9,16 @@
 /* Begin PBXBuildFile section */
 		2A26D1E72B2B16EA00F68A9E /* DynamicStylingPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26D1E62B2B16EA00F68A9E /* DynamicStylingPOCTests.swift */; };
 		2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A26D2062B2B295300F68A9E /* AppFeature */; };
-		2A26D20F2B2B382F00F68A9E /* DynamicStylingPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26D20E2B2B382F00F68A9E /* DynamicStylingPOCApp.swift */; };
 		2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD272B2C8C190016163B /* DependenciesInitializer.swift */; };
 		2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3FAD2C2B2C91410016163B /* Assets.xcassets */; };
+		2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD312B301E830016163B /* AppDelegate.swift */; };
+		2A3FAD362B3027260016163B /* MainAppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD352B3027260016163B /* MainAppRoute.swift */; };
+		2A3FAD382B30283B0016163B /* MainAppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD372B30283B0016163B /* MainAppFlowCoordinator.swift */; };
+		2A3FAD3F2B3031D40016163B /* SignUpRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD3E2B3031D40016163B /* SignUpRoute.swift */; };
+		2A3FAD412B3034A70016163B /* SignUpFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD402B3034A70016163B /* SignUpFlowCoordinator.swift */; };
+		2A3FAD442B3047F00016163B /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD432B3047F00016163B /* WelcomeViewModel.swift */; };
+		2A3FAD462B3049150016163B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD452B3049150016163B /* WelcomeView.swift */; };
+		2A3FAD4C2B304CB10016163B /* PreviewMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD4B2B304CB10016163B /* PreviewMocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,10 +35,17 @@
 		2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicStylingPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A26D1E22B2B16EA00F68A9E /* DynamicStylingPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicStylingPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A26D1E62B2B16EA00F68A9E /* DynamicStylingPOCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStylingPOCTests.swift; sourceTree = "<group>"; };
-		2A26D20E2B2B382F00F68A9E /* DynamicStylingPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStylingPOCApp.swift; sourceTree = "<group>"; };
 		2A3FAD272B2C8C190016163B /* DependenciesInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesInitializer.swift; sourceTree = "<group>"; };
 		2A3FAD2C2B2C91410016163B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DynamicStylingPOC/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		2A3FAD2D2B2C91410016163B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = DynamicStylingPOC/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		2A3FAD312B301E830016163B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2A3FAD352B3027260016163B /* MainAppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppRoute.swift; sourceTree = "<group>"; };
+		2A3FAD372B30283B0016163B /* MainAppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppFlowCoordinator.swift; sourceTree = "<group>"; };
+		2A3FAD3E2B3031D40016163B /* SignUpRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRoute.swift; sourceTree = "<group>"; };
+		2A3FAD402B3034A70016163B /* SignUpFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFlowCoordinator.swift; sourceTree = "<group>"; };
+		2A3FAD432B3047F00016163B /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		2A3FAD452B3049150016163B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		2A3FAD4B2B304CB10016163B /* PreviewMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +89,7 @@
 		2A26D1D42B2B16E800F68A9E /* DynamicStylingPOC */ = {
 			isa = PBXGroup;
 			children = (
+				2A3FAD4A2B304AAD0016163B /* Preview Resources */,
 				2A3FAD2B2B2C91330016163B /* Resources */,
 				2A26D20B2B2B381500F68A9E /* Code */,
 			);
@@ -99,8 +114,10 @@
 		2A26D20B2B2B381500F68A9E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				2A3FAD342B3026B80016163B /* Navigation */,
+				2A3FAD332B3026A30016163B /* UI */,
 				2A3FAD292B2C8C370016163B /* DI */,
-				2A26D20E2B2B382F00F68A9E /* DynamicStylingPOCApp.swift */,
+				2A3FAD312B301E830016163B /* AppDelegate.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -120,6 +137,82 @@
 				2A3FAD2D2B2C91410016163B /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A3FAD332B3026A30016163B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2A3FAD342B3026B80016163B /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD392B30317B0016163B /* App Flows */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		2A3FAD392B30317B0016163B /* App Flows */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD3D2B3031AB0016163B /* Games Lobby Flow */,
+				2A3FAD3C2B3031A30016163B /* SignIn Flow */,
+				2A3FAD3B2B3031990016163B /* SignUp Flow */,
+				2A3FAD3A2B3031860016163B /* Main Flow */,
+			);
+			path = "App Flows";
+			sourceTree = "<group>";
+		};
+		2A3FAD3A2B3031860016163B /* Main Flow */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD422B3047D00016163B /* View */,
+				2A3FAD352B3027260016163B /* MainAppRoute.swift */,
+				2A3FAD372B30283B0016163B /* MainAppFlowCoordinator.swift */,
+			);
+			path = "Main Flow";
+			sourceTree = "<group>";
+		};
+		2A3FAD3B2B3031990016163B /* SignUp Flow */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD3E2B3031D40016163B /* SignUpRoute.swift */,
+				2A3FAD402B3034A70016163B /* SignUpFlowCoordinator.swift */,
+			);
+			path = "SignUp Flow";
+			sourceTree = "<group>";
+		};
+		2A3FAD3C2B3031A30016163B /* SignIn Flow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "SignIn Flow";
+			sourceTree = "<group>";
+		};
+		2A3FAD3D2B3031AB0016163B /* Games Lobby Flow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Games Lobby Flow";
+			sourceTree = "<group>";
+		};
+		2A3FAD422B3047D00016163B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD432B3047F00016163B /* WelcomeViewModel.swift */,
+				2A3FAD452B3049150016163B /* WelcomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2A3FAD4A2B304AAD0016163B /* Preview Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FAD4B2B304CB10016163B /* PreviewMocks.swift */,
+			);
+			path = "Preview Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,7 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A26D20F2B2B382F00F68A9E /* DynamicStylingPOCApp.swift in Sources */,
+				2A3FAD412B3034A70016163B /* SignUpFlowCoordinator.swift in Sources */,
+				2A3FAD382B30283B0016163B /* MainAppFlowCoordinator.swift in Sources */,
+				2A3FAD442B3047F00016163B /* WelcomeViewModel.swift in Sources */,
+				2A3FAD462B3049150016163B /* WelcomeView.swift in Sources */,
+				2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */,
+				2A3FAD4C2B304CB10016163B /* PreviewMocks.swift in Sources */,
+				2A3FAD3F2B3031D40016163B /* SignUpRoute.swift in Sources */,
+				2A3FAD362B3027260016163B /* MainAppRoute.swift in Sources */,
 				2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +481,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
@@ -400,6 +501,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -417,6 +519,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
@@ -436,6 +539,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
