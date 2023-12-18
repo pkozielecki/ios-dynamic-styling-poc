@@ -15,15 +15,11 @@ final class MainAppFlowCoordinator: FlowCoordinator {
     var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator? = nil
 
-    private let dependencyProvider: DependencyProvider
-
     init(
         navigator: Navigator,
-        dependencyProvider: DependencyProvider,
         parent: FlowCoordinator? = nil
     ) {
         self.navigator = navigator
-        self.dependencyProvider = dependencyProvider
         self.parent = parent
     }
 
@@ -68,11 +64,12 @@ final class MainAppFlowCoordinator: FlowCoordinator {
 
         switch route {
         case .signUp:
-            let flowCoordinator = SignUpFlowCoordinator(
-                navigator: navigator,
-                dependencyProvider: dependencyProvider,
-                parent: self
-            )
+            let flowCoordinator = SignUpFlowCoordinator(navigator: navigator, parent: self)
+            child = flowCoordinator
+            return flowCoordinator
+
+        case .signIn:
+            let flowCoordinator = SignInFlowCoordinator(navigator: navigator, parent: self)
             child = flowCoordinator
             return flowCoordinator
 

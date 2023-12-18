@@ -1,5 +1,5 @@
 //
-//  SignUpFlowCoordinator.swift
+//  SignInFlowCoordinator.swift
 //  Dynamic Styling POC
 //
 
@@ -8,7 +8,7 @@ import CommonUI
 import SwiftUI
 import UIKit
 
-final class SignUpFlowCoordinator: FlowCoordinator {
+final class SignInFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
     var completionCallback: (() -> Void)?
@@ -24,7 +24,7 @@ final class SignUpFlowCoordinator: FlowCoordinator {
     }
 
     func start(animated: Bool) {
-        let initialRoute = SignUpRoute.emailEntry
+        let initialRoute = SignInRoute.emailPasswordLogin
         let emailEntry = makeViewComponents(forRoute: initialRoute, withData: nil)[0]
         emailEntry.route = initialRoute
         navigator.pushViewController(emailEntry.viewController, animated: animated)
@@ -39,28 +39,28 @@ final class SignUpFlowCoordinator: FlowCoordinator {
     }
 
     func canShow(route: any Route) -> Bool {
-        route as? SignUpRoute != nil
+        route as? SignInRoute != nil
     }
 
     func makeViewComponents(forRoute route: any Route, withData: AnyHashable?) -> [ViewComponent] {
-        guard let route = route as? SignUpRoute else {
-            fatalError("Route \(route) is not supported by SignUpFlowCoordinator")
+        guard let route = route as? SignInRoute else {
+            fatalError("Route \(route) is not supported by SignInFlowCoordinator")
         }
 
         switch route {
-        case .emailEntry:
-            return [makeEmailEntryScreen()]
+        case .emailPasswordLogin:
+            return [makeEmailLoginScreen()]
         }
     }
 
     func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, withData: AnyHashable?) -> FlowCoordinator {
-        fatalError("Flow \(route) is not supported by SignUpFlowCoordinator")
+        fatalError("Flow \(route) is not supported by SignInFlowCoordinator")
     }
 }
 
-private extension SignUpFlowCoordinator {
-    func makeEmailEntryScreen() -> UIViewController {
-        let model = LiveEmailEntryViewModel(router: resolve())
-        return EmailEntryView(viewModel: model).viewController
+private extension SignInFlowCoordinator {
+    func makeEmailLoginScreen() -> UIViewController {
+        let model = LiveEmailPasswordLoginViewModel(router: resolve())
+        return EmailPasswordLoginView(viewModel: model).viewController
     }
 }

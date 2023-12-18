@@ -16,4 +16,16 @@ final class PreviewWelcomeViewModel: WelcomeViewModel {
     func didRequestSignIn() {}
 }
 
+final class PreviewEmailEntryViewModel: EmailEntryViewModel {
+    var viewState: EmailEntryViewState = .loading
+
+    func onViewAppeared() {}
+}
+
+final class PreviewEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
+    var viewState: EmailPasswordLoginViewState = .loading
+
+    func onViewAppeared() {}
+}
+
 #endif

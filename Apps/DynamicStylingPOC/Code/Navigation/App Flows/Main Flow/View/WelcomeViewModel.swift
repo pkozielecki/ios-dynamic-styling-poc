@@ -29,5 +29,7 @@ final class LiveWelcomeViewModel: WelcomeViewModel {
         router.show(route: MainAppRoute.signUp, withData: nil)
     }
 
-    func didRequestSignIn() {}
+    func didRequestSignIn() {
+        router.show(route: MainAppRoute.signIn, withData: nil)
+    }
 }

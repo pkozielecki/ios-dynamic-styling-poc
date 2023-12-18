@@ -21,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let router: NavigationRouter = dependencyProvider.resolve()
 
         let navigationController = UINavigationController()
-        let mainAppFlow = MainAppFlowCoordinator(
-            navigator: navigationController,
-            dependencyProvider: dependencyProvider
-        )
+        let mainAppFlow = MainAppFlowCoordinator(navigator: navigationController)
 
         window = UIWindow()
         window?.rootViewController = navigationController
