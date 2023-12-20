@@ -22,7 +22,7 @@ public struct AppButtonStyle: ButtonStyle {
                 .padding(styleGuide.padding)
                 .background(Capsule().fill(styleGuide.backgroundColor))
                 .opacity(configuration.isPressed ? 0.5 : 1.0)
-            
+
         case .secondry:
             configuration.label
                 .foregroundColor(styleGuide.backgroundColor)

@@ -5,6 +5,8 @@
 
 import Common
 import CommonUI
+import SignInFeature
+import SignUpFeature
 import SwiftUI
 import UIKit
 
@@ -12,8 +14,8 @@ final class MainAppFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
     var completionCallback: (() -> Void)?
-    var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
-    var child: FlowCoordinator? = nil
+    weak var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
+    var child: FlowCoordinator?
 
     init(
         navigator: Navigator,
@@ -64,12 +66,12 @@ final class MainAppFlowCoordinator: FlowCoordinator {
 
         switch route {
         case .signUp:
-            let flowCoordinator = SignUpFlowCoordinator(navigator: navigator, parent: self)
+            let flowCoordinator = SignUpFeatureFactory.makeSignUpFlowCoordinator(navigator: navigator, parentFlow: self)
             child = flowCoordinator
             return flowCoordinator
 
         case .signIn:
-            let flowCoordinator = SignInFlowCoordinator(navigator: navigator, parent: self)
+            let flowCoordinator = SignInFeatureFactory.makeSignInFlowCoordinator(navigator: navigator, parentFlow: self)
             child = flowCoordinator
             return flowCoordinator
 

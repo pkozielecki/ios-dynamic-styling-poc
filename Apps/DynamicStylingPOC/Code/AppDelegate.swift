@@ -3,6 +3,7 @@
 //  Dynamic Styling POC
 //
 
+import AppFeature
 import Combine
 import Common
 import CommonUI
@@ -27,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let router: NavigationRouter = dependencyProvider.resolve()
 
         let navigationController = RootNavigationController()
-        let mainAppFlow = MainAppFlowCoordinator(navigator: navigationController)
+        let mainAppFlow = AppFeatureFactory.makeAppFeature(navigator: navigationController, parentFlow: nil)
 
         window = UIWindow()
         window?.rootViewController = navigationController

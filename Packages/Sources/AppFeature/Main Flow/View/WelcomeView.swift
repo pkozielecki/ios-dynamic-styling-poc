@@ -10,7 +10,7 @@ struct WelcomeView: View {
     let viewModel: WelcomeViewModel
 
     var body: some View {
-        let _ = Self._printChanges()
+//        let _ = Self._printChanges()
         VStack(spacing: 10) {
             Text("Welcome View")
             Spacer()

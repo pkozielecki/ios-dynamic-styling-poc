@@ -10,6 +10,8 @@ let package = Package(
     ],
     products: [
         .singleTargetLibrary("AppFeature"),
+        .singleTargetLibrary("SignInFeature"),
+        .singleTargetLibrary("SignUpFeature"),
         .singleTargetLibrary("PlaybookFeature"),
     ],
     dependencies: [
@@ -22,36 +24,27 @@ let package = Package(
     targets: [
         .target(
             name: "AppFeature",
-            dependencies: [
-                "CommonUI",
-                "Common",
-                "Inject",
+            dependencies: Dependencies.common + [
                 "GamesFeature",
-                "AuthenticationFeature",
+                "SignInFeature",
+                "SignUpFeature",
             ]
         ),
         .target(
             name: "GamesFeature",
-            dependencies: [
-                "CommonUI",
-                "Common",
-                "Inject",
-            ]
+            dependencies: Dependencies.common
         ),
         .target(
-            name: "AuthenticationFeature",
-            dependencies: [
-                "CommonUI",
-                "Common",
-                "Inject",
-            ]
+            name: "SignInFeature",
+            dependencies: Dependencies.common
+        ),
+        .target(
+            name: "SignUpFeature",
+            dependencies: Dependencies.common
         ),
         .target(
             name: "PlaybookFeature",
-            dependencies: [
-                "CommonUI",
-                "Common",
-                "Inject",
+            dependencies: Dependencies.common + [
                 .product(name: "Playbook", package: "playbook-ios"),
                 .product(name: "PlaybookUI", package: "playbook-ios"),
             ]
@@ -60,7 +53,11 @@ let package = Package(
             name: "CommonUI",
             dependencies: [
                 .product(name: "Inject", package: "Inject"),
-            ]
+            ],
+            resources: [
+                .process("Resources"),
+            ],
+            swiftSettings: [.define("ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS")]
         ),
         .target(
             name: "Common",
@@ -88,6 +85,16 @@ let package = Package(
         ),
     ]
 )
+
+enum Dependencies {
+    static var common: [Target.Dependency] {
+        [
+            "CommonUI",
+            "Common",
+            "Inject",
+        ]
+    }
+}
 
 // Inject base plugins into each target
 package.targets = package.targets.map { target in

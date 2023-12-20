@@ -7,14 +7,14 @@ import Common
 import CommonUI
 import Foundation
 
-enum MainAppRoute: String, Route {
+public enum MainAppRoute: String, Route {
     case welcome
     case signIn
     case signUp
     case authenticatedUser
 }
 
-extension MainAppRoute {
+public extension MainAppRoute {
     var name: String {
         rawValue
     }

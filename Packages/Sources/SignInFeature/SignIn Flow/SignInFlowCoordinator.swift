@@ -13,8 +13,8 @@ final class SignInFlowCoordinator: FlowCoordinator {
     let navigator: Navigator
     private let dependencyProvider: DependencyProvider
     var completionCallback: (() -> Void)?
-    var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
-    var child: FlowCoordinator? = nil
+    weak var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
+    var child: FlowCoordinator?
 
     init(
         navigator: Navigator,

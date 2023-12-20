@@ -9,8 +9,10 @@ import SwiftUI
 import UIKit
 
 public enum AppFeatureFactory {
-    @ViewBuilder
-    public static func makeAppFeature() -> some View {
-        AppFeatureView()
+    public static func makeAppFeature(
+        navigator: Navigator,
+        parentFlow: FlowCoordinator?
+    ) -> FlowCoordinator {
+        MainAppFlowCoordinator(navigator: navigator, parent: parentFlow)
     }
 }

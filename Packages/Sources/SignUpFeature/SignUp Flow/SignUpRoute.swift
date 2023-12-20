@@ -7,12 +7,12 @@ import Common
 import CommonUI
 import Foundation
 
-enum SignUpRoute: String, Route {
+public enum SignUpRoute: String, Route {
     case emailEntry
     case passwordEntry
 }
 
-extension SignUpRoute {
+public extension SignUpRoute {
     var name: String {
         rawValue
     }
