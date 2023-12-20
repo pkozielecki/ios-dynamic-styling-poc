@@ -9,6 +9,7 @@ import Observation
 import SwiftUI
 
 protocol WelcomeViewModel: Observable {
+    var appStyleProvider: AppStyleProvider { get }
     func onViewAppeared()
     func didRequestSignUp()
     func didRequestSignIn()
@@ -16,9 +17,15 @@ protocol WelcomeViewModel: Observable {
 
 final class LiveWelcomeViewModel: WelcomeViewModel {
     private let router: NavigationRouter
+    let appStyleProvider: AppStyleProvider
 
-    init(router: NavigationRouter) {
+    init(
+        router: NavigationRouter = resolve(),
+        appStyleProvider: AppStyleProvider = resolve()
+    ) {
         self.router = router
+        self.appStyleProvider = appStyleProvider
+        // TODO: Subscribe to the style update
     }
 
     // TODO: Emitt view state

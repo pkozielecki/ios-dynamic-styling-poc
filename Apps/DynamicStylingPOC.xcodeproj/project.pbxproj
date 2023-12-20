@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A26D1E72B2B16EA00F68A9E /* DynamicStylingPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26D1E62B2B16EA00F68A9E /* DynamicStylingPOCTests.swift */; };
 		2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A26D2062B2B295300F68A9E /* AppFeature */; };
+		2A3E090C2B32D79C00B3C2CD /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3E090B2B32D79C00B3C2CD /* DesignSystemExtensions.swift */; };
 		2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD272B2C8C190016163B /* DependenciesInitializer.swift */; };
 		2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3FAD2C2B2C91410016163B /* Assets.xcassets */; };
 		2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD312B301E830016163B /* AppDelegate.swift */; };
@@ -27,6 +28,8 @@
 		2A3FAD5B2B3069A50016163B /* SignInFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD5A2B3069A50016163B /* SignInFlowCoordinator.swift */; };
 		2A3FAD602B3087CC0016163B /* PasswordEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD5F2B3087CC0016163B /* PasswordEntryView.swift */; };
 		2A3FAD622B3087E40016163B /* PasswordEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD612B3087E40016163B /* PasswordEntryViewModel.swift */; };
+		2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD632B3194E90016163B /* RootNavigationController.swift */; };
+		2A3FAD662B31BA6D0016163B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3FAD652B31BA6D0016163B /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,7 @@
 		2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicStylingPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A26D1E22B2B16EA00F68A9E /* DynamicStylingPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicStylingPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A26D1E62B2B16EA00F68A9E /* DynamicStylingPOCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStylingPOCTests.swift; sourceTree = "<group>"; };
+		2A3E090B2B32D79C00B3C2CD /* DesignSystemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemExtensions.swift; sourceTree = "<group>"; };
 		2A3FAD272B2C8C190016163B /* DependenciesInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesInitializer.swift; sourceTree = "<group>"; };
 		2A3FAD2C2B2C91410016163B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DynamicStylingPOC/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		2A3FAD2D2B2C91410016163B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = DynamicStylingPOC/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -62,6 +66,8 @@
 		2A3FAD5A2B3069A50016163B /* SignInFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFlowCoordinator.swift; sourceTree = "<group>"; };
 		2A3FAD5F2B3087CC0016163B /* PasswordEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEntryView.swift; sourceTree = "<group>"; };
 		2A3FAD612B3087E40016163B /* PasswordEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEntryViewModel.swift; sourceTree = "<group>"; };
+		2A3FAD632B3194E90016163B /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		2A3FAD652B31BA6D0016163B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				2A3FAD2C2B2C91410016163B /* Assets.xcassets */,
+				2A3FAD652B31BA6D0016163B /* Colors.xcassets */,
 				2A3FAD2D2B2C91410016163B /* Info.plist */,
 			);
 			path = Resources;
@@ -158,6 +165,8 @@
 		2A3FAD332B3026A30016163B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2A3FAD632B3194E90016163B /* RootNavigationController.swift */,
+				2A3E090B2B32D79C00B3C2CD /* DesignSystemExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -359,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */,
+				2A3FAD662B31BA6D0016163B /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,11 +392,13 @@
 				2A3FAD382B30283B0016163B /* MainAppFlowCoordinator.swift in Sources */,
 				2A3FAD592B3068A60016163B /* SignInRoute.swift in Sources */,
 				2A3FAD442B3047F00016163B /* WelcomeViewModel.swift in Sources */,
+				2A3E090C2B32D79C00B3C2CD /* DesignSystemExtensions.swift in Sources */,
 				2A3FAD5B2B3069A50016163B /* SignInFlowCoordinator.swift in Sources */,
 				2A3FAD462B3049150016163B /* WelcomeView.swift in Sources */,
 				2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */,
 				2A3FAD4C2B304CB10016163B /* PreviewMocks.swift in Sources */,
 				2A3FAD572B3067CE0016163B /* EmailPasswordLoginModel.swift in Sources */,
+				2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */,
 				2A3FAD3F2B3031D40016163B /* SignUpRoute.swift in Sources */,
 				2A3FAD362B3027260016163B /* MainAppRoute.swift in Sources */,
 				2A3FAD522B305DAA0016163B /* EmailEntryViewModel.swift in Sources */,

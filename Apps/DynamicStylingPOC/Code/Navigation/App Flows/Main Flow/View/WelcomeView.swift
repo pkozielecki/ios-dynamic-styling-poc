@@ -3,23 +3,31 @@
 //  Dynamic Styling POC
 //
 
+import CommonUI
 import SwiftUI
 
 struct WelcomeView: View {
     let viewModel: WelcomeViewModel
 
     var body: some View {
+        let _ = Self._printChanges()
         VStack(spacing: 10) {
             Text("Welcome View")
-            Button("Sign Up") {
-                viewModel.didRequestSignUp()
-            }
+            Spacer()
             Button("Sign In") {
                 viewModel.didRequestSignIn()
             }
+            .buttonStyle(viewModel.appStyleProvider.getButtonStyle(for: .primary))
+
+            Spacer()
+
+            Button("Sign Up") {
+                viewModel.didRequestSignUp()
+            }
+            .buttonStyle(viewModel.appStyleProvider.getButtonStyle(for: .secondry))
         }
         .padding()
-        .task {
+        .onAppear {
             viewModel.onViewAppeared()
         }
     }

@@ -9,14 +9,18 @@ import Foundation
 
 struct DependenciesInitializer {
     private let dependenciesRegistrator: DependencyManager
+    private let designSystem: DesignSystem
 
     init(
+        designSystem: DesignSystem,
         dependenciesRegistrator: DependencyManager = LiveDependencyManager.shared as! DependencyManager
     ) {
         self.dependenciesRegistrator = dependenciesRegistrator
+        self.designSystem = designSystem
     }
 
     func registerDependencies() {
         dependenciesRegistrator.register(LiveNavigationRouter(), for: NavigationRouter.self)
+        dependenciesRegistrator.register(LiveAppStyleProvider(designSystem: designSystem), for: AppStyleProvider.self)
     }
 }
