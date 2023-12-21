@@ -1,12 +1,11 @@
 //
-//  DynamicStylingPOCTests.swift
+//  AllTests.swift
 //  Dynamic Styling POC
 //
 
-@testable import DynamicStylingPOC
 import XCTest
 
-final class DynamicStylingPOCTests: XCTestCase {
+final class AllTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

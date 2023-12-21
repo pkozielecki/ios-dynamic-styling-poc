@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "781B8B2D-CDA9-4FE2-B09E-DB5852187FC1",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:DynamicStylingPOC.xcodeproj",
+        "identifier" : "2A3E09242B34693800B3C2CD",
+        "name" : "AllTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Packages",
+        "identifier" : "CommonTests",
+        "name" : "CommonTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Packages",
+        "identifier" : "CommonUITests",
+        "name" : "CommonUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,13 +1,13 @@
 //
-//  AppButtonStyle.swift
+//  ButtonStyle.swift
 //  Dynamic Styling POC
 //
 
 import SwiftUI
 
 public struct AppButtonStyle: ButtonStyle {
-    let type: AppButtonType
-    let styleGuide: StyleGuide
+    public let type: AppButtonType
+    public let styleGuide: StyleGuide
 
     public init(type: AppButtonType, styleGuide: StyleGuide) {
         self.type = type
@@ -33,8 +33,8 @@ public struct AppButtonStyle: ButtonStyle {
     }
 }
 
-extension AppButtonStyle {
-    public struct StyleGuide: Equatable {
+public extension AppButtonStyle {
+    struct StyleGuide: Equatable {
         public let backgroundColor: Color
         public let textColor: Color
         public let padding: EdgeInsets

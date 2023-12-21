@@ -7,4 +7,7 @@
    <FileRef
       location = "container:Apps/DynamicStylingPOC.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Apps/AllTests/AllTests.xctestplan">
+   </FileRef>
 </Workspace>

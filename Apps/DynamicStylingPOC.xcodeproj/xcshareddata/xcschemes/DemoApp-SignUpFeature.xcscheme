@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A26D1D12B2B16E800F68A9E"
-               BuildableName = "DynamicStylingPOC.app"
-               BlueprintName = "DynamicStylingPOC"
+               BlueprintIdentifier = "2A3E09102B34582400B3C2CD"
+               BuildableName = "DemoApp-SignUpFeature.app"
+               BlueprintName = "DemoApp-SignUpFeature"
                ReferencedContainer = "container:DynamicStylingPOC.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,30 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A26D1E12B2B16EA00F68A9E"
-               BuildableName = "DynamicStylingPOCTests.xctest"
-               BlueprintName = "DynamicStylingPOCTests"
-               ReferencedContainer = "container:DynamicStylingPOC.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A3E09242B34693800B3C2CD"
-               BuildableName = "AllTests.xctest"
-               BlueprintName = "AllTests"
-               ReferencedContainer = "container:DynamicStylingPOC.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -67,9 +43,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A26D1D12B2B16E800F68A9E"
-            BuildableName = "DynamicStylingPOC.app"
-            BlueprintName = "DynamicStylingPOC"
+            BlueprintIdentifier = "2A3E09102B34582400B3C2CD"
+            BuildableName = "DemoApp-SignUpFeature.app"
+            BlueprintName = "DemoApp-SignUpFeature"
             ReferencedContainer = "container:DynamicStylingPOC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -84,9 +60,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A26D1D12B2B16E800F68A9E"
-            BuildableName = "DynamicStylingPOC.app"
-            BlueprintName = "DynamicStylingPOC"
+            BlueprintIdentifier = "2A3E09102B34582400B3C2CD"
+            BuildableName = "DemoApp-SignUpFeature.app"
+            BlueprintName = "DemoApp-SignUpFeature"
             ReferencedContainer = "container:DynamicStylingPOC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
