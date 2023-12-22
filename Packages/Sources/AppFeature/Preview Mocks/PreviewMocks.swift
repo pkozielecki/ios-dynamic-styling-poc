@@ -11,7 +11,7 @@ import Foundation
 #if DEBUG
 
 final class PreviewWelcomeViewModel: WelcomeViewModel {
-    var appStyleProvider: AppStyleProvider = LiveAppStyleProvider(designSystem: .default)
+    var appStyleProvider: AppStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
     func onViewAppeared() {}
     func didRequestSignUp() {}
     func didRequestSignIn() {}

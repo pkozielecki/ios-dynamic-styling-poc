@@ -19,6 +19,8 @@
 		2AC3D4362B3477E600EF8777 /* SignInFeatureAppDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureAppDemoApp.swift */; };
 		2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4392B3477E800EF8777 /* Assets.xcassets */; };
 		2AC3D43D2B3477E800EF8777 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */; };
+		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
+		2AC3D4442B35B04B00EF8777 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2AC3D4352B3477E600EF8777 /* SignInFeatureAppDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFeatureAppDemoApp.swift; sourceTree = "<group>"; };
 		2AC3D4392B3477E800EF8777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemExtensions.swift; sourceTree = "<group>"; };
+		2AC3D4432B35AE4200EF8777 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 		2A3FAD2B2B2C91330016163B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2AC3D4432B35AE4200EF8777 /* Colors.xcassets */,
 				2A3FAD2C2B2C91410016163B /* Assets.xcassets */,
 				2A3FAD2D2B2C91410016163B /* Info.plist */,
 			);
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				2A3FAD632B3194E90016163B /* RootNavigationController.swift */,
+				2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */,
+				2AC3D4442B35B04B00EF8777 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +375,7 @@
 			files = (
 				2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */,
 				2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */,
+				2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */,
 				2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

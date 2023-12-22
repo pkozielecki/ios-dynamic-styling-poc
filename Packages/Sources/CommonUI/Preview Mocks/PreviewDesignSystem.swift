@@ -1,5 +1,5 @@
 //
-//  DesignSystemExtensions.swift
+//  PreviewDesignSystem.swift
 //  Dynamic Styling POC
 //
 
@@ -7,16 +7,18 @@ import Foundation
 import SwiftUI
 
 public extension DesignSystem {
-    static var `default`: DesignSystem {
+    static var preview: DesignSystem {
         DesignSystem(
-            colors: .default
+            colors: .preview,
+            fonts: .default,
+            fontWights: .default
         )
     }
 }
 
-public extension Colors {
-    static var `default`: Colors {
-        Colors(
+public extension AppColors {
+    static var preview: AppColors {
+        AppColors(
             error500: Color("Error500", bundle: Bundle.module),
             informative500: Color("Informative500", bundle: Bundle.module),
             neutral500: Color("Neutral500", bundle: Bundle.module),
@@ -29,7 +31,8 @@ public extension Colors {
             success500: Color("Success500", bundle: Bundle.module),
             tertiary100: Color("Tertiary100", bundle: Bundle.module),
             text500: Color("Text500", bundle: Bundle.module),
-            warning500: Color("Warning500", bundle: Bundle.module)
+            warning500: Color("Warning500", bundle: Bundle.module),
+            clear: .clear
         )
     }
 }

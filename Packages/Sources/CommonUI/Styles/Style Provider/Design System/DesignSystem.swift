@@ -6,9 +6,13 @@
 import SwiftUI
 
 public struct DesignSystem: Equatable {
-    public let colors: Colors
+    public let colors: AppColors
+    public let fonts: AppFonts
+    public let fontWights: AppFontWeights
 
-    public init(colors: Colors) {
+    public init(colors: AppColors, fonts: AppFonts, fontWights: AppFontWeights) {
         self.colors = colors
+        self.fonts = fonts
+        self.fontWights = fontWights
     }
 }

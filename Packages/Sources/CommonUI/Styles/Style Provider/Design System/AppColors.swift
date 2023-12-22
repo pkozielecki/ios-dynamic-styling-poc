@@ -1,12 +1,12 @@
 //
-//  Colors.swift
+//  AppColors.swift
 //  Dynamic Styling POC
 //
 
 import Foundation
 import SwiftUI
 
-public struct Colors: Equatable {
+public struct AppColors: Equatable {
     // TODO: Add more colors
     public let error500: Color
     public let informative500: Color
@@ -21,6 +21,7 @@ public struct Colors: Equatable {
     public let tertiary100: Color
     public let text500: Color
     public let warning500: Color
+    public let clear: Color
 
     public init(
         error500: Color,
@@ -35,7 +36,8 @@ public struct Colors: Equatable {
         success500: Color,
         tertiary100: Color,
         text500: Color,
-        warning500: Color
+        warning500: Color,
+        clear: Color
     ) {
         self.error500 = error500
         self.informative500 = informative500
@@ -50,5 +52,6 @@ public struct Colors: Equatable {
         self.tertiary100 = tertiary100
         self.text500 = text500
         self.warning500 = warning500
+        self.clear = .clear
     }
 }

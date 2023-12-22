@@ -13,13 +13,15 @@ public protocol AppStyleProvider {
 }
 
 public final class LiveAppStyleProvider {
-    private var designSystem: DesignSystem
+    private var initialDesignSystem: DesignSystem
+    private var appStyle: AppStyle
     private var styleDidChangePublishSubject = PassthroughSubject<Void, Never>()
 
-    public init(designSystem: DesignSystem) {
+    public init(initialDesignSystem: DesignSystem) {
         // Discussion: This is initial (built-in) app style.
         // ... It will be merged with the one obrained from the BE.
-        self.designSystem = designSystem
+        self.initialDesignSystem = initialDesignSystem
+        appStyle = AppStyle(initialDesignSystem: initialDesignSystem)
 
         // TODO: Trigger getting style update from the CMS.
     }
@@ -31,12 +33,17 @@ extension LiveAppStyleProvider: AppStyleProvider {
     }
 
     public func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle {
-        AppButtonStyle(type: buttonType, styleGuide: .init(designSystem: designSystem))
+        guard let style = appStyle.buttonStyles[buttonType] else {
+            fatalError("💥 AppStyleProvider.getButtonStyle - Unable to get style for: \(buttonType)")
+        }
+        return style
     }
 
     public func refreshStyles() {
-        print("Styles refreshed")
-        // TODO: Change styles.
+        print("🟠 Styles refresh requested")
+
+        // TODO: Download and merge styles.
+
         styleDidChangePublishSubject.send()
     }
 }
