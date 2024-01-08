@@ -40,17 +40,19 @@ public extension AppButtonStyle {
             self.padding = padding
         }
     }
+}
 
-    func makeBackgroundView() -> AnyView {
+extension AppButtonStyle {
+    @ViewBuilder func makeBackgroundView() -> some View {
         switch styleGuide.shape {
         case .capsule:
-            AnyView(Capsule().fill(styleGuide.backgroundColor))
+            Capsule().fill(styleGuide.backgroundColor)
         case .circle:
-            AnyView(Circle().fill(styleGuide.backgroundColor))
+            Circle().fill(styleGuide.backgroundColor)
         case .roundedRectabgle(let radius):
-            AnyView(RoundedRectangle(cornerRadius: radius).fill(styleGuide.backgroundColor))
+            RoundedRectangle(cornerRadius: radius).fill(styleGuide.backgroundColor)
         case .default:
-            AnyView(Rectangle().fill(styleGuide.backgroundColor))
+            Rectangle().fill(styleGuide.backgroundColor)
         }
     }
 }
