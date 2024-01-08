@@ -21,6 +21,6 @@ struct DependenciesInitializer {
 
     func registerDependencies() {
         dependenciesRegistrator.register(LiveNavigationRouter(), for: NavigationRouter.self)
-        dependenciesRegistrator.register(LiveAppStyleProvider(designSystem: designSystem), for: AppStyleProvider.self)
+        dependenciesRegistrator.register(LiveAppStyleProvider(initialDesignSystem: designSystem), for: AppStyleProvider.self)
     }
 }
