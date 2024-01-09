@@ -10,6 +10,7 @@ public protocol AppStyleProvider {
     var styleDidChange: AnyPublisher<Void, Never> { get }
     func refreshStyles()
     func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle
+    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle
     func getLabelStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide
 }
 
@@ -41,8 +42,15 @@ extension LiveAppStyleProvider: AppStyleProvider {
     }
 
     public func getLabelStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide {
-        guard let style = appStyle.labelStyles[labelType] else {
+        guard let style = appStyle.textStyles[labelType] else {
             fatalError("💥 AppStyleProvider.getLabelStyle - Unable to get style for: \(labelType)")
+        }
+        return style
+    }
+
+    public func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle {
+        guard let style = appStyle.textFieldStyles[textFieldType] else {
+            fatalError("💥 AppStyleProvider.getTextFieldStyle - Unable to get style for: \(textFieldType)")
         }
         return style
     }

@@ -1,58 +1,60 @@
 //
-//  AppButtonStyle.swift
+//  AppTextFieldStyle.swift
 //  Dynamic Styling POC
 //
 
 import SwiftUI
 
-public struct AppButtonStyle: ButtonStyle, Equatable {
+public struct AppTextFieldStyle: TextFieldStyle, Equatable {
     public let styleGuide: StyleGuide
 
     public init(styleGuide: StyleGuide) {
         self.styleGuide = styleGuide
     }
 
-    public func makeBody(configuration: AppButtonStyle.Configuration) -> some View {
-        configuration.label
-            .foregroundColor(styleGuide.textColor)
+    public func _body(configuration: TextField<_Label>) -> some View {
+        configuration
             .padding(styleGuide.padding)
-            .opacity(configuration.isPressed ? 0.5 : 1.0)
             .background(makeBackgroundView())
+            .keyboardType(styleGuide.keyboardType)
+            .font(styleGuide.font)
     }
 }
 
-public extension AppButtonStyle {
+public extension AppTextFieldStyle {
     struct StyleGuide: Equatable {
-        public let shape: AppButtonShape
+        public let shape: AppTextFieldShape
         public let backgroundColor: Color
         public let textColor: Color
+        public let font: Font
         public let padding: EdgeInsets
+        public let keyboardType: UIKeyboardType
 
         public init(
-            shape: AppButtonShape,
+            shape: AppTextFieldShape,
             backgroundColor: Color,
             textColor: Color,
-            padding: EdgeInsets
+            font: Font,
+            padding: EdgeInsets,
+            keyboardType: UIKeyboardType
         ) {
             self.shape = shape
             self.backgroundColor = backgroundColor
             self.textColor = textColor
+            self.font = font
             self.padding = padding
+            self.keyboardType = keyboardType
         }
     }
 }
 
-extension AppButtonStyle {
+extension AppTextFieldStyle {
     @ViewBuilder func makeBackgroundView() -> some View {
         switch styleGuide.shape {
-        case .capsule:
-            Capsule().fill(styleGuide.backgroundColor)
-        case .circle:
-            Circle().fill(styleGuide.backgroundColor)
-        case .roundedRectangle(let radius):
+        case .rounded(let radius):
             RoundedRectangle(cornerRadius: radius).fill(styleGuide.backgroundColor)
-        case .default:
-            Rectangle().fill(styleGuide.backgroundColor)
+        case .plain:
+            Color.clear
         }
     }
 }

@@ -7,7 +7,7 @@ import SwiftUI
 
 public enum AppButtonShape: Equatable {
     case capsule
-    case roundedRectabgle(CGFloat)
+    case roundedRectangle(CGFloat)
     case `default`
     case circle
 }

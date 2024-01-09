@@ -13,15 +13,17 @@ struct EmailEntryView: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            Text("EmailEntryView")
+            Text("Enter Email")
                 .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .title))
 
-            // TODO: Move to style modifier.
-            TextField("Enter email", text: $email)
-                .padding()
-                .background(.quaternary)
-                .cornerRadius(10)
-                .keyboardType(.emailAddress)
+            Spacer()
+
+            Text("Enter an email address:")
+                .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .subtitle))
+            TextField("Email", text: $email)
+                .textFieldStyle(viewModel.appStyleProvider.getTextFieldStyle(for: .password))
+
+            Spacer()
 
             Button("Send") {
                 viewModel.onEmailRegistrationRequested(email: email)
@@ -32,6 +34,7 @@ struct EmailEntryView: View {
         .task {
             viewModel.onViewAppeared()
         }
+        .animation(.easeIn, value: email)
         .padding(25)
     }
 }

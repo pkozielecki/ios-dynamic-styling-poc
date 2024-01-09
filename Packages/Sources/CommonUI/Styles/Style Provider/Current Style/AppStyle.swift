@@ -7,11 +7,13 @@ import SwiftUI
 
 public struct AppStyle: Equatable {
     public private(set) var buttonStyles: [AppButtonType: AppButtonStyle]
-    public private(set) var labelStyles: [AppTextType: AppTextModifier.StyleGuide]
+    public private(set) var textStyles: [AppTextType: AppTextModifier.StyleGuide]
+    public private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
 
     public init(initialDesignSystem: DesignSystem) {
         buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: initialDesignSystem)
-        labelStyles = AppStyle.composeInitialAppTextStyles(designSystem: initialDesignSystem)
+        textStyles = AppStyle.composeInitialAppTextStyles(designSystem: initialDesignSystem)
+        textFieldStyles = AppStyle.composeInitialAppTextFieldStyles(designSystem: initialDesignSystem)
     }
 
     public func update(with appStyle: AppStyle, and designSystem: DesignSystem) {
@@ -33,7 +35,16 @@ private extension AppStyle {
     static func composeInitialAppTextStyles(designSystem: DesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
         var styles = [AppTextType: AppTextModifier.StyleGuide]()
         for textType in AppTextType.allCases {
-            styles[textType] = makeInitialLabelStyleGuide(appLabelType: textType, designSystem: designSystem)
+            styles[textType] = makeInitialTextStyleGuide(appTextType: textType, designSystem: designSystem)
+        }
+        return styles
+    }
+
+    static func composeInitialAppTextFieldStyles(designSystem: DesignSystem) -> [AppTextFieldType: AppTextFieldStyle] {
+        var styles = [AppTextFieldType: AppTextFieldStyle]()
+        for textFiledType in AppTextFieldType.allCases {
+            let styleGuide = makeInitialTextFieldStyleGuide(appTextFieldType: textFiledType, designSystem: designSystem)
+            styles[textFiledType] = AppTextFieldStyle(styleGuide: styleGuide)
         }
         return styles
     }
@@ -57,8 +68,8 @@ private extension AppStyle {
         }
     }
 
-    static func makeInitialLabelStyleGuide(appLabelType: AppTextType, designSystem: DesignSystem) -> AppTextModifier.StyleGuide {
-        switch appLabelType {
+    static func makeInitialTextStyleGuide(appTextType: AppTextType, designSystem: DesignSystem) -> AppTextModifier.StyleGuide {
+        switch appTextType {
         case .title:
             AppTextModifier.StyleGuide(
                 font: designSystem.fonts.title,
@@ -76,6 +87,29 @@ private extension AppStyle {
                 font: designSystem.fonts.text,
                 fontWeight: designSystem.fontWights.regular,
                 color: designSystem.colors.text500
+            )
+        }
+    }
+
+    static func makeInitialTextFieldStyleGuide(appTextFieldType: AppTextFieldType, designSystem: DesignSystem) -> AppTextFieldStyle.StyleGuide {
+        switch appTextFieldType {
+        case .email:
+            AppTextFieldStyle.StyleGuide(
+                shape: .rounded(10),
+                backgroundColor: designSystem.colors.primary900,
+                textColor: designSystem.colors.text500,
+                font: designSystem.fonts.text,
+                padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
+                keyboardType: .emailAddress
+            )
+        case .password:
+            AppTextFieldStyle.StyleGuide(
+                shape: .rounded(10),
+                backgroundColor: designSystem.colors.primary500,
+                textColor: designSystem.colors.secondary500,
+                font: designSystem.fonts.text,
+                padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
+                keyboardType: .default
             )
         }
     }
