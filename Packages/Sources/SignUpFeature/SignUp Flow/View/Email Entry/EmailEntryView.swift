@@ -14,6 +14,7 @@ struct EmailEntryView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("EmailEntryView")
+                .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .title))
 
             // TODO: Move to style modifier.
             TextField("Enter email", text: $email)
@@ -25,6 +26,7 @@ struct EmailEntryView: View {
             Button("Send") {
                 viewModel.onEmailRegistrationRequested(email: email)
             }
+            .buttonStyle(viewModel.appStyleProvider.getButtonStyle(for: .primary))
             .disabled(email.isEmpty)
         }
         .task {

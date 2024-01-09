@@ -11,6 +11,7 @@ import Foundation
 #if DEBUG
 
 final class PreviewEmailEntryViewModel: EmailEntryViewModel {
+    var appStyleProvider: AppStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
     var viewState: EmailEntryViewState = .loading
     func onViewAppeared() {}
     func onEmailRegistrationRequested(email password: String) {}
