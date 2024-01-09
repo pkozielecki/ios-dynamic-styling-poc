@@ -11,7 +11,7 @@ public struct AppStyle: Equatable {
 
     public init(initialDesignSystem: DesignSystem) {
         buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: initialDesignSystem)
-        labelStyles = AppStyle.composeInitialAppLabelStyles(designSystem: initialDesignSystem)
+        labelStyles = AppStyle.composeInitialAppTextStyles(designSystem: initialDesignSystem)
     }
 
     public func update(with appStyle: AppStyle, and designSystem: DesignSystem) {
@@ -30,11 +30,10 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeInitialAppLabelStyles(designSystem: DesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
+    static func composeInitialAppTextStyles(designSystem: DesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
         var styles = [AppTextType: AppTextModifier.StyleGuide]()
-        for labelType in AppTextType.allCases {
-            styles[labelType] = makeInitialLabelStyleGuide(appLabelType: labelType, designSystem: designSystem)
-            styles[buttonType] = AppLabelStyle(styleGuide: styleGuide)
+        for textType in AppTextType.allCases {
+            styles[textType] = makeInitialLabelStyleGuide(appLabelType: textType, designSystem: designSystem)
         }
         return styles
     }

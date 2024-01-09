@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A26D2062B2B295300F68A9E /* AppFeature */; };
-		2A3E09142B34582400B3C2CD /* SignUpFeatureDemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3E09132B34582400B3C2CD /* SignUpFeatureDemoAppApp.swift */; };
+		2A3E09142B34582400B3C2CD /* SignUpFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */; };
 		2A3E09182B34582700B3C2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3E09172B34582700B3C2CD /* Assets.xcassets */; };
 		2A3E09202B345AEC00B3C2CD /* SignUpFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A3E091F2B345AEC00B3C2CD /* SignUpFeature */; };
 		2A3E09282B34693900B3C2CD /* AllTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3E09272B34693900B3C2CD /* AllTests.swift */; };
@@ -21,6 +21,7 @@
 		2AC3D43D2B3477E800EF8777 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */; };
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
 		2AC3D4442B35B04B00EF8777 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
+		2AC3D4462B4D21C300EF8777 /* SignInFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC3D4452B4D21C300EF8777 /* SignInFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicStylingPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A3E09112B34582400B3C2CD /* DemoApp-SignUpFeature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoApp-SignUpFeature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A3E09132B34582400B3C2CD /* SignUpFeatureDemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFeatureDemoAppApp.swift; sourceTree = "<group>"; };
+		2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFeatureDemoApp.swift; sourceTree = "<group>"; };
 		2A3E09172B34582700B3C2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A3E09252B34693800B3C2CD /* AllTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A3E09272B34693900B3C2CD /* AllTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTests.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC3D4462B4D21C300EF8777 /* SignInFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +142,7 @@
 		2A3E09122B34582400B3C2CD /* DemoApp-SignUpFeature */ = {
 			isa = PBXGroup;
 			children = (
-				2A3E09132B34582400B3C2CD /* SignUpFeatureDemoAppApp.swift */,
+				2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */,
 				2A3E09172B34582700B3C2CD /* Assets.xcassets */,
 			);
 			path = "DemoApp-SignUpFeature";
@@ -280,6 +282,9 @@
 			dependencies = (
 			);
 			name = "DemoApp-SignInFeature";
+			packageProductDependencies = (
+				2AC3D4452B4D21C300EF8777 /* SignInFeature */,
+			);
 			productName = "DemoApp-SignInFeature";
 			productReference = 2AC3D4332B3477E600EF8777 /* DemoApp-SignInFeature.app */;
 			productType = "com.apple.product-type.application";
@@ -384,7 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A3E09142B34582400B3C2CD /* SignUpFeatureDemoAppApp.swift in Sources */,
+				2A3E09142B34582400B3C2CD /* SignUpFeatureDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +843,10 @@
 		2A3E091F2B345AEC00B3C2CD /* SignUpFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SignUpFeature;
+		};
+		2AC3D4452B4D21C300EF8777 /* SignInFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SignInFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
