@@ -1,22 +1,21 @@
 //
-//  SignUpFeatureDemoApp.swift
+//  SignInFeatureDemoApp.swift
 //  Dynamic Styling POC
 //
 
 import Common
 import CommonUI
-import SignUpFeature
+import SignInFeature
 import SwiftUI
 
 @main
-struct SignUpFeatureDemoApp: App {
+struct SignInFeatureDemoApp: App {
     let navigtor: UINavigationController
     let flow: FlowCoordinator
 
     init() {
         navigtor = UINavigationController()
-        flow = SignUpFeatureFactory.makeSignUpFlowCoordinator(navigator: navigtor, parentFlow: nil)
-
+        flow = SignInFeatureFactory.makeSignInFlowCoordinator(navigator: navigtor, parentFlow: nil)
         initializeDependencies()
     }
 
@@ -32,7 +31,7 @@ struct SignUpFeatureDemoApp: App {
     }
 }
 
-private extension SignUpFeatureDemoApp {
+private extension SignInFeatureDemoApp {
     func initializeDependencies() {
         let dependencyManager = LiveDependencyManager.shared as? DependencyManager
         dependencyManager?.register(LiveNavigationRouter(), for: NavigationRouter.self)

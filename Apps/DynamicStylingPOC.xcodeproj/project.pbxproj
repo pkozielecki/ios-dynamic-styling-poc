@@ -16,7 +16,7 @@
 		2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3FAD2C2B2C91410016163B /* Assets.xcassets */; };
 		2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD312B301E830016163B /* AppDelegate.swift */; };
 		2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD632B3194E90016163B /* RootNavigationController.swift */; };
-		2AC3D4362B3477E600EF8777 /* SignInFeatureAppDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureAppDemoApp.swift */; };
+		2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */; };
 		2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4392B3477E800EF8777 /* Assets.xcassets */; };
 		2AC3D43D2B3477E800EF8777 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */; };
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
@@ -47,7 +47,7 @@
 		2A3FAD312B301E830016163B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A3FAD632B3194E90016163B /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		2AC3D4332B3477E600EF8777 /* DemoApp-SignInFeature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoApp-SignInFeature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AC3D4352B3477E600EF8777 /* SignInFeatureAppDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFeatureAppDemoApp.swift; sourceTree = "<group>"; };
+		2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFeatureDemoApp.swift; sourceTree = "<group>"; };
 		2AC3D4392B3477E800EF8777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemExtensions.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		2AC3D4342B3477E600EF8777 /* DemoApp-SignInFeature */ = {
 			isa = PBXGroup;
 			children = (
-				2AC3D4352B3477E600EF8777 /* SignInFeatureAppDemoApp.swift */,
+				2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */,
 				2AC3D4392B3477E800EF8777 /* Assets.xcassets */,
 				2AC3D43B2B3477E800EF8777 /* Preview Content */,
 			);
@@ -405,7 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC3D4362B3477E600EF8777 /* SignInFeatureAppDemoApp.swift in Sources */,
+				2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

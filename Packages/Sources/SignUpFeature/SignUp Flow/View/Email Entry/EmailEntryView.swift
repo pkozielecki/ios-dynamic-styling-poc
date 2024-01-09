@@ -21,7 +21,7 @@ struct EmailEntryView: View {
             Text("Enter an email address:")
                 .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .subtitle))
             TextField("Email", text: $email)
-                .textFieldStyle(viewModel.appStyleProvider.getTextFieldStyle(for: .password))
+                .textFieldStyle(viewModel.appStyleProvider.getTextFieldStyle(for: .email))
 
             Spacer()
 

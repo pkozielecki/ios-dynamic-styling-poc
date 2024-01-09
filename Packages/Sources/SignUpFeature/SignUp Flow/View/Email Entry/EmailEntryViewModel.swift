@@ -38,7 +38,6 @@ final class LiveEmailEntryViewModel: EmailEntryViewModel {
     func onViewAppeared() {}
 
     func onEmailRegistrationRequested(email: String) {
-        print("🚀 Email registered: \(email)")
         router.show(route: SignUpRoute.passwordEntry, withData: email)
     }
 }
