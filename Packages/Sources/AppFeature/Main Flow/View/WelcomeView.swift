@@ -13,6 +13,7 @@ struct WelcomeView: View {
 //        let _ = Self._printChanges()
         VStack(spacing: 10) {
             Text("Welcome View")
+                .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .title))
             Spacer()
             Button("Sign In") {
                 viewModel.didRequestSignIn()

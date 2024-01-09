@@ -7,7 +7,7 @@ import SwiftUI
 
 public struct AppStyle: Equatable {
     public private(set) var buttonStyles: [AppButtonType: AppButtonStyle]
-    public private(set) var labelStyles: [AppLabelType: AppLabelStyle]
+    public private(set) var labelStyles: [AppTextType: AppTextModifier.StyleGuide]
 
     public init(initialDesignSystem: DesignSystem) {
         buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: initialDesignSystem)
@@ -30,10 +30,10 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeInitialAppLabelStyles(designSystem: DesignSystem) -> [AppLabelType: AppLabelStyle] {
-        var styles = [AppLabelType: AppLabelStyle]()
-        for buttonType in AppLabelType.allCases {
-            let styleGuide = makeInitialLabelStyleGuide(appLabelType: buttonType, designSystem: designSystem)
+    static func composeInitialAppLabelStyles(designSystem: DesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
+        var styles = [AppTextType: AppTextModifier.StyleGuide]()
+        for labelType in AppTextType.allCases {
+            styles[labelType] = makeInitialLabelStyleGuide(appLabelType: labelType, designSystem: designSystem)
             styles[buttonType] = AppLabelStyle(styleGuide: styleGuide)
         }
         return styles
@@ -58,22 +58,22 @@ private extension AppStyle {
         }
     }
 
-    static func makeInitialLabelStyleGuide(appLabelType: AppLabelType, designSystem: DesignSystem) -> AppLabelStyle.StyleGuide {
+    static func makeInitialLabelStyleGuide(appLabelType: AppTextType, designSystem: DesignSystem) -> AppTextModifier.StyleGuide {
         switch appLabelType {
         case .title:
-            AppLabelStyle.StyleGuide(
+            AppTextModifier.StyleGuide(
                 font: designSystem.fonts.title,
                 fontWeight: designSystem.fontWights.heavy,
                 color: designSystem.colors.text500
             )
         case .subtitle:
-            AppLabelStyle.StyleGuide(
+            AppTextModifier.StyleGuide(
                 font: designSystem.fonts.subtitle,
                 fontWeight: designSystem.fontWights.bold,
                 color: designSystem.colors.text500
             )
         case .text:
-            AppLabelStyle.StyleGuide(
+            AppTextModifier.StyleGuide(
                 font: designSystem.fonts.text,
                 fontWeight: designSystem.fontWights.regular,
                 color: designSystem.colors.text500

@@ -3,7 +3,6 @@
 //  Dynamic Styling POC
 //
 
-import Foundation
 import SwiftUI
 
 public struct AppColors: Equatable {

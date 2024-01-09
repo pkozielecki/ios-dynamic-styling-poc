@@ -1,26 +1,31 @@
 //
-//  AppLabelStyle.swift
+//  AppTextModifier.swift
 //  Dynamic Styling POC
 //
 
-import Common
 import SwiftUI
 
-public struct AppLabelStyle: LabelStyle, Equatable {
+public struct AppTextModifier: ViewModifier {
     public let styleGuide: StyleGuide
 
     public init(styleGuide: StyleGuide) {
         self.styleGuide = styleGuide
     }
 
-    public func makeBody(configuration: AppLabelStyle.Configuration) -> some View {
-        configuration.title
+    public func body(content: Content) -> some View {
+        content
             .font(styleGuide.font.weight(styleGuide.fontWeight))
             .foregroundColor(styleGuide.color)
     }
 }
 
-public extension AppLabelStyle {
+public extension Text {
+    func textStyle(_ styleGuide: AppTextModifier.StyleGuide) -> some View {
+        modifier(AppTextModifier(styleGuide: styleGuide))
+    }
+}
+
+public extension AppTextModifier {
     struct StyleGuide: Equatable {
         // TODO: Add font decoration
         public let font: Font

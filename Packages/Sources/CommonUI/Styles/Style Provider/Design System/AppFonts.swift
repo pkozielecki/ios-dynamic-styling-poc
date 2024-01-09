@@ -21,7 +21,7 @@ public struct AppFonts: Equatable {
 public extension AppFonts {
     static var `default`: AppFonts {
         AppFonts(
-            title: .title,
+            title: .largeTitle,
             subtitle: .title2,
             text: .body
         )

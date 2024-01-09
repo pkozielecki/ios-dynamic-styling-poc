@@ -1,11 +1,11 @@
 //
-//  AppLabelType.swift
+//  AppTextType.swift
 //  Dynamic Styling POC
 //
 
 import SwiftUI
 
-public enum AppLabelType: Equatable, CaseIterable {
+public enum AppTextType: Equatable, CaseIterable {
     // TODO: Add more text types.
     case title
     case subtitle
