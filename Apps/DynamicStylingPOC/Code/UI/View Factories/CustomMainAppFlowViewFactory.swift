@@ -1,5 +1,5 @@
 //
-//  MainAppFlowViewFactory.swift
+//  CustomMainAppFlowViewFactory.swift
 //  Dynamic Styling POC
 //
 
@@ -11,13 +11,13 @@ import UIKit
 
 // Discussion: This is just to demonstrate an ability to hand-craft a particular view,
 // ... to be inserted into a given app Flow.
-struct CustomMainAppFlowViewFactory: ViewFactory {
-    func makeView(for route: any Route) -> UIViewController? {
+struct CustomMainAppFlowViewFactory: ViewComponentFactory {
+    func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
         switch route.name {
         case MainAppRoute.welcome.name:
-            Text("Override for the initial view").viewController
+            [Text("Override for the initial view").viewController]
         default:
-            nil
+            []
         }
     }
 }

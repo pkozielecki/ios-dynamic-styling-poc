@@ -8,13 +8,13 @@ import CommonUI
 import SwiftUI
 import UIKit
 
-struct MainAppFlowViewFactory: ViewFactory {
-    func makeView(for route: any Route) -> UIViewController? {
+struct MainAppFlowViewFactory: ViewComponentFactory {
+    func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
         switch route.name {
         case MainAppRoute.welcome.name:
-            makeWelcomeScreen()
+            [makeWelcomeScreen().viewController]
         default:
-            nil
+            []
         }
     }
 }

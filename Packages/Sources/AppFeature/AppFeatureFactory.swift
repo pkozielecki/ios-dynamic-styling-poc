@@ -13,12 +13,32 @@ public enum AppFeatureFactory {
     public static func makeAppFeature(
         navigator: Navigator,
         parentFlow: FlowCoordinator? = nil,
-        viewFactory: ViewFactory? = nil
+        viewFactory: ViewComponentFactory? = nil,
+        coordinatorFactory: FlowCoordinatorFactory? = nil
     ) -> FlowCoordinator {
-        var factories: [ViewFactory] = [MainAppFlowViewFactory()]
-        if let factory = viewFactory {
+        MainAppFlowCoordinator(
+            navigator: navigator,
+            parent: parentFlow,
+            viewFactories: makeViewFactories(customViewFactory: viewFactory),
+            coordinatorFactories: makeFlowCoordinatorFactories(customFlowCoordinatorFactory: coordinatorFactory)
+        )
+    }
+}
+
+private extension AppFeatureFactory {
+    static func makeViewFactories(customViewFactory: ViewComponentFactory?) -> [ViewComponentFactory] {
+        var factories: [ViewComponentFactory] = [MainAppFlowViewFactory()]
+        if let factory = customViewFactory {
             factories.insert(factory, at: 0)
         }
-        return MainAppFlowCoordinator(navigator: navigator, parent: parentFlow, viewFactories: factories)
+        return factories
+    }
+
+    static func makeFlowCoordinatorFactories(customFlowCoordinatorFactory: FlowCoordinatorFactory?) -> [FlowCoordinatorFactory] {
+        var factories: [FlowCoordinatorFactory] = [MainAppFlowCoordinatorFactory()]
+        if let factory = customFlowCoordinatorFactory {
+            factories.insert(factory, at: 0)
+        }
+        return factories
     }
 }

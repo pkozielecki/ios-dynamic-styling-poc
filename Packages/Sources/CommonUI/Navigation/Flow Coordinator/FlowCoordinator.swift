@@ -177,6 +177,18 @@ public extension FlowCoordinator {
             navigateBackToRoot(animated: animated, dismissPopup: true)
         }
     }
+
+    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
+        nil
+    }
+
+    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, withData data: AnyHashable? = nil) -> FlowCoordinator? {
+        makeFlowCoordinator(forRoute: route, navigator: navigator, parent: nil, withData: data)
+    }
+
+    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator) -> FlowCoordinator? {
+        makeFlowCoordinator(forRoute: route, navigator: navigator, parent: nil, withData: nil)
+    }
 }
 
 // MARK: - Private
@@ -214,11 +226,14 @@ private extension FlowCoordinator {
     }
 
     func createAndStartInlineFlow(withData: AnyHashable?, route: any Route) {
-        let flowCoordinator = makeFlowCoordinator(
+        guard let flowCoordinator = makeFlowCoordinator(
             forRoute: route,
             navigator: navigator,
+            parent: self,
             withData: withData
-        )
+        ) else {
+            fatalError("💥 Unable to create Flow Coordinator for \(route)")
+        }
         flowCoordinator.start(animated: true)
         flowCoordinator.route = route
         flowCoordinator.completionCallback = { [weak self] in
@@ -241,11 +256,14 @@ private extension FlowCoordinator {
     func createAndStartFlowOnPopup(withData: AnyHashable?, route: any Route) {
         let navigationController = UINavigationController()
         navigationController.modalPresentationStyle = route.popupPresentationStyle.modalPresentationStyle
-        let flowCoordinator = makeFlowCoordinator(
+        guard let flowCoordinator = makeFlowCoordinator(
             forRoute: route,
             navigator: navigationController,
+            parent: self,
             withData: withData
-        )
+        ) else {
+            fatalError("💥 Unable to create popup Flow Coordinator for \(route)")
+        }
         flowCoordinator.start(animated: false)
         // Discussion: If there is a popup already presented, we need to dismiss it first:
         if navigator.presentedViewController != nil {

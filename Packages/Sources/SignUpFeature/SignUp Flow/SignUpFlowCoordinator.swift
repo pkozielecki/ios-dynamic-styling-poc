@@ -45,7 +45,7 @@ final class SignUpFlowCoordinator: FlowCoordinator {
         route as? SignUpRoute != nil
     }
 
-    func makeViewComponents(forRoute route: any Route, withData: AnyHashable?) -> [ViewComponent] {
+    func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
         guard let route = route as? SignUpRoute else {
             fatalError("Route \(route) is not supported by SignUpFlowCoordinator")
         }
@@ -56,10 +56,6 @@ final class SignUpFlowCoordinator: FlowCoordinator {
         case .passwordEntry:
             return [makePasswordEntryScreen()]
         }
-    }
-
-    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, withData: AnyHashable?) -> FlowCoordinator {
-        fatalError("Flow \(route) is not supported by SignUpFlowCoordinator")
     }
 }
 

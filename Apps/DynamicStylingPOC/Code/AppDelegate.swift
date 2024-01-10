@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = RootNavigationController()
         let mainAppFlow = AppFeatureFactory.makeAppFeature(navigator: navigationController)
         // Discussion: Use `viewFactory: CustomMainAppFlowViewFactory()` to inject custom view factory.
+        // Discussion: Use `coordinatorFactory: CustomMainAppFlowCoordinatorFactory()` to inject custom flow coordinator factory.
 
         window = UIWindow()
         window?.rootViewController = navigationController

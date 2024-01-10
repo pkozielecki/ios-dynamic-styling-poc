@@ -55,10 +55,6 @@ final class SignInFlowCoordinator: FlowCoordinator {
             return [makeEmailLoginScreen()]
         }
     }
-
-    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, withData: AnyHashable?) -> FlowCoordinator {
-        fatalError("Flow \(route) is not supported by SignInFlowCoordinator")
-    }
 }
 
 private extension SignInFlowCoordinator {

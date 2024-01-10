@@ -17,16 +17,19 @@ final class MainAppFlowCoordinator: FlowCoordinator {
     weak var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator?
 
-    private let viewFactories: [ViewFactory]
+    private let viewFactories: [ViewComponentFactory]
+    private let coordinatorFactories: [FlowCoordinatorFactory]
 
     init(
         navigator: Navigator,
         parent: FlowCoordinator? = nil,
-        viewFactories: [ViewFactory] = [MainAppFlowViewFactory()]
+        viewFactories: [ViewComponentFactory] = [MainAppFlowViewFactory()],
+        coordinatorFactories: [FlowCoordinatorFactory] = [MainAppFlowCoordinatorFactory()]
     ) {
         self.navigator = navigator
         self.parent = parent
         self.viewFactories = viewFactories
+        self.coordinatorFactories = coordinatorFactories
     }
 
     func start(animated: Bool) {
@@ -49,38 +52,13 @@ final class MainAppFlowCoordinator: FlowCoordinator {
         route as? MainAppRoute != nil
     }
 
-    func makeViewComponents(forRoute route: any Route, withData: AnyHashable?) -> [ViewComponent] {
-        guard let route = route as? MainAppRoute else {
-            fatalError("Route \(route) is not supported by MainAppFlowCoordinator")
-        }
-
-        switch route {
-        case .welcome:
-            return [viewFactories.makeView(for: MainAppRoute.welcome)]
-
-        default:
-            fatalError("💥 Route \(route) is not supported by MainAppFlowCoordinator")
-        }
+    func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
+        viewFactories.makeViewComponents(forRoute: route, withData: data)
     }
 
-    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, withData: AnyHashable?) -> FlowCoordinator {
-        guard let route = route as? MainAppRoute else {
-            fatalError("💥 Flow \(route) is not supported by MainAppFlowCoordinator")
-        }
-
-        switch route {
-        case .signUp:
-            let flowCoordinator = SignUpFeatureFactory.makeSignUpFlowCoordinator(navigator: navigator, parentFlow: self)
-            child = flowCoordinator
-            return flowCoordinator
-
-        case .signIn:
-            let flowCoordinator = SignInFeatureFactory.makeSignInFlowCoordinator(navigator: navigator, parentFlow: self)
-            child = flowCoordinator
-            return flowCoordinator
-
-        default:
-            fatalError("💥 Flow \(route) is not supported by MainAppFlowCoordinator")
-        }
+    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
+        let coordinator = coordinatorFactories.makeFlowCoordinator(forRoute: route, navigator: navigator, parent: parent, withData: data)
+        child = coordinator
+        return coordinator
     }
 }
