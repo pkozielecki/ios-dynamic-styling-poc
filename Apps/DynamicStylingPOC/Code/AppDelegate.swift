@@ -7,6 +7,7 @@ import AppFeature
 import Combine
 import Common
 import CommonUI
+import SwiftUI
 import UIKit
 
 @main
@@ -28,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let router: NavigationRouter = dependencyProvider.resolve()
 
         let navigationController = RootNavigationController()
-        let mainAppFlow = AppFeatureFactory.makeAppFeature(navigator: navigationController, parentFlow: nil)
+        let mainAppFlow = AppFeatureFactory.makeAppFeature(navigator: navigationController)
+        // Discussion: Use `viewFactory: CustomMainAppFlowViewFactory()` to inject custom view factory.
 
         window = UIWindow()
         window?.rootViewController = navigationController

@@ -17,12 +17,16 @@ final class MainAppFlowCoordinator: FlowCoordinator {
     weak var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator?
 
+    private let viewFactories: [ViewFactory]
+
     init(
         navigator: Navigator,
-        parent: FlowCoordinator? = nil
+        parent: FlowCoordinator? = nil,
+        viewFactories: [ViewFactory] = [MainAppFlowViewFactory()]
     ) {
         self.navigator = navigator
         self.parent = parent
+        self.viewFactories = viewFactories
     }
 
     func start(animated: Bool) {
@@ -52,16 +56,16 @@ final class MainAppFlowCoordinator: FlowCoordinator {
 
         switch route {
         case .welcome:
-            return [makeWelcomeScreen()]
+            return [viewFactories.makeView(for: MainAppRoute.welcome)]
 
         default:
-            fatalError("Route \(route) is not supported by MainAppFlowCoordinator")
+            fatalError("💥 Route \(route) is not supported by MainAppFlowCoordinator")
         }
     }
 
     func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, withData: AnyHashable?) -> FlowCoordinator {
         guard let route = route as? MainAppRoute else {
-            fatalError("Flow \(route) is not supported by MainAppFlowCoordinator")
+            fatalError("💥 Flow \(route) is not supported by MainAppFlowCoordinator")
         }
 
         switch route {
@@ -76,14 +80,7 @@ final class MainAppFlowCoordinator: FlowCoordinator {
             return flowCoordinator
 
         default:
-            fatalError("Flow \(route) is not supported by MainAppFlowCoordinator")
+            fatalError("💥 Flow \(route) is not supported by MainAppFlowCoordinator")
         }
-    }
-}
-
-private extension MainAppFlowCoordinator {
-    func makeWelcomeScreen() -> UIViewController {
-        let viewModel = LiveWelcomeViewModel(router: resolve())
-        return WelcomeView(viewModel: viewModel).viewController
     }
 }

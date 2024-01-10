@@ -13,7 +13,7 @@ public enum SignInRoute: String, Route {
 
 public extension SignInRoute {
     var name: String {
-        rawValue
+        "SignInRoute.\(rawValue)"
     }
 
     var isFlow: Bool {

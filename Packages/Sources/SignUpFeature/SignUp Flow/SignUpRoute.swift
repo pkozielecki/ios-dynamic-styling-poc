@@ -14,7 +14,7 @@ public enum SignUpRoute: String, Route {
 
 public extension SignUpRoute {
     var name: String {
-        rawValue
+        "SignUpRoute.\(rawValue)"
     }
 
     var isFlow: Bool {

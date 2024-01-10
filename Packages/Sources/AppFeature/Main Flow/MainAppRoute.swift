@@ -16,7 +16,7 @@ public enum MainAppRoute: String, Route {
 
 public extension MainAppRoute {
     var name: String {
-        rawValue
+        "MainAppRoute.\(rawValue)"
     }
 
     var isFlow: Bool {

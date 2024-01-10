@@ -22,6 +22,7 @@
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
 		2AC3D4442B35B04B00EF8777 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
 		2AC3D4462B4D21C300EF8777 /* SignInFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC3D4452B4D21C300EF8777 /* SignInFeature */; };
+		2AC3D4482B4E74B600EF8777 /* MainAppFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4472B4E74B600EF8777 /* MainAppFlowViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemExtensions.swift; sourceTree = "<group>"; };
 		2AC3D4432B35AE4200EF8777 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		2AC3D4472B4E74B600EF8777 /* MainAppFlowViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppFlowViewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				2A3FAD632B3194E90016163B /* RootNavigationController.swift */,
 				2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */,
+				2AC3D44A2B4E75B800EF8777 /* View Factories */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -206,6 +209,14 @@
 				2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2AC3D44A2B4E75B800EF8777 /* View Factories */ = {
+			isa = PBXGroup;
+			children = (
+				2AC3D4472B4E74B600EF8777 /* MainAppFlowViewFactory.swift */,
+			);
+			path = "View Factories";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +392,7 @@
 				2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */,
 				2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */,
 				2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */,
+				2AC3D4482B4E74B600EF8777 /* MainAppFlowViewFactory.swift in Sources */,
 				2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
