@@ -20,3 +20,14 @@ extension [ViewComponentFactory] {
         return [ViewComponent]()
     }
 }
+
+extension ViewComponentFactory {
+    
+    public func combine(withCustomFactory factory: ViewComponentFactory?) -> [ViewComponentFactory] {
+        var factories: [ViewComponentFactory] = [self]
+        if let factory {
+            factories.insert(factory, at: 0)
+        }
+        return factories
+    }
+}

@@ -19,26 +19,8 @@ public enum AppFeatureFactory {
         MainAppFlowCoordinator(
             navigator: navigator,
             parent: parentFlow,
-            viewFactories: makeViewFactories(customViewFactory: viewFactory),
-            coordinatorFactories: makeFlowCoordinatorFactories(customFlowCoordinatorFactory: coordinatorFactory)
+            viewFactories: MainAppFlowViewFactory().combine(withCustomFactory: viewFactory),
+            coordinatorFactories: MainAppFlowCoordinatorFactory().combine(withCustomFactory: coordinatorFactory)
         )
-    }
-}
-
-private extension AppFeatureFactory {
-    static func makeViewFactories(customViewFactory: ViewComponentFactory?) -> [ViewComponentFactory] {
-        var factories: [ViewComponentFactory] = [MainAppFlowViewFactory()]
-        if let factory = customViewFactory {
-            factories.insert(factory, at: 0)
-        }
-        return factories
-    }
-
-    static func makeFlowCoordinatorFactories(customFlowCoordinatorFactory: FlowCoordinatorFactory?) -> [FlowCoordinatorFactory] {
-        var factories: [FlowCoordinatorFactory] = [MainAppFlowCoordinatorFactory()]
-        if let factory = customFlowCoordinatorFactory {
-            factories.insert(factory, at: 0)
-        }
-        return factories
     }
 }
