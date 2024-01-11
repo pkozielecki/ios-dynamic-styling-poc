@@ -11,19 +11,26 @@ import UIKit
 final class SignInFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
-    private let dependencyProvider: DependencyProvider
     var completionCallback: (() -> Void)?
     weak var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator?
 
+    private let dependencyProvider: DependencyProvider
+    private let viewFactories: [ViewComponentFactory]
+    private let coordinatorFactories: [FlowCoordinatorFactory]
+
     init(
         navigator: Navigator,
         dependencyProvider: DependencyProvider = LiveDependencyManager.shared,
-        parent: FlowCoordinator? = nil
+        parent: FlowCoordinator? = nil,
+        viewFactories: [ViewComponentFactory] = [SignInFlowViewFactory()],
+        coordinatorFactories: [FlowCoordinatorFactory] = [SignInFlowCoordinatorFactory()]
     ) {
         self.navigator = navigator
         self.dependencyProvider = dependencyProvider
         self.parent = parent
+        self.viewFactories = viewFactories
+        self.coordinatorFactories = coordinatorFactories
     }
 
     func start(animated: Bool) {
@@ -45,21 +52,7 @@ final class SignInFlowCoordinator: FlowCoordinator {
         route as? SignInRoute != nil
     }
 
-    func makeViewComponents(forRoute route: any Route, withData: AnyHashable?) -> [ViewComponent] {
-        guard let route = route as? SignInRoute else {
-            fatalError("Route \(route) is not supported by SignInFlowCoordinator")
-        }
-
-        switch route {
-        case .emailPasswordLogin:
-            return [makeEmailLoginScreen()]
-        }
-    }
-}
-
-private extension SignInFlowCoordinator {
-    func makeEmailLoginScreen() -> UIViewController {
-        let model = LiveEmailPasswordLoginViewModel(router: dependencyProvider.resolve())
-        return EmailPasswordLoginView(viewModel: model).viewController
+    func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
+        viewFactories.makeViewComponents(forRoute: route, withData: data)
     }
 }

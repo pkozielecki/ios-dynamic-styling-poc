@@ -1,5 +1,5 @@
 //
-//  MainAppFlowViewFactory.swift
+//  SignInFlowViewFactory.swift
 //  Dynamic Styling POC
 //
 
@@ -8,7 +8,7 @@ import CommonUI
 import SwiftUI
 import UIKit
 
-struct MainAppFlowViewFactory: ViewComponentFactory {
+struct SignInFlowViewFactory: ViewComponentFactory {
     private let dependencyProvider: DependencyProvider
 
     init(dependencyProvider: DependencyProvider = LiveDependencyManager.shared) {
@@ -17,17 +17,17 @@ struct MainAppFlowViewFactory: ViewComponentFactory {
 
     func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
         switch route.name {
-        case MainAppRoute.welcome.name:
-            [makeWelcomeScreen().viewController]
+        case SignInRoute.emailPasswordLogin.name:
+            [makeEmailLoginScreen().viewController]
         default:
             []
         }
     }
 }
 
-private extension MainAppFlowViewFactory {
-    func makeWelcomeScreen() -> UIViewController {
-        let viewModel = LiveWelcomeViewModel(router: dependencyProvider.resolve())
-        return WelcomeView(viewModel: viewModel).viewController
+private extension SignInFlowViewFactory {
+    func makeEmailLoginScreen() -> UIViewController {
+        let model = LiveEmailPasswordLoginViewModel(router: resolve())
+        return EmailPasswordLoginView(viewModel: model).viewController
     }
 }

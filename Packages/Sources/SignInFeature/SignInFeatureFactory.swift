@@ -10,8 +10,17 @@ import UIKit
 public enum SignInFeatureFactory {
     public static func makeSignInFlowCoordinator(
         navigator: Navigator,
-        parentFlow: FlowCoordinator?
+        parentFlow: FlowCoordinator?,
+        viewFactory: ViewComponentFactory? = nil,
+        coordinatorFactory: FlowCoordinatorFactory? = nil,
+        dependencyProvider: DependencyProvider = LiveDependencyManager.shared
     ) -> FlowCoordinator {
-        SignInFlowCoordinator(navigator: navigator, parent: parentFlow)
+        SignInFlowCoordinator(
+            navigator: navigator,
+            dependencyProvider: dependencyProvider,
+            parent: parentFlow,
+            viewFactories: SignInFlowViewFactory().combine(withCustomFactory: viewFactory),
+            coordinatorFactories: SignInFlowCoordinatorFactory().combine(withCustomFactory: coordinatorFactory)
+        )
     }
 }

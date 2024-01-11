@@ -18,12 +18,12 @@
 		2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD632B3194E90016163B /* RootNavigationController.swift */; };
 		2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */; };
 		2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4392B3477E800EF8777 /* Assets.xcassets */; };
-		2AC3D43D2B3477E800EF8777 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */; };
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
 		2AC3D4442B35B04B00EF8777 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
 		2AC3D4462B4D21C300EF8777 /* SignInFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC3D4452B4D21C300EF8777 /* SignInFeature */; };
 		2AC3D4482B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4472B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift */; };
 		2AC3D44C2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D44B2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift */; };
+		2AC3D44F2B4FCBCC00EF8777 /* CustomSignInFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D44E2B4FCBCB00EF8777 /* CustomSignInFlowViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +51,11 @@
 		2AC3D4332B3477E600EF8777 /* DemoApp-SignInFeature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoApp-SignInFeature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFeatureDemoApp.swift; sourceTree = "<group>"; };
 		2AC3D4392B3477E800EF8777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemExtensions.swift; sourceTree = "<group>"; };
 		2AC3D4432B35AE4200EF8777 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2AC3D4472B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainAppFlowViewFactory.swift; sourceTree = "<group>"; };
 		2AC3D44B2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainAppFlowCoordinatorFactory.swift; sourceTree = "<group>"; };
+		2AC3D44E2B4FCBCB00EF8777 /* CustomSignInFlowViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInFlowViewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,18 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */,
+				2AC3D44E2B4FCBCB00EF8777 /* CustomSignInFlowViewFactory.swift */,
 				2AC3D4392B3477E800EF8777 /* Assets.xcassets */,
-				2AC3D43B2B3477E800EF8777 /* Preview Content */,
 			);
 			path = "DemoApp-SignInFeature";
-			sourceTree = "<group>";
-		};
-		2AC3D43B2B3477E800EF8777 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				2AC3D43C2B3477E800EF8777 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		2AC3D44A2B4E75B800EF8777 /* View Factories */ = {
@@ -388,7 +380,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC3D43D2B3477E800EF8777 /* Preview Assets.xcassets in Resources */,
 				2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC3D44F2B4FCBCC00EF8777 /* CustomSignInFlowViewFactory.swift in Sources */,
 				2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,7 +740,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DemoApp-SignInFeature/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -782,7 +774,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DemoApp-SignInFeature/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

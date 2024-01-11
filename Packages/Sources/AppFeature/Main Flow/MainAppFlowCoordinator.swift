@@ -19,15 +19,18 @@ final class MainAppFlowCoordinator: FlowCoordinator {
 
     private let viewFactories: [ViewComponentFactory]
     private let coordinatorFactories: [FlowCoordinatorFactory]
+    private let dependencyProvider: DependencyProvider
 
     init(
         navigator: Navigator,
         parent: FlowCoordinator? = nil,
+        dependencyProvider: DependencyProvider = LiveDependencyManager.shared,
         viewFactories: [ViewComponentFactory] = [MainAppFlowViewFactory()],
         coordinatorFactories: [FlowCoordinatorFactory] = [MainAppFlowCoordinatorFactory()]
     ) {
         self.navigator = navigator
         self.parent = parent
+        self.dependencyProvider = dependencyProvider
         self.viewFactories = viewFactories
         self.coordinatorFactories = coordinatorFactories
     }
