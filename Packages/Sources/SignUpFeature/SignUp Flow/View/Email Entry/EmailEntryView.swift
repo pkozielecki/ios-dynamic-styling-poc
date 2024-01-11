@@ -14,21 +14,22 @@ struct EmailEntryView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("Enter Email")
-                .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .title))
+                .appTextStyleFor(.title, provider: viewModel)
 
             Spacer()
 
             Text("Enter an email address:")
-                .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .subtitle))
+                .appTextStyleFor(.subtitle, provider: viewModel)
+
             TextField("Email", text: $email)
-                .textFieldStyle(viewModel.appStyleProvider.getTextFieldStyle(for: .email))
+                .appTextFieldStyleFor(.email, provider: viewModel)
 
             Spacer()
 
             Button("Send") {
                 viewModel.onEmailRegistrationRequested(email: email)
             }
-            .buttonStyle(viewModel.appStyleProvider.getButtonStyle(for: .primary))
+            .appButtonStyleFor(.secondry, provider: viewModel)
             .disabled(email.isEmpty)
         }
         .task {

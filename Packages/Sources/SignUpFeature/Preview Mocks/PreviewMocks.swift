@@ -18,6 +18,7 @@ final class PreviewEmailEntryViewModel: EmailEntryViewModel {
 }
 
 final class PreviewPasswordEntryViewModel: PasswordEntryViewModel {
+    var appStyleProvider: AppStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
     var viewState: PasswordEntryViewState = .loading
     func onViewAppeared() {}
     func onPasswordRegistrationRequested(password: String) {}

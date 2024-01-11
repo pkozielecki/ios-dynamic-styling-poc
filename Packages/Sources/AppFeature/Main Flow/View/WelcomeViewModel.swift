@@ -8,7 +8,7 @@ import CommonUI
 import Observation
 import SwiftUI
 
-protocol WelcomeViewModel: Observable {
+protocol WelcomeViewModel: Observable, AppViewStyleProvider {
     var appStyleProvider: AppStyleProvider { get }
     func onViewAppeared()
     func didRequestSignUp()

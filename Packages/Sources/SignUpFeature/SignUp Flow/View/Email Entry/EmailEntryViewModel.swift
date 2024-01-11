@@ -12,7 +12,7 @@ enum EmailEntryViewState: Equatable {
     case loading
 }
 
-protocol EmailEntryViewModel: Observable {
+protocol EmailEntryViewModel: Observable, AppViewStyleProvider {
     var viewState: EmailEntryViewState { get }
     var appStyleProvider: AppStyleProvider { get }
     func onViewAppeared()

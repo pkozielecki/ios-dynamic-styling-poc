@@ -6,12 +6,36 @@
 import Combine
 import SwiftUI
 
-public protocol AppStyleProvider {
+public protocol HasAppStyleProvider: AnyObject {
+    var appStyleProvider: AppStyleProvider { get }
+}
+
+public protocol AppViewStyleProvider: HasAppStyleProvider {
+    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle
+    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle
+    func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide
+}
+
+public extension AppViewStyleProvider {
+    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle {
+        appStyleProvider.getButtonStyle(for: buttonType)
+    }
+
+    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle {
+        appStyleProvider.getTextFieldStyle(for: textFieldType)
+    }
+
+    func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide {
+        appStyleProvider.getTextStyle(for: labelType)
+    }
+}
+
+public protocol AppStyleProvider: AnyObject {
     var styleDidChange: AnyPublisher<Void, Never> { get }
     func refreshStyles()
     func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle
     func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle
-    func getLabelStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide
+    func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide
 }
 
 public final class LiveAppStyleProvider {
@@ -41,7 +65,7 @@ extension LiveAppStyleProvider: AppStyleProvider {
         return style
     }
 
-    public func getLabelStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide {
+    public func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide {
         guard let style = appStyle.textStyles[labelType] else {
             fatalError("💥 AppStyleProvider.getLabelStyle - Unable to get style for: \(labelType)")
         }

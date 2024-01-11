@@ -25,9 +25,14 @@ public extension Text {
     }
 }
 
+public extension Text {
+    func appTextStyleFor(_ type: AppTextType, provider: any AppViewStyleProvider) -> some View {
+        textStyle(provider.getTextStyle(for: type))
+    }
+}
+
 public extension AppTextModifier {
     struct StyleGuide: Equatable {
-        // TODO: Add font decoration
         public let font: Font
         public let fontWeight: Font.Weight
         public let color: Color

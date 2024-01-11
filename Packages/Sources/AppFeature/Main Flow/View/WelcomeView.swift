@@ -12,21 +12,21 @@ struct WelcomeView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("Welcome View")
-                .textStyle(viewModel.appStyleProvider.getLabelStyle(for: .title))
+                .appTextStyleFor(.title, provider: viewModel)
 
             Spacer()
 
             Button("Sign In") {
                 viewModel.didRequestSignIn()
             }
-            .buttonStyle(viewModel.appStyleProvider.getButtonStyle(for: .primary))
+            .appButtonStyleFor(.primary, provider: viewModel)
 
             Spacer()
 
             Button("Sign Up") {
                 viewModel.didRequestSignUp()
             }
-            .buttonStyle(viewModel.appStyleProvider.getButtonStyle(for: .secondry))
+            .appButtonStyleFor(.secondry, provider: viewModel)
         }
         .padding()
         .onAppear {

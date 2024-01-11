@@ -14,17 +14,15 @@ struct PasswordEntryView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("PasswordEntryView")
+                .appTextStyleFor(.title, provider: viewModel)
 
-            // TODO: Move to style modifier.
             TextField("Enter password", text: $password)
-                .padding()
-                .background(.quaternary)
-                .cornerRadius(10)
-                .keyboardType(.asciiCapable)
+                .appTextFieldStyleFor(.password, provider: viewModel)
 
             Button("Send") {
                 viewModel.onPasswordRegistrationRequested(password: password)
             }
+            .appButtonStyleFor(.primary, provider: viewModel)
             .disabled(password.isEmpty)
         }
         .task {
