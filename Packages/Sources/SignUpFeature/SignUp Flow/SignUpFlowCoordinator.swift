@@ -11,19 +11,26 @@ import UIKit
 final class SignUpFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
-    private let dependencyProvider: DependencyProvider
     var completionCallback: (() -> Void)?
     weak var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator?
 
+    private let dependencyProvider: DependencyProvider
+    private let viewFactories: [ViewComponentFactory]
+    private let coordinatorFactories: [FlowCoordinatorFactory]
+
     init(
         navigator: Navigator,
         dependencyProvider: DependencyProvider = LiveDependencyManager.shared,
-        parent: FlowCoordinator? = nil
+        parent: FlowCoordinator? = nil,
+        viewFactories: [ViewComponentFactory] = [SignUpFlowViewFactory()],
+        coordinatorFactories: [FlowCoordinatorFactory] = [SignUpFlowCoordinatorFactory()]
     ) {
         self.navigator = navigator
         self.dependencyProvider = dependencyProvider
         self.parent = parent
+        self.viewFactories = viewFactories
+        self.coordinatorFactories = coordinatorFactories
     }
 
     func start(animated: Bool) {
@@ -46,27 +53,10 @@ final class SignUpFlowCoordinator: FlowCoordinator {
     }
 
     func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
-        guard let route = route as? SignUpRoute else {
-            fatalError("Route \(route) is not supported by SignUpFlowCoordinator")
-        }
-
-        switch route {
-        case .emailEntry:
-            return [makeEmailEntryScreen()]
-        case .passwordEntry:
-            return [makePasswordEntryScreen()]
-        }
-    }
-}
-
-private extension SignUpFlowCoordinator {
-    func makeEmailEntryScreen() -> UIViewController {
-        let model = LiveEmailEntryViewModel(router: dependencyProvider.resolve())
-        return EmailEntryView(viewModel: model).viewController
+        viewFactories.makeViewComponents(forRoute: route, withData: data)
     }
 
-    func makePasswordEntryScreen() -> UIViewController {
-        let model = LivePasswordEntryViewModel(router: dependencyProvider.resolve())
-        return PasswordEntryView(viewModel: model).viewController
+    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
+        coordinatorFactories.makeFlowCoordinator(forRoute: route, navigator: navigator, parent: parent, withData: data)
     }
 }

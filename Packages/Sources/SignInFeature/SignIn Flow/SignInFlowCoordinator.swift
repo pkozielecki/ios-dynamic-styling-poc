@@ -55,4 +55,8 @@ final class SignInFlowCoordinator: FlowCoordinator {
     func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
         viewFactories.makeViewComponents(forRoute: route, withData: data)
     }
+
+    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
+        coordinatorFactories.makeFlowCoordinator(forRoute: route, navigator: navigator, parent: parent, withData: data)
+    }
 }

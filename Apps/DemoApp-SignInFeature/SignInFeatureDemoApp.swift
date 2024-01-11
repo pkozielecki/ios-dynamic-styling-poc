@@ -16,7 +16,7 @@ struct SignInFeatureDemoApp: App {
     init() {
         navigtor = UINavigationController()
         flow = SignInFeatureFactory.makeSignInFlowCoordinator(navigator: navigtor, parentFlow: nil)
-        // Discussion: Use `viewFactory: CustomMainAppFlowViewFactory()` to inject custom view factory.
+        // Discussion: Use `viewFactory: SignInFlowViewFactory()` to inject custom view factory.
         initializeDependencies()
     }
 

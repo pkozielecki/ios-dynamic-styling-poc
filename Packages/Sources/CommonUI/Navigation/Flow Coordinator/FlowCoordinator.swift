@@ -178,10 +178,6 @@ public extension FlowCoordinator {
         }
     }
 
-    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
-        nil
-    }
-
     func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, withData data: AnyHashable? = nil) -> FlowCoordinator? {
         makeFlowCoordinator(forRoute: route, navigator: navigator, parent: nil, withData: data)
     }
