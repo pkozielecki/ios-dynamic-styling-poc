@@ -30,11 +30,13 @@ struct SignUpFlowViewFactory: ViewComponentFactory {
 private extension SignUpFlowViewFactory {
     func makeEmailEntryScreen() -> UIViewController {
         let model = LiveEmailEntryViewModel(router: dependencyProvider.resolve())
-        return EmailEntryView(viewModel: model).viewController
+        let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
+        return EmailEntryView(viewModel: model, appStyleProvider: appStyleProvider).viewController
     }
 
     func makePasswordEntryScreen() -> UIViewController {
         let model = LivePasswordEntryViewModel(router: dependencyProvider.resolve())
-        return PasswordEntryView(viewModel: model).viewController
+        let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
+        return PasswordEntryView(viewModel: model, appStyleProvider: appStyleProvider).viewController
     }
 }

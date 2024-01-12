@@ -9,20 +9,21 @@ import SwiftUI
 
 struct PasswordEntryView: View {
     let viewModel: PasswordEntryViewModel
+    let appStyleProvider: AppStyleProvider
     @State private var password: String = ""
 
     var body: some View {
         VStack(spacing: 10) {
             Text("PasswordEntryView")
-                .appTextStyleFor(.title, provider: viewModel)
+                .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
 
             TextField("Enter password", text: $password)
-                .appTextFieldStyleFor(.password, provider: viewModel)
+                .appTextFieldStyleFor(.password, appStyle: appStyleProvider.appStyle)
 
             Button("Send") {
                 viewModel.onPasswordRegistrationRequested(password: password)
             }
-            .appButtonStyleFor(.primary, provider: viewModel)
+            .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
             .disabled(password.isEmpty)
         }
         .task {
@@ -32,15 +33,10 @@ struct PasswordEntryView: View {
     }
 }
 
-private extension PasswordEntryView {
-    var viewState: PasswordEntryViewState {
-        viewModel.viewState
-    }
-}
-
 #if DEBUG
 #Preview {
     let viewModel = PreviewPasswordEntryViewModel()
-    return PasswordEntryView(viewModel: viewModel)
+    let appStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
+    return PasswordEntryView(viewModel: viewModel, appStyleProvider: appStyleProvider)
 }
 #endif

@@ -26,8 +26,10 @@ public extension Text {
 }
 
 public extension Text {
-    func appTextStyleFor(_ type: AppTextType, provider: any AppViewStyleProvider) -> some View {
-        textStyle(provider.getTextStyle(for: type))
+    @ViewBuilder func appTextStyleFor(_ type: AppTextType, appStyle: AppStyle) -> some View {
+        if let style = appStyle.getTextStyle(for: type) {
+            textStyle(style)
+        }
     }
 }
 

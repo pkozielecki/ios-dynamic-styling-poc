@@ -10,15 +10,35 @@ public struct AppStyle: Equatable {
     public private(set) var textStyles: [AppTextType: AppTextModifier.StyleGuide]
     public private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
 
+    private var initialDesignSystem: DesignSystem
+
     public init(initialDesignSystem: DesignSystem) {
+        self.initialDesignSystem = initialDesignSystem
         buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: initialDesignSystem)
         textStyles = AppStyle.composeInitialAppTextStyles(designSystem: initialDesignSystem)
         textFieldStyles = AppStyle.composeInitialAppTextFieldStyles(designSystem: initialDesignSystem)
     }
 
-    public func update(with appStyle: AppStyle, and designSystem: DesignSystem) {
-        // TODO: Update Design system.
-        // TODO: Implement merging of styles
+    public mutating func update(with appStyle: AppStyle?, and designSystem: DesignSystemUpdate) {
+        // TODO: Implement proper styles merge.
+        let newDesignSystem = initialDesignSystem.merging(with: designSystem)
+        buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: newDesignSystem)
+        textStyles = AppStyle.composeInitialAppTextStyles(designSystem: newDesignSystem)
+        textFieldStyles = AppStyle.composeInitialAppTextFieldStyles(designSystem: newDesignSystem)
+    }
+}
+
+public extension AppStyle {
+    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle? {
+        buttonStyles[buttonType]
+    }
+
+    func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide? {
+        textStyles[labelType]
+    }
+
+    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle? {
+        textFieldStyles[textFieldType]
     }
 }
 

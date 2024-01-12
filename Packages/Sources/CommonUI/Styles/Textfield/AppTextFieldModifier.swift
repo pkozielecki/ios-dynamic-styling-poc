@@ -6,7 +6,9 @@
 import SwiftUI
 
 public extension TextField {
-    func appTextFieldStyleFor(_ type: AppTextFieldType, provider: any AppViewStyleProvider) -> some View {
-        textFieldStyle(provider.getTextFieldStyle(for: type))
+    @ViewBuilder func appTextFieldStyleFor(_ type: AppTextFieldType, appStyle: AppStyle) -> some View {
+        if let style = appStyle.getTextFieldStyle(for: type) {
+            textFieldStyle(style)
+        }
     }
 }

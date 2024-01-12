@@ -5,30 +5,24 @@
 
 import Common
 import CommonUI
+import Foundation
 import Observation
 import SwiftUI
 
-protocol WelcomeViewModel: Observable, AppViewStyleProvider {
-    var appStyleProvider: AppStyleProvider { get }
+protocol WelcomeViewModel: Observable {
     func onViewAppeared()
     func didRequestSignUp()
     func didRequestSignIn()
 }
 
-final class LiveWelcomeViewModel: WelcomeViewModel {
+@Observable final class LiveWelcomeViewModel: WelcomeViewModel {
     private let router: NavigationRouter
-    let appStyleProvider: AppStyleProvider
 
     init(
-        router: NavigationRouter = resolve(),
-        appStyleProvider: AppStyleProvider = resolve()
+        router: NavigationRouter = resolve()
     ) {
         self.router = router
-        self.appStyleProvider = appStyleProvider
-        // TODO: Subscribe to the style update
     }
-
-    // TODO: Emitt view state
 
     func onViewAppeared() {}
 

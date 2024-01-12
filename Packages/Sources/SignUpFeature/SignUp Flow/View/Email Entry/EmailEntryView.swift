@@ -9,27 +9,28 @@ import SwiftUI
 
 struct EmailEntryView: View {
     let viewModel: EmailEntryViewModel
+    let appStyleProvider: AppStyleProvider
     @State private var email: String = ""
 
     var body: some View {
         VStack(spacing: 10) {
             Text("Enter Email")
-                .appTextStyleFor(.title, provider: viewModel)
+                .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
 
             Spacer()
 
             Text("Enter an email address:")
-                .appTextStyleFor(.subtitle, provider: viewModel)
+                .appTextStyleFor(.subtitle, appStyle: appStyleProvider.appStyle)
 
             TextField("Email", text: $email)
-                .appTextFieldStyleFor(.email, provider: viewModel)
+                .appTextFieldStyleFor(.email, appStyle: appStyleProvider.appStyle)
 
             Spacer()
 
             Button("Send") {
                 viewModel.onEmailRegistrationRequested(email: email)
             }
-            .appButtonStyleFor(.secondry, provider: viewModel)
+            .appButtonStyleFor(.secondry, appStyle: appStyleProvider.appStyle)
             .disabled(email.isEmpty)
         }
         .task {
@@ -49,6 +50,7 @@ private extension EmailEntryView {
 #if DEBUG
 #Preview {
     let viewModel = PreviewEmailEntryViewModel()
-    return EmailEntryView(viewModel: viewModel)
+    let appStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
+    return EmailEntryView(viewModel: viewModel, appStyleProvider: appStyleProvider)
 }
 #endif

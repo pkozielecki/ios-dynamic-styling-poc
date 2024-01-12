@@ -12,27 +12,20 @@ enum EmailEntryViewState: Equatable {
     case loading
 }
 
-protocol EmailEntryViewModel: Observable, AppViewStyleProvider {
+protocol EmailEntryViewModel: Observable {
     var viewState: EmailEntryViewState { get }
-    var appStyleProvider: AppStyleProvider { get }
     func onViewAppeared()
     func onEmailRegistrationRequested(email: String)
 }
 
-@Observable
-final class LiveEmailEntryViewModel: EmailEntryViewModel {
+@Observable final class LiveEmailEntryViewModel: EmailEntryViewModel {
     private(set) var viewState: EmailEntryViewState = .loading
-
-    let appStyleProvider: AppStyleProvider
     private let router: NavigationRouter
 
     init(
-        router: NavigationRouter = resolve(),
-        appStyleProvider: AppStyleProvider = resolve()
+        router: NavigationRouter = resolve()
     ) {
         self.router = router
-        self.appStyleProvider = appStyleProvider
-        // TODO: Subscribe to the style update
     }
 
     func onViewAppeared() {}

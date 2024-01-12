@@ -4,44 +4,17 @@
 //
 
 import Combine
+import Foundation
 import SwiftUI
 
-public protocol HasAppStyleProvider: AnyObject {
-    var appStyleProvider: AppStyleProvider { get }
+public protocol AppStyleProvider: Observable {
+    var appStyle: AppStyle { get }
+    func refreshStyles() async
 }
 
-public protocol AppViewStyleProvider: HasAppStyleProvider {
-    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle
-    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle
-    func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide
-}
-
-public extension AppViewStyleProvider {
-    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle {
-        appStyleProvider.getButtonStyle(for: buttonType)
-    }
-
-    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle {
-        appStyleProvider.getTextFieldStyle(for: textFieldType)
-    }
-
-    func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide {
-        appStyleProvider.getTextStyle(for: labelType)
-    }
-}
-
-public protocol AppStyleProvider: AnyObject {
-    var styleDidChange: AnyPublisher<Void, Never> { get }
-    func refreshStyles()
-    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle
-    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle
-    func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide
-}
-
-public final class LiveAppStyleProvider {
+@Observable public final class LiveAppStyleProvider {
     private var initialDesignSystem: DesignSystem
-    private var appStyle: AppStyle
-    private var styleDidChangePublishSubject = PassthroughSubject<Void, Never>()
+    public private(set) var appStyle: AppStyle
 
     public init(initialDesignSystem: DesignSystem) {
         // Discussion: This is initial (built-in) app style.
@@ -54,36 +27,52 @@ public final class LiveAppStyleProvider {
 }
 
 extension LiveAppStyleProvider: AppStyleProvider {
-    public var styleDidChange: AnyPublisher<Void, Never> {
-        styleDidChangePublishSubject.eraseToAnyPublisher()
-    }
-
-    public func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle {
-        guard let style = appStyle.buttonStyles[buttonType] else {
-            fatalError("💥 AppStyleProvider.getButtonStyle - Unable to get style for: \(buttonType)")
-        }
-        return style
-    }
-
-    public func getTextStyle(for labelType: AppTextType) -> AppTextModifier.StyleGuide {
-        guard let style = appStyle.textStyles[labelType] else {
-            fatalError("💥 AppStyleProvider.getLabelStyle - Unable to get style for: \(labelType)")
-        }
-        return style
-    }
-
-    public func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle {
-        guard let style = appStyle.textFieldStyles[textFieldType] else {
-            fatalError("💥 AppStyleProvider.getTextFieldStyle - Unable to get style for: \(textFieldType)")
-        }
-        return style
-    }
-
-    public func refreshStyles() {
+    public func refreshStyles() async {
         print("🟠 Styles refresh requested")
 
-        // TODO: Download and merge styles.
+        // TODO: Take values from the web.
+        let designSystemUpdate = DesignSystemUpdate(
+            colors: AppColorsUpdate.random,
+            fonts: nil,
+            fontWights: nil
+        )
 
-        styleDidChangePublishSubject.send()
+        appStyle.update(with: nil, and: designSystemUpdate)
+
+        print("🟢 Styles refresh finished!")
+    }
+}
+
+// TODO: Remove when getting styles from the web.
+extension AppColorsUpdate {
+    static var random: AppColorsUpdate {
+        AppColorsUpdate(
+            error500: .random(),
+            informative500: .random(),
+            neutral500: .random(),
+            primary100: .random(),
+            primary500: .random(),
+            primary900: .random(),
+            secondary100: .random(),
+            secondary500: .random(),
+            secondary900: .random(),
+            success500: .random(),
+            tertiary100: .random(),
+            text500: .random(),
+            warning500: .random(),
+            clear: nil
+        )
+    }
+}
+
+// TODO: Remove when getting styles from the web.
+extension Color {
+    static func random(randomOpacity: Bool = false) -> Color {
+        Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1),
+            opacity: randomOpacity ? .random(in: 0...1) : 1
+        )
     }
 }

@@ -8,25 +8,26 @@ import SwiftUI
 
 struct WelcomeView: View {
     let viewModel: WelcomeViewModel
+    let appStyleProvider: AppStyleProvider
 
     var body: some View {
         VStack(spacing: 10) {
             Text("Welcome View")
-                .appTextStyleFor(.title, provider: viewModel)
+                .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
 
             Spacer()
 
             Button("Sign In") {
                 viewModel.didRequestSignIn()
             }
-            .appButtonStyleFor(.primary, provider: viewModel)
+            .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
 
             Spacer()
 
             Button("Sign Up") {
                 viewModel.didRequestSignUp()
             }
-            .appButtonStyleFor(.secondry, provider: viewModel)
+            .appButtonStyleFor(.secondry, appStyle: appStyleProvider.appStyle)
         }
         .padding()
         .onAppear {
@@ -37,5 +38,6 @@ struct WelcomeView: View {
 
 #Preview {
     let viewModel = PreviewWelcomeViewModel()
-    return WelcomeView(viewModel: viewModel)
+    let appStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
+    return WelcomeView(viewModel: viewModel, appStyleProvider: appStyleProvider)
 }

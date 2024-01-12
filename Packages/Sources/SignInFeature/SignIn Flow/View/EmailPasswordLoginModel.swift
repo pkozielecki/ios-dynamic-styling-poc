@@ -17,8 +17,7 @@ protocol EmailPasswordLoginViewModel: Observable {
     func onViewAppeared()
 }
 
-@Observable
-final class LiveEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
+@Observable final class LiveEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
     private(set) var viewState: EmailPasswordLoginViewState = .loading
 
     private let router: NavigationRouter

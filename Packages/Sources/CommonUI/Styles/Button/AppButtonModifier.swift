@@ -6,7 +6,9 @@
 import SwiftUI
 
 public extension Button {
-    func appButtonStyleFor(_ buttonType: AppButtonType, provider: any AppViewStyleProvider) -> some View {
-        buttonStyle(provider.getButtonStyle(for: buttonType))
+    @ViewBuilder func appButtonStyleFor(_ buttonType: AppButtonType, appStyle: AppStyle) -> some View {
+        if let style = appStyle.getButtonStyle(for: buttonType) {
+            buttonStyle(style)
+        }
     }
 }

@@ -28,6 +28,7 @@ struct MainAppFlowViewFactory: ViewComponentFactory {
 private extension MainAppFlowViewFactory {
     func makeWelcomeScreen() -> UIViewController {
         let viewModel = LiveWelcomeViewModel(router: dependencyProvider.resolve())
-        return WelcomeView(viewModel: viewModel).viewController
+        let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
+        return WelcomeView(viewModel: viewModel, appStyleProvider: appStyleProvider).viewController
     }
 }

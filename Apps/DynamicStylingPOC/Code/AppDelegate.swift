@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializer.registerDependencies()
 
         super.init()
-
-        subscribeToStyleUpdates()
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let navigationController = RootNavigationController()
         let mainAppFlow = AppFeatureFactory.makeAppFeature(navigator: navigationController)
-        // Discussion: Use `viewFactory: CustomMainAppFlowViewFactory()` to inject custom view factory.
+        // Discussion: Use `viewFactory: CustomMainAppFlowViewFactory()` to inject custo    m view factory.
         // Discussion: Use `coordinatorFactory: CustomMainAppFlowCoordinatorFactory()` to inject custom flow coordinator factory.
 
         window = UIWindow()
@@ -41,17 +39,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         return true
-    }
-}
-
-private extension AppDelegate {
-    func subscribeToStyleUpdates() {
-        let styleProvider: AppStyleProvider = resolve()
-        styleProvider.styleDidChange
-            .sink {
-                // TODO: Notify entire view hierarchy.
-                print("🤖 Style updated")
-            }
-            .store(in: &cancellables)
     }
 }
