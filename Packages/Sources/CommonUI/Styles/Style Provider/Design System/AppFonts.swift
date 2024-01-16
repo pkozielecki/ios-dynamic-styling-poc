@@ -6,11 +6,11 @@
 import SwiftUI
 
 public struct AppFonts: Equatable {
-    public let title: Font
-    public let subtitle: Font
-    public let text: Font
+    public let title: AppFont
+    public let subtitle: AppFont
+    public let text: AppFont
 
-    public init(title: Font, subtitle: Font, text: Font) {
+    public init(title: AppFont, subtitle: AppFont, text: AppFont) {
         self.title = title
         self.subtitle = subtitle
         self.text = text
@@ -28,17 +28,15 @@ public struct AppFonts: Equatable {
 public extension AppFonts {
     static var `default`: AppFonts {
         AppFonts(
-            title: .largeTitle,
-            subtitle: .title2,
-            text: .body
+            title: .init(fontName: "System", fontSize: 20),
+            subtitle: .init(fontName: "System", fontSize: 16),
+            text: .init(fontName: "System", fontSize: 14)
         )
     }
 }
 
 public struct AppFontsUpdate: Equatable {
-    public let title: Font?
-    public let subtitle: Font?
-    public let text: Font?
-
-    // TODO: Initialize from json.
+    public let title: AppFont?
+    public let subtitle: AppFont?
+    public let text: AppFont?
 }

@@ -92,19 +92,19 @@ private extension AppStyle {
         switch appTextType {
         case .title:
             AppTextModifier.StyleGuide(
-                font: designSystem.fonts.title,
+                font: designSystem.fonts.title.font,
                 fontWeight: designSystem.fontWights.heavy,
                 color: designSystem.colors.text500.color ?? .clear
             )
         case .subtitle:
             AppTextModifier.StyleGuide(
-                font: designSystem.fonts.subtitle,
+                font: designSystem.fonts.subtitle.font,
                 fontWeight: designSystem.fontWights.bold,
                 color: designSystem.colors.text500.color ?? .clear
             )
         case .text:
             AppTextModifier.StyleGuide(
-                font: designSystem.fonts.text,
+                font: designSystem.fonts.text.font,
                 fontWeight: designSystem.fontWights.regular,
                 color: designSystem.colors.text500.color ?? .clear
             )
@@ -118,7 +118,7 @@ private extension AppStyle {
                 shape: .rounded(10),
                 backgroundColor: designSystem.colors.primary900.color ?? .clear,
                 textColor: designSystem.colors.text500.color ?? .clear,
-                font: designSystem.fonts.text,
+                font: designSystem.fonts.text.font,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
                 keyboardType: .emailAddress
             )
@@ -127,7 +127,7 @@ private extension AppStyle {
                 shape: .rounded(10),
                 backgroundColor: designSystem.colors.primary500.color ?? .clear,
                 textColor: designSystem.colors.secondary500.color ?? .clear,
-                font: designSystem.fonts.text,
+                font: designSystem.fonts.text.font,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
                 keyboardType: .default
             )

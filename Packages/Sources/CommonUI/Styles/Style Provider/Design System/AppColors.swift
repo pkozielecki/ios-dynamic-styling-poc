@@ -120,6 +120,4 @@ public struct AppColorsUpdate: Equatable {
     public let text500: AppColor?
     public let warning500: AppColor?
     public let clear: AppColor?
-
-    // TODO: Initialize from json.
 }
