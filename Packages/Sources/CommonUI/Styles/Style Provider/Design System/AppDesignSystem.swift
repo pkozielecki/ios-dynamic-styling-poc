@@ -1,11 +1,11 @@
 //
-//  DesignSystem.swift
+//  AppDesignSystem.swift
 //  Dynamic Styling POC
 //
 
 import SwiftUI
 
-public struct DesignSystem: Equatable {
+public struct AppDesignSystem: Equatable {
     public let colors: AppColors
     public let fonts: AppFonts
     public let fontWights: AppFontWeights
@@ -16,11 +16,11 @@ public struct DesignSystem: Equatable {
         self.fontWights = fontWights
     }
 
-    public func merging(with designUpdate: DesignSystemUpdate) -> DesignSystem {
+    public func merging(with designUpdate: DesignSystemUpdate) -> AppDesignSystem {
         // TODO: Implement merging fonts and font weights.
-        DesignSystem(
+        AppDesignSystem(
             colors: colors.merging(with: designUpdate.colors),
-            fonts: fonts,
+            fonts: fonts.merging(with: designUpdate.fonts),
             fontWights: fontWights
         )
     }
@@ -28,6 +28,6 @@ public struct DesignSystem: Equatable {
 
 public struct DesignSystemUpdate: Equatable {
     public let colors: AppColorsUpdate?
-    public let fonts: AppFonts?
+    public let fonts: AppFontsUpdate?
     public let fontWights: AppFontWeights?
 }

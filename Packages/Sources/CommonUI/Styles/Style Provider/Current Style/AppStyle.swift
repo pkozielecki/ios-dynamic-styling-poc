@@ -10,9 +10,9 @@ public struct AppStyle: Equatable {
     public private(set) var textStyles: [AppTextType: AppTextModifier.StyleGuide]
     public private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
 
-    private var initialDesignSystem: DesignSystem
+    private var initialDesignSystem: AppDesignSystem
 
-    public init(initialDesignSystem: DesignSystem) {
+    public init(initialDesignSystem: AppDesignSystem) {
         self.initialDesignSystem = initialDesignSystem
         buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: initialDesignSystem)
         textStyles = AppStyle.composeInitialAppTextStyles(designSystem: initialDesignSystem)
@@ -43,7 +43,7 @@ public extension AppStyle {
 }
 
 private extension AppStyle {
-    static func composeInitialButtonStyles(designSystem: DesignSystem) -> [AppButtonType: AppButtonStyle] {
+    static func composeInitialButtonStyles(designSystem: AppDesignSystem) -> [AppButtonType: AppButtonStyle] {
         var styles = [AppButtonType: AppButtonStyle]()
         for buttonType in AppButtonType.allCases {
             let styleGuide = makeInitialButtonStyleGuide(buttonType: buttonType, designSystem: designSystem)
@@ -52,7 +52,7 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeInitialAppTextStyles(designSystem: DesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
+    static func composeInitialAppTextStyles(designSystem: AppDesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
         var styles = [AppTextType: AppTextModifier.StyleGuide]()
         for textType in AppTextType.allCases {
             styles[textType] = makeInitialTextStyleGuide(appTextType: textType, designSystem: designSystem)
@@ -60,7 +60,7 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeInitialAppTextFieldStyles(designSystem: DesignSystem) -> [AppTextFieldType: AppTextFieldStyle] {
+    static func composeInitialAppTextFieldStyles(designSystem: AppDesignSystem) -> [AppTextFieldType: AppTextFieldStyle] {
         var styles = [AppTextFieldType: AppTextFieldStyle]()
         for textFiledType in AppTextFieldType.allCases {
             let styleGuide = makeInitialTextFieldStyleGuide(appTextFieldType: textFiledType, designSystem: designSystem)
@@ -69,55 +69,55 @@ private extension AppStyle {
         return styles
     }
 
-    static func makeInitialButtonStyleGuide(buttonType: AppButtonType, designSystem: DesignSystem) -> AppButtonStyle.StyleGuide {
+    static func makeInitialButtonStyleGuide(buttonType: AppButtonType, designSystem: AppDesignSystem) -> AppButtonStyle.StyleGuide {
         switch buttonType {
         case .primary:
             AppButtonStyle.StyleGuide(
                 shape: .capsule,
-                backgroundColor: designSystem.colors.primary500,
-                textColor: designSystem.colors.text500,
+                backgroundColor: designSystem.colors.primary500.color ?? .clear,
+                textColor: designSystem.colors.text500.color ?? .clear,
                 padding: .init(top: 15, leading: 30, bottom: 15, trailing: 30) // TODO: Get padding from Design System
             )
         case .secondry:
             AppButtonStyle.StyleGuide(
                 shape: .default,
-                backgroundColor: designSystem.colors.clear,
-                textColor: designSystem.colors.primary500,
+                backgroundColor: designSystem.colors.clear.color ?? .clear,
+                textColor: designSystem.colors.primary500.color ?? .clear,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10) // TODO: Get padding from Design System
             )
         }
     }
 
-    static func makeInitialTextStyleGuide(appTextType: AppTextType, designSystem: DesignSystem) -> AppTextModifier.StyleGuide {
+    static func makeInitialTextStyleGuide(appTextType: AppTextType, designSystem: AppDesignSystem) -> AppTextModifier.StyleGuide {
         switch appTextType {
         case .title:
             AppTextModifier.StyleGuide(
                 font: designSystem.fonts.title,
                 fontWeight: designSystem.fontWights.heavy,
-                color: designSystem.colors.text500
+                color: designSystem.colors.text500.color ?? .clear
             )
         case .subtitle:
             AppTextModifier.StyleGuide(
                 font: designSystem.fonts.subtitle,
                 fontWeight: designSystem.fontWights.bold,
-                color: designSystem.colors.text500
+                color: designSystem.colors.text500.color ?? .clear
             )
         case .text:
             AppTextModifier.StyleGuide(
                 font: designSystem.fonts.text,
                 fontWeight: designSystem.fontWights.regular,
-                color: designSystem.colors.text500
+                color: designSystem.colors.text500.color ?? .clear
             )
         }
     }
 
-    static func makeInitialTextFieldStyleGuide(appTextFieldType: AppTextFieldType, designSystem: DesignSystem) -> AppTextFieldStyle.StyleGuide {
+    static func makeInitialTextFieldStyleGuide(appTextFieldType: AppTextFieldType, designSystem: AppDesignSystem) -> AppTextFieldStyle.StyleGuide {
         switch appTextFieldType {
         case .email:
             AppTextFieldStyle.StyleGuide(
                 shape: .rounded(10),
-                backgroundColor: designSystem.colors.primary900,
-                textColor: designSystem.colors.text500,
+                backgroundColor: designSystem.colors.primary900.color ?? .clear,
+                textColor: designSystem.colors.text500.color ?? .clear,
                 font: designSystem.fonts.text,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
                 keyboardType: .emailAddress
@@ -125,8 +125,8 @@ private extension AppStyle {
         case .password:
             AppTextFieldStyle.StyleGuide(
                 shape: .rounded(10),
-                backgroundColor: designSystem.colors.primary500,
-                textColor: designSystem.colors.secondary500,
+                backgroundColor: designSystem.colors.primary500.color ?? .clear,
+                textColor: designSystem.colors.secondary500.color ?? .clear,
                 font: designSystem.fonts.text,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
                 keyboardType: .default

@@ -40,9 +40,9 @@ private extension SignInFeatureDemoApp {
     }
 }
 
-extension DesignSystem {
-    static var `default`: DesignSystem {
-        DesignSystem(
+extension AppDesignSystem {
+    static var `default`: AppDesignSystem {
+        AppDesignSystem(
             colors: .default,
             fonts: .default,
             fontWights: .default

@@ -9,10 +9,10 @@ import Foundation
 
 struct DependenciesInitializer {
     private let dependenciesRegistrator: DependencyManager
-    private let designSystem: DesignSystem
+    private let designSystem: AppDesignSystem
 
     init(
-        designSystem: DesignSystem,
+        designSystem: AppDesignSystem,
         dependenciesRegistrator: DependencyManager = LiveDependencyManager.shared as! DependencyManager
     ) {
         self.dependenciesRegistrator = dependenciesRegistrator

@@ -6,7 +6,6 @@
 import SwiftUI
 
 public struct AppFonts: Equatable {
-    // TODO: Add more fonts
     public let title: Font
     public let subtitle: Font
     public let text: Font
@@ -15,6 +14,14 @@ public struct AppFonts: Equatable {
         self.title = title
         self.subtitle = subtitle
         self.text = text
+    }
+
+    func merging(with fontsUpdate: AppFontsUpdate?) -> AppFonts {
+        AppFonts(
+            title: fontsUpdate?.title ?? title,
+            subtitle: fontsUpdate?.subtitle ?? subtitle,
+            text: fontsUpdate?.text ?? text
+        )
     }
 }
 
@@ -26,4 +33,12 @@ public extension AppFonts {
             text: .body
         )
     }
+}
+
+public struct AppFontsUpdate: Equatable {
+    public let title: Font?
+    public let subtitle: Font?
+    public let text: Font?
+
+    // TODO: Initialize from json.
 }

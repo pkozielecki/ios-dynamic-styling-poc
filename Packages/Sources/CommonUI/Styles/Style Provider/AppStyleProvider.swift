@@ -4,8 +4,10 @@
 //
 
 import Combine
+import Common
 import Foundation
 import SwiftUI
+import UIKit
 
 public protocol AppStyleProvider: Observable {
     var appStyle: AppStyle { get }
@@ -13,10 +15,10 @@ public protocol AppStyleProvider: Observable {
 }
 
 @Observable public final class LiveAppStyleProvider {
-    private var initialDesignSystem: DesignSystem
+    private var initialDesignSystem: AppDesignSystem
     public private(set) var appStyle: AppStyle
 
-    public init(initialDesignSystem: DesignSystem) {
+    public init(initialDesignSystem: AppDesignSystem) {
         // Discussion: This is initial (built-in) app style.
         // ... It will be merged with the one obrained from the BE.
         self.initialDesignSystem = initialDesignSystem
@@ -33,7 +35,7 @@ extension LiveAppStyleProvider: AppStyleProvider {
         // TODO: Take values from the web.
         let designSystemUpdate = DesignSystemUpdate(
             colors: AppColorsUpdate.random,
-            fonts: nil,
+            fonts: AppFontsUpdate.random,
             fontWights: nil
         )
 
@@ -66,13 +68,31 @@ extension AppColorsUpdate {
 }
 
 // TODO: Remove when getting styles from the web.
-extension Color {
-    static func random(randomOpacity: Bool = false) -> Color {
-        Color(
+extension AppFontsUpdate {
+    static var random: AppFontsUpdate {
+        AppFontsUpdate(
+            title: Font.system(size: CGFloat.random(in: 20...30)),
+            subtitle: Font.system(size: CGFloat.random(in: 14...20)),
+            text: Font.system(size: CGFloat.random(in: 10...14))
+        )
+    }
+}
+
+// TODO: Remove when getting styles from the web.
+extension AppColor {
+    static func random(randomOpacity: Bool = false) -> AppColor {
+        let colorLight = Color(
             red: .random(in: 0...1),
             green: .random(in: 0...1),
             blue: .random(in: 0...1),
             opacity: randomOpacity ? .random(in: 0...1) : 1
         )
+        let colorDark = Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1),
+            opacity: randomOpacity ? .random(in: 0...1) : 1
+        )
+        return AppColor(light: UIColor(colorLight), dark: UIColor(colorDark))
     }
 }

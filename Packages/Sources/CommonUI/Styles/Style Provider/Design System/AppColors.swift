@@ -5,37 +5,69 @@
 
 import SwiftUI
 
-public struct AppColors: Equatable {
-    public let error500: Color
-    public let informative500: Color
-    public let neutral500: Color
-    public let primary100: Color
-    public let primary500: Color
-    public let primary900: Color
-    public let secondary100: Color
-    public let secondary500: Color
-    public let secondary900: Color
-    public let success500: Color
-    public let tertiary100: Color
-    public let text500: Color
-    public let warning500: Color
-    public let clear: Color
+public struct AppColors: Equatable, Codable {
+    public let error500: AppColor
+    public let informative500: AppColor
+    public let neutral500: AppColor
+    public let primary100: AppColor
+    public let primary500: AppColor
+    public let primary900: AppColor
+    public let secondary100: AppColor
+    public let secondary500: AppColor
+    public let secondary900: AppColor
+    public let success500: AppColor
+    public let tertiary100: AppColor
+    public let text500: AppColor
+    public let warning500: AppColor
+    public let clear: AppColor
 
     public init(
-        error500: Color,
-        informative500: Color,
-        neutral500: Color,
-        primary100: Color,
-        primary500: Color,
-        primary900: Color,
-        secondary100: Color,
-        secondary500: Color,
-        secondary900: Color,
-        success500: Color,
-        tertiary100: Color,
-        text500: Color,
-        warning500: Color,
-        clear: Color
+        error500: UIColor,
+        informative500: UIColor,
+        neutral500: UIColor,
+        primary100: UIColor,
+        primary500: UIColor,
+        primary900: UIColor,
+        secondary100: UIColor,
+        secondary500: UIColor,
+        secondary900: UIColor,
+        success500: UIColor,
+        tertiary100: UIColor,
+        text500: UIColor,
+        warning500: UIColor,
+        clear: UIColor
+    ) {
+        self.error500 = AppColor(light: error500.light, dark: error500.dark)
+        self.informative500 = AppColor(light: informative500.light, dark: informative500.dark)
+        self.neutral500 = AppColor(light: neutral500.light, dark: neutral500.dark)
+        self.primary100 = AppColor(light: primary100.light, dark: primary100.dark)
+        self.primary500 = AppColor(light: primary500.light, dark: primary500.dark)
+        self.primary900 = AppColor(light: primary900.light, dark: primary900.dark)
+        self.secondary100 = AppColor(light: secondary100.light, dark: secondary100.dark)
+        self.secondary500 = AppColor(light: secondary500.light, dark: secondary500.dark)
+        self.secondary900 = AppColor(light: secondary900.light, dark: secondary900.dark)
+        self.success500 = AppColor(light: success500.light, dark: success500.dark)
+        self.tertiary100 = AppColor(light: tertiary100.light, dark: tertiary100.dark)
+        self.text500 = AppColor(light: text500.light, dark: text500.dark)
+        self.warning500 = AppColor(light: warning500.light, dark: warning500.dark)
+        self.clear = AppColor(light: clear.light, dark: clear.dark)
+    }
+
+    public init(
+        error500: AppColor,
+        informative500: AppColor,
+        neutral500: AppColor,
+        primary100: AppColor,
+        primary500: AppColor,
+        primary900: AppColor,
+        secondary100: AppColor,
+        secondary500: AppColor,
+        secondary900: AppColor,
+        success500: AppColor,
+        tertiary100: AppColor,
+        text500: AppColor,
+        warning500: AppColor,
+        clear: AppColor
     ) {
         self.error500 = error500
         self.informative500 = informative500
@@ -50,7 +82,7 @@ public struct AppColors: Equatable {
         self.tertiary100 = tertiary100
         self.text500 = text500
         self.warning500 = warning500
-        self.clear = .clear
+        self.clear = clear
     }
 
     public func merging(with colorUpdate: AppColorsUpdate?) -> AppColors {
@@ -74,20 +106,20 @@ public struct AppColors: Equatable {
 }
 
 public struct AppColorsUpdate: Equatable {
-    public let error500: Color?
-    public let informative500: Color?
-    public let neutral500: Color?
-    public let primary100: Color?
-    public let primary500: Color?
-    public let primary900: Color?
-    public let secondary100: Color?
-    public let secondary500: Color?
-    public let secondary900: Color?
-    public let success500: Color?
-    public let tertiary100: Color?
-    public let text500: Color?
-    public let warning500: Color?
-    public let clear: Color?
+    public let error500: AppColor?
+    public let informative500: AppColor?
+    public let neutral500: AppColor?
+    public let primary100: AppColor?
+    public let primary500: AppColor?
+    public let primary900: AppColor?
+    public let secondary100: AppColor?
+    public let secondary500: AppColor?
+    public let secondary900: AppColor?
+    public let success500: AppColor?
+    public let tertiary100: AppColor?
+    public let text500: AppColor?
+    public let warning500: AppColor?
+    public let clear: AppColor?
 
     // TODO: Initialize from json.
 }
