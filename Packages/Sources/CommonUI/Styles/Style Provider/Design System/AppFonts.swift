@@ -26,11 +26,15 @@ public struct AppFonts: Equatable {
 }
 
 public extension AppFonts {
+    enum Names: String {
+        case inter = "Inter"
+    }
+
     static var `default`: AppFonts {
         AppFonts(
-            title: .init(fontName: "System", fontSize: 20),
-            subtitle: .init(fontName: "System", fontSize: 16),
-            text: .init(fontName: "System", fontSize: 14)
+            title: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: 20, fontWeight: .heavy),
+            subtitle: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: 16, fontWeight: .bold),
+            text: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: 14, fontWeight: .regular)
         )
     }
 }

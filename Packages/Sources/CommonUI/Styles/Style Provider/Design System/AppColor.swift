@@ -6,8 +6,13 @@
 import SwiftUI
 
 public struct AppColor: Codable, Equatable {
-    let lightModeValue: String
-    let darkModeValue: String
+    public let lightModeValue: String
+    public let darkModeValue: String
+
+    public init(lightModeValue: String, darkModeValue: String) {
+        self.lightModeValue = lightModeValue
+        self.darkModeValue = darkModeValue
+    }
 }
 
 public extension AppColor {

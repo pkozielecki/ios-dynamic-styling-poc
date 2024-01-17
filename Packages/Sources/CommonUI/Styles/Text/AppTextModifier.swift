@@ -14,7 +14,7 @@ public struct AppTextModifier: ViewModifier {
 
     public func body(content: Content) -> some View {
         content
-            .font(styleGuide.font.weight(styleGuide.fontWeight))
+            .font(styleGuide.font)
             .foregroundColor(styleGuide.color)
     }
 }
@@ -36,12 +36,10 @@ public extension Text {
 public extension AppTextModifier {
     struct StyleGuide: Equatable {
         public let font: Font
-        public let fontWeight: Font.Weight
         public let color: Color
 
-        public init(font: Font, fontWeight: Font.Weight, color: Color) {
+        public init(font: Font, color: Color) {
             self.font = font
-            self.fontWeight = fontWeight
             self.color = color
         }
     }

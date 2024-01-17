@@ -6,13 +6,13 @@
 import SwiftUI
 
 public struct AppFontWeights: Equatable {
-    public let light: Font.Weight
-    public let regular: Font.Weight
-    public let semiBold: Font.Weight
-    public let bold: Font.Weight
-    public let heavy: Font.Weight
+    public let light: AppFontWeight
+    public let regular: AppFontWeight
+    public let semiBold: AppFontWeight
+    public let bold: AppFontWeight
+    public let heavy: AppFontWeight
 
-    public init(light: Font.Weight, regular: Font.Weight, semiBold: Font.Weight, bold: Font.Weight, heavy: Font.Weight) {
+    public init(light: AppFontWeight, regular: AppFontWeight, semiBold: AppFontWeight, bold: AppFontWeight, heavy: AppFontWeight) {
         self.light = light
         self.regular = regular
         self.semiBold = semiBold
@@ -24,11 +24,11 @@ public struct AppFontWeights: Equatable {
 public extension AppFontWeights {
     static var `default`: AppFontWeights {
         AppFontWeights(
-            light: .light,
-            regular: .regular,
-            semiBold: .semibold,
-            bold: .bold,
-            heavy: .heavy
+            light: AppFontWeight.light,
+            regular: AppFontWeight.regular,
+            semiBold: AppFontWeight.semibold,
+            bold: AppFontWeight.bold,
+            heavy: AppFontWeight.heavy
         )
     }
 }

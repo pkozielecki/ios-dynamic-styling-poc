@@ -71,9 +71,9 @@ extension AppColorsUpdate {
 extension AppFontsUpdate {
     static var random: AppFontsUpdate {
         AppFontsUpdate(
-            title: Font.system(size: CGFloat.random(in: 20...30)),
-            subtitle: Font.system(size: CGFloat.random(in: 14...20)),
-            text: Font.system(size: CGFloat.random(in: 10...14))
+            title: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: CGFloat.random(in: 20...30), fontWeight: Bool.random() ? .regular : .heavy),
+            subtitle: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: CGFloat.random(in: 14...20), fontWeight: Bool.random() ? .thin : .bold),
+            text: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: CGFloat.random(in: 10...14), fontWeight: Bool.random() ? .regular : .medium)
         )
     }
 }

@@ -7,17 +7,19 @@ import SwiftUI
 import UIKit
 
 public struct AppFont: Equatable, Codable {
-    let fontName: String
-    let fontSize: CGFloat
+    public let fontName: String
+    public let fontSize: CGFloat
+    public let fontWeight: AppFontWeight
 
-    public init(fontName: String, fontSize: CGFloat) {
+    public init(fontName: String, fontSize: CGFloat, fontWeight: AppFontWeight) {
         self.fontName = fontName
         self.fontSize = fontSize
+        self.fontWeight = fontWeight
     }
 }
 
 public extension AppFont {
     var font: Font {
-        .custom(fontName, size: fontSize)
+        .custom("\(fontName.capitalized)-\(fontWeight.rawValue.capitalized)", size: fontSize)
     }
 }

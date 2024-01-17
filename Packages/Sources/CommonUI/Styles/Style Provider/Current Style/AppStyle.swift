@@ -93,19 +93,16 @@ private extension AppStyle {
         case .title:
             AppTextModifier.StyleGuide(
                 font: designSystem.fonts.title.font,
-                fontWeight: designSystem.fontWights.heavy,
                 color: designSystem.colors.text500.color ?? .clear
             )
         case .subtitle:
             AppTextModifier.StyleGuide(
                 font: designSystem.fonts.subtitle.font,
-                fontWeight: designSystem.fontWights.bold,
                 color: designSystem.colors.text500.color ?? .clear
             )
         case .text:
             AppTextModifier.StyleGuide(
                 font: designSystem.fonts.text.font,
-                fontWeight: designSystem.fontWights.regular,
                 color: designSystem.colors.text500.color ?? .clear
             )
         }
