@@ -11,8 +11,7 @@ public extension AppDesignSystem {
     static var `default`: AppDesignSystem {
         AppDesignSystem(
             colors: .default,
-            fonts: .default,
-            fontWights: .default
+            fonts: .default
         )
     }
 }

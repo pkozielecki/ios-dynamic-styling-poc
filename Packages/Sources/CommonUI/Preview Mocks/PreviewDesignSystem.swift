@@ -10,8 +10,7 @@ public extension AppDesignSystem {
     static var preview: AppDesignSystem {
         AppDesignSystem(
             colors: .preview,
-            fonts: .default,
-            fontWights: .default
+            fonts: .default
         )
     }
 }

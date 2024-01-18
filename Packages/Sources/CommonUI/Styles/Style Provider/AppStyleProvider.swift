@@ -35,8 +35,7 @@ extension LiveAppStyleProvider: AppStyleProvider {
         // TODO: Take values from the web.
         let designSystemUpdate = DesignSystemUpdate(
             colors: AppColorsUpdate.random,
-            fonts: AppFontsUpdate.random,
-            fontWights: nil
+            fonts: AppFontsUpdate.random
         )
 
         appStyle.update(with: nil, and: designSystemUpdate)

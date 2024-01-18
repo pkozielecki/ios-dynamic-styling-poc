@@ -20,15 +20,3 @@ public struct AppFontWeights: Equatable {
         self.heavy = heavy
     }
 }
-
-public extension AppFontWeights {
-    static var `default`: AppFontWeights {
-        AppFontWeights(
-            light: AppFontWeight.light,
-            regular: AppFontWeight.regular,
-            semiBold: AppFontWeight.semibold,
-            bold: AppFontWeight.bold,
-            heavy: AppFontWeight.heavy
-        )
-    }
-}
