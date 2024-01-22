@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public struct AppDesignSystem: Equatable {
+public struct AppDesignSystem: Equatable, Codable {
     public let colors: AppColors
     public let fonts: AppFonts
 
@@ -14,7 +14,7 @@ public struct AppDesignSystem: Equatable {
         self.fonts = fonts
     }
 
-    public func merging(with designUpdate: DesignSystemUpdate) -> AppDesignSystem {
+    public func merging(with designUpdate: AppDesignSystemUpdate) -> AppDesignSystem {
         AppDesignSystem(
             colors: colors.merging(with: designUpdate.colors),
             fonts: fonts.merging(with: designUpdate.fonts)
@@ -22,7 +22,7 @@ public struct AppDesignSystem: Equatable {
     }
 }
 
-public struct DesignSystemUpdate: Equatable, Codable {
+public struct AppDesignSystemUpdate: Equatable, Codable {
     public let colors: AppColorsUpdate?
     public let fonts: AppFontsUpdate?
 }

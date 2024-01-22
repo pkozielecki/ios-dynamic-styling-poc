@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public struct AppFonts: Equatable {
+public struct AppFonts: Equatable, Codable {
     public let title: AppFont
     public let subtitle: AppFont
     public let text: AppFont

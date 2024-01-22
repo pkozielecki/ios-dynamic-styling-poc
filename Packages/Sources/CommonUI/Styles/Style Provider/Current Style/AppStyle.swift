@@ -5,37 +5,53 @@
 
 import SwiftUI
 
-public struct AppStyle: Equatable {
-    public private(set) var buttonStyles: [AppButtonType: AppButtonStyle]
-    public private(set) var textStyles: [AppTextType: AppTextModifier.StyleGuide]
-    public private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
+public struct AppStyle: Equatable, Codable {
+    public let designSystem: AppDesignSystem
+    public let components: AppComponentsStyles
 
-    private var initialDesignSystem: AppDesignSystem
+    private var buttonStyles: [AppButtonType: AppButtonStyle]
+    private var textStyles: [AppTextType: AppTextModifier.StyleGuide]
+    private var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
 
-    public init(initialDesignSystem: AppDesignSystem) {
-        self.initialDesignSystem = initialDesignSystem
+    private enum CodingKeys: String, CodingKey {
+        case designSystem, components
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        designSystem = try container.decode(AppDesignSystem.self, forKey: .designSystem)
+        components = try container.decode(AppComponentsStyles.self, forKey: .components)
+        textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
+        // TODO: Transform the rest:
+        buttonStyles = AppStyle.composeButtonStyles(designSystem: designSystem)
+        textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: designSystem)
+    }
+
+    // But we want to store `fullName` in the JSON anyhow
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(designSystem, forKey: .designSystem)
+        try container.encode(components, forKey: .components)
+    }
+
+    public init(initialDesignSystem: AppDesignSystem, intialComponents: AppComponentsStyles) {
+        designSystem = initialDesignSystem
+        components = intialComponents
+        textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
+        // TODO: Transform the rest:
         buttonStyles = AppStyle.composeButtonStyles(designSystem: initialDesignSystem)
-        textStyles = AppStyle.composeAppTextStyles(designSystem: initialDesignSystem)
         textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: initialDesignSystem)
     }
 
     public mutating func update(with appStyleUpdate: AppStyleUpdate?) {
-        if let designSystem = appStyleUpdate?.designSystem {
-            let newDesignSystem = initialDesignSystem.merging(with: designSystem)
+        if let designSystemUpdate = appStyleUpdate?.designSystem {
+            let newDesignSystem = designSystem.merging(with: designSystemUpdate)
+            // TODO: Extract components from style and include them here:
+            textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
+            // TODO: Merge merge components
             buttonStyles = AppStyle.composeButtonStyles(designSystem: newDesignSystem)
-            textStyles = AppStyle.composeAppTextStyles(designSystem: newDesignSystem)
             textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: newDesignSystem)
         }
-        /*
-         if let componentStyles = appStyleUpdate?.components {
-             for textStyle in componentStyles.text ?? [] {
-                 textStyle[textStyle.type].update(from: textStyle)
-             }
-             for textName in AppTextType.allCases {
-                 var currentStyle = textStyles[textName]
-             }
-         }
-          */
     }
 }
 
@@ -63,10 +79,12 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeAppTextStyles(designSystem: AppDesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
+    static func composeAppTextStyles(components: AppComponentsStyles, designSystem: AppDesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
         var styles = [AppTextType: AppTextModifier.StyleGuide]()
-        for textType in AppTextType.allCases {
-            styles[textType] = makeInitialTextStyleGuide(appTextType: textType, designSystem: designSystem)
+        for (key, value) in components.text {
+            if let textType = AppTextType(rawValue: key) {
+                styles[textType] = makeInitialTextStyleGuide(appTextType: textType, textStyle: value, designSystem: designSystem)
+            }
         }
         return styles
     }
@@ -99,7 +117,7 @@ private extension AppStyle {
         }
     }
 
-    static func makeInitialTextStyleGuide(appTextType: AppTextType, designSystem: AppDesignSystem) -> AppTextModifier.StyleGuide {
+    static func makeInitialTextStyleGuide(appTextType: AppTextType, textStyle: AppTextStyle, designSystem: AppDesignSystem) -> AppTextModifier.StyleGuide {
         switch appTextType {
         case .title:
             AppTextModifier.StyleGuide(

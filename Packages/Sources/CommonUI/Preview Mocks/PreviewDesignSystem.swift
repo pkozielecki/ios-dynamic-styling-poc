@@ -6,6 +6,15 @@
 import Foundation
 import SwiftUI
 
+public extension AppComponentsStyles {
+    static var preview: AppComponentsStyles {
+        AppComponentsStyles(
+            // TODO: Add styles for previews!!!
+            text: [:]
+        )
+    }
+}
+
 public extension AppDesignSystem {
     static var preview: AppDesignSystem {
         AppDesignSystem(
