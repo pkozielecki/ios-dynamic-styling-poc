@@ -46,9 +46,6 @@
 		2AF7A5642B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54F2B57AEFA00FCEBB2 /* Inter-SemiBold.ttf */; };
 		2AF7A5652B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54F2B57AEFA00FCEBB2 /* Inter-SemiBold.ttf */; };
 		2AF7A5662B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54F2B57AEFA00FCEBB2 /* Inter-SemiBold.ttf */; };
-		2AF7A5672B57AEFA00FCEBB2 /* Inter-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5502B57AEFA00FCEBB2 /* Inter-Heavy.ttf */; };
-		2AF7A5682B57AEFA00FCEBB2 /* Inter-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5502B57AEFA00FCEBB2 /* Inter-Heavy.ttf */; };
-		2AF7A5692B57AEFA00FCEBB2 /* Inter-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5502B57AEFA00FCEBB2 /* Inter-Heavy.ttf */; };
 		2AF7A56A2B57AEFA00FCEBB2 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5512B57AEFA00FCEBB2 /* Inter-UltraLight.ttf */; };
 		2AF7A56B2B57AEFA00FCEBB2 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5512B57AEFA00FCEBB2 /* Inter-UltraLight.ttf */; };
 		2AF7A56C2B57AEFA00FCEBB2 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5512B57AEFA00FCEBB2 /* Inter-UltraLight.ttf */; };
@@ -92,7 +89,6 @@
 		2AF7A54D2B57AEFA00FCEBB2 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Medium.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-Medium.ttf"; sourceTree = "<group>"; };
 		2AF7A54E2B57AEFA00FCEBB2 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Light.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-Light.ttf"; sourceTree = "<group>"; };
 		2AF7A54F2B57AEFA00FCEBB2 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-SemiBold.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
-		2AF7A5502B57AEFA00FCEBB2 /* Inter-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Heavy.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-Heavy.ttf"; sourceTree = "<group>"; };
 		2AF7A5512B57AEFA00FCEBB2 /* Inter-UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-UltraLight.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-UltraLight.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,7 +263,6 @@
 			children = (
 				2AF7A54B2B57AEF900FCEBB2 /* Inter-Black.ttf */,
 				2AF7A54A2B57AEF900FCEBB2 /* Inter-Bold.ttf */,
-				2AF7A5502B57AEFA00FCEBB2 /* Inter-Heavy.ttf */,
 				2AF7A54E2B57AEFA00FCEBB2 /* Inter-Light.ttf */,
 				2AF7A54D2B57AEFA00FCEBB2 /* Inter-Medium.ttf */,
 				2AF7A54C2B57AEF900FCEBB2 /* Inter-Regular.ttf */,
@@ -417,7 +412,6 @@
 				2AF7A5612B57AEFA00FCEBB2 /* Inter-Light.ttf in Resources */,
 				2AF7A5642B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */,
 				2AF7A5582B57AEFA00FCEBB2 /* Inter-Black.ttf in Resources */,
-				2AF7A5672B57AEFA00FCEBB2 /* Inter-Heavy.ttf in Resources */,
 				2AF7A5552B57AEFA00FCEBB2 /* Inter-Bold.ttf in Resources */,
 				2AF7A55E2B57AEFA00FCEBB2 /* Inter-Medium.ttf in Resources */,
 				2AF7A55B2B57AEFA00FCEBB2 /* Inter-Regular.ttf in Resources */,
@@ -436,7 +430,6 @@
 				2AF7A55F2B57AEFA00FCEBB2 /* Inter-Medium.ttf in Resources */,
 				2AF7A5532B57AEFA00FCEBB2 /* Inter-Thin.ttf in Resources */,
 				2AF7A5652B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */,
-				2AF7A5682B57AEFA00FCEBB2 /* Inter-Heavy.ttf in Resources */,
 				2A3E09182B34582700B3C2CD /* Assets.xcassets in Resources */,
 				2AF7A5592B57AEFA00FCEBB2 /* Inter-Black.ttf in Resources */,
 				2AF7A5622B57AEFA00FCEBB2 /* Inter-Light.ttf in Resources */,
@@ -460,7 +453,6 @@
 				2AF7A5602B57AEFA00FCEBB2 /* Inter-Medium.ttf in Resources */,
 				2AF7A5542B57AEFA00FCEBB2 /* Inter-Thin.ttf in Resources */,
 				2AF7A5662B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */,
-				2AF7A5692B57AEFA00FCEBB2 /* Inter-Heavy.ttf in Resources */,
 				2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */,
 				2AF7A55A2B57AEFA00FCEBB2 /* Inter-Black.ttf in Resources */,
 				2AF7A5632B57AEFA00FCEBB2 /* Inter-Light.ttf in Resources */,
@@ -669,6 +661,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
@@ -707,6 +700,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
@@ -742,6 +736,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -775,6 +770,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -845,6 +841,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -879,6 +876,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -14,17 +14,28 @@ public struct AppStyle: Equatable {
 
     public init(initialDesignSystem: AppDesignSystem) {
         self.initialDesignSystem = initialDesignSystem
-        buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: initialDesignSystem)
-        textStyles = AppStyle.composeInitialAppTextStyles(designSystem: initialDesignSystem)
-        textFieldStyles = AppStyle.composeInitialAppTextFieldStyles(designSystem: initialDesignSystem)
+        buttonStyles = AppStyle.composeButtonStyles(designSystem: initialDesignSystem)
+        textStyles = AppStyle.composeAppTextStyles(designSystem: initialDesignSystem)
+        textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: initialDesignSystem)
     }
 
-    public mutating func update(with appStyle: AppStyle?, and designSystem: DesignSystemUpdate) {
-        // TODO: Implement proper styles merge.
-        let newDesignSystem = initialDesignSystem.merging(with: designSystem)
-        buttonStyles = AppStyle.composeInitialButtonStyles(designSystem: newDesignSystem)
-        textStyles = AppStyle.composeInitialAppTextStyles(designSystem: newDesignSystem)
-        textFieldStyles = AppStyle.composeInitialAppTextFieldStyles(designSystem: newDesignSystem)
+    public mutating func update(with appStyleUpdate: AppStyleUpdate?) {
+        if let designSystem = appStyleUpdate?.designSystem {
+            let newDesignSystem = initialDesignSystem.merging(with: designSystem)
+            buttonStyles = AppStyle.composeButtonStyles(designSystem: newDesignSystem)
+            textStyles = AppStyle.composeAppTextStyles(designSystem: newDesignSystem)
+            textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: newDesignSystem)
+        }
+        /*
+         if let componentStyles = appStyleUpdate?.components {
+             for textStyle in componentStyles.text ?? [] {
+                 textStyle[textStyle.type].update(from: textStyle)
+             }
+             for textName in AppTextType.allCases {
+                 var currentStyle = textStyles[textName]
+             }
+         }
+          */
     }
 }
 
@@ -43,7 +54,7 @@ public extension AppStyle {
 }
 
 private extension AppStyle {
-    static func composeInitialButtonStyles(designSystem: AppDesignSystem) -> [AppButtonType: AppButtonStyle] {
+    static func composeButtonStyles(designSystem: AppDesignSystem) -> [AppButtonType: AppButtonStyle] {
         var styles = [AppButtonType: AppButtonStyle]()
         for buttonType in AppButtonType.allCases {
             let styleGuide = makeInitialButtonStyleGuide(buttonType: buttonType, designSystem: designSystem)
@@ -52,7 +63,7 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeInitialAppTextStyles(designSystem: AppDesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
+    static func composeAppTextStyles(designSystem: AppDesignSystem) -> [AppTextType: AppTextModifier.StyleGuide] {
         var styles = [AppTextType: AppTextModifier.StyleGuide]()
         for textType in AppTextType.allCases {
             styles[textType] = makeInitialTextStyleGuide(appTextType: textType, designSystem: designSystem)
@@ -60,7 +71,7 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeInitialAppTextFieldStyles(designSystem: AppDesignSystem) -> [AppTextFieldType: AppTextFieldStyle] {
+    static func composeAppTextFieldStyles(designSystem: AppDesignSystem) -> [AppTextFieldType: AppTextFieldStyle] {
         var styles = [AppTextFieldType: AppTextFieldStyle]()
         for textFiledType in AppTextFieldType.allCases {
             let styleGuide = makeInitialTextFieldStyleGuide(appTextFieldType: textFiledType, designSystem: designSystem)
@@ -92,18 +103,18 @@ private extension AppStyle {
         switch appTextType {
         case .title:
             AppTextModifier.StyleGuide(
-                font: designSystem.fonts.title.font,
-                color: designSystem.colors.text500.color ?? .clear
+                font: designSystem.fonts.title,
+                color: designSystem.colors.text500
             )
         case .subtitle:
             AppTextModifier.StyleGuide(
-                font: designSystem.fonts.subtitle.font,
-                color: designSystem.colors.text500.color ?? .clear
+                font: designSystem.fonts.subtitle,
+                color: designSystem.colors.text500
             )
         case .text:
             AppTextModifier.StyleGuide(
-                font: designSystem.fonts.text.font,
-                color: designSystem.colors.text500.color ?? .clear
+                font: designSystem.fonts.text,
+                color: designSystem.colors.text500
             )
         }
     }

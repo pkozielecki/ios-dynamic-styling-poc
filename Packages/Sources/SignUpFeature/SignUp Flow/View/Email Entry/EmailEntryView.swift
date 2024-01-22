@@ -50,7 +50,7 @@ private extension EmailEntryView {
 #if DEBUG
 #Preview {
     let viewModel = PreviewEmailEntryViewModel()
-    let appStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
+    let appStyleProvider = PreviewFactory.makeStyleProvider()
     return EmailEntryView(viewModel: viewModel, appStyleProvider: appStyleProvider)
 }
 #endif

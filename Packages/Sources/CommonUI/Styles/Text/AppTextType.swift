@@ -5,8 +5,7 @@
 
 import SwiftUI
 
-public enum AppTextType: Equatable, CaseIterable {
-    // TODO: Add more text types.
+public enum AppTextType: String, Equatable, Codable, CaseIterable {
     case title
     case subtitle
     case text

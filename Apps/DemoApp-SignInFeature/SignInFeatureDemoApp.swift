@@ -35,8 +35,14 @@ struct SignInFeatureDemoApp: App {
 private extension SignInFeatureDemoApp {
     func initializeDependencies() {
         let dependencyManager = LiveDependencyManager.shared as? DependencyManager
+        let networkModule = NetworkingFactory.makeNetworkModule(baseURL: URL(string: "https://whg.com")!)
+        let appStyleProvider = LiveAppStyleProvider(
+            appStyleSynchroniser: LiveAppStyleSynchroniser(networkModule: networkModule),
+            initialDesignSystem: .default
+        )
+        dependencyManager?.register(networkModule, for: NetworkModule.self)
         dependencyManager?.register(LiveNavigationRouter(), for: NavigationRouter.self)
-        dependencyManager?.register(LiveAppStyleProvider(initialDesignSystem: .default), for: AppStyleProvider.self)
+        dependencyManager?.register(appStyleProvider, for: AppStyleProvider.self)
     }
 }
 

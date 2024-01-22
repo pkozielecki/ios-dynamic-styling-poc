@@ -15,7 +15,6 @@ public struct AppDesignSystem: Equatable {
     }
 
     public func merging(with designUpdate: DesignSystemUpdate) -> AppDesignSystem {
-        // TODO: Implement merging fonts and font weights.
         AppDesignSystem(
             colors: colors.merging(with: designUpdate.colors),
             fonts: fonts.merging(with: designUpdate.fonts)
@@ -23,7 +22,7 @@ public struct AppDesignSystem: Equatable {
     }
 }
 
-public struct DesignSystemUpdate: Equatable {
+public struct DesignSystemUpdate: Equatable, Codable {
     public let colors: AppColorsUpdate?
     public let fonts: AppFontsUpdate?
 }

@@ -1,0 +1,77 @@
+{
+  "colors": {
+    "error500": {
+      "lightModeValue": "#FF0000",
+      "darkModeValue": "#990000"
+    },
+    "informative500": {
+      "lightModeValue": "#0000FF",
+      "darkModeValue": "#000099"
+    },
+    "neutral500": {
+      "lightModeValue": "#808080",
+      "darkModeValue": "#404040"
+    },
+    "primary100": {
+      "lightModeValue": "#FFFF00",
+      "darkModeValue": "#999900"
+    },
+    "primary500": {
+      "lightModeValue": "#FFA500",
+      "darkModeValue": "#FF4500"
+    },
+    "primary900": {
+      "lightModeValue": "#FF6347",
+      "darkModeValue": "#DC143C"
+    },
+    "secondary100": {
+      "lightModeValue": "#00FF00",
+      "darkModeValue": "#009900"
+    },
+    "secondary500": {
+      "lightModeValue": "#00FFFF",
+      "darkModeValue": "#009999"
+    },
+    "secondary900": {
+      "lightModeValue": "#008080",
+      "darkModeValue": "#004040"
+    },
+    "success500": {
+      "lightModeValue": "#008000",
+      "darkModeValue": "#004000"
+    },
+    "tertiary100": {
+      "lightModeValue": "#800080",
+      "darkModeValue": "#400040"
+    },
+    "text500": {
+      "lightModeValue": "#000000",
+      "darkModeValue": "#333333"
+    },
+    "warning500": {
+      "lightModeValue": "#FFA07A",
+      "darkModeValue": "#FF8C00"
+    },
+    "clear": {
+      "lightModeValue": "#FFFFFF",
+      "darkModeValue": "#F5F5F5"
+    }
+  },
+  "fonts": {
+    "title": {
+      "fontName": "Arial",
+      "fontSize": 18,
+      "fontWeight": "bold"
+    },
+    "subtitle": {
+      "fontName": "Helvetica",
+      "fontSize": 14,
+      "fontWeight": "regular"
+    },
+    "text": {
+      "fontName": "Times New Roman",
+      "fontSize": 12,
+      "fontWeight": "regular"
+    }
+  }
+}

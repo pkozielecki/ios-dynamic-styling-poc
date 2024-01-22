@@ -14,8 +14,8 @@ public struct AppTextModifier: ViewModifier {
 
     public func body(content: Content) -> some View {
         content
-            .font(styleGuide.font)
-            .foregroundColor(styleGuide.color)
+            .font(styleGuide.font.font)
+            .foregroundColor(styleGuide.color.color)
     }
 }
 
@@ -35,12 +35,31 @@ public extension Text {
 
 public extension AppTextModifier {
     struct StyleGuide: Equatable {
-        public let font: Font
-        public let color: Color
+        public let font: AppFont
+        public let color: AppColor
 
-        public init(font: Font, color: Color) {
+        public init(font: AppFont, color: AppColor) {
             self.font = font
             self.color = color
         }
+    }
+
+    struct StyleGuideUpdate: Equatable, Codable {
+        public let font: AppFont?
+        public let color: AppColor?
+
+        public init(font: AppFont?, color: AppColor?) {
+            self.font = font
+            self.color = color
+        }
+    }
+}
+
+public extension AppTextModifier.StyleGuide {
+    func merging(with designUpdate: AppTextModifier.StyleGuideUpdate) -> AppTextModifier.StyleGuide {
+        AppTextModifier.StyleGuide(
+            font: designUpdate.font ?? font,
+            color: designUpdate.color ?? color
+        )
     }
 }

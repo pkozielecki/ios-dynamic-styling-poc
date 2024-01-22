@@ -26,8 +26,6 @@ public extension AppFontWeight {
             .semibold
         case .bold:
             .bold
-        case .heavy:
-            .heavy
         case .black:
             .black
         default:

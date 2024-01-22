@@ -26,20 +26,20 @@ public struct AppFonts: Equatable {
 }
 
 public extension AppFonts {
-    enum Names: String {
+    enum Names: String, Equatable, Codable {
         case inter = "Inter"
     }
 
     static var `default`: AppFonts {
         AppFonts(
-            title: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: 20, fontWeight: .heavy),
-            subtitle: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: 16, fontWeight: .bold),
-            text: .init(fontName: AppFonts.Names.inter.rawValue, fontSize: 14, fontWeight: .regular)
+            title: .init(fontName: AppFonts.Names.inter, fontSize: 22, fontWeight: .black),
+            subtitle: .init(fontName: AppFonts.Names.inter, fontSize: 16, fontWeight: .bold),
+            text: .init(fontName: AppFonts.Names.inter, fontSize: 14, fontWeight: .regular)
         )
     }
 }
 
-public struct AppFontsUpdate: Equatable {
+public struct AppFontsUpdate: Equatable, Codable {
     public let title: AppFont?
     public let subtitle: AppFont?
     public let text: AppFont?

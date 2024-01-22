@@ -20,6 +20,7 @@ let package = Package(
         .package(url: "https://github.com/playbook-ui/playbook-ios", exact: "0.3.4"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.12.0"),
         .package(url: "https://github.com/realm/SwiftLint", exact: "0.52.3"),
+        .package(url: "https://github.com/netguru/ng-ios-network-module", from: "1.0.4"),
     ],
     targets: [
         .target(
@@ -53,6 +54,7 @@ let package = Package(
             name: "CommonUI",
             dependencies: [
                 .product(name: "Inject", package: "Inject"),
+                "Common",
             ],
             resources: [
                 .process("Resources"),
@@ -62,6 +64,8 @@ let package = Package(
         .target(
             name: "Common",
             dependencies: [
+                .product(name: "NgNetworkModuleCore", package: "ng-ios-network-module"),
+                .product(name: "ConcurrentNgNetworkModule", package: "ng-ios-network-module"),
             ]
         ),
         .target(

@@ -105,7 +105,7 @@ public struct AppColors: Equatable, Codable {
     }
 }
 
-public struct AppColorsUpdate: Equatable {
+public struct AppColorsUpdate: Equatable, Codable {
     public let error500: AppColor?
     public let informative500: AppColor?
     public let neutral500: AppColor?

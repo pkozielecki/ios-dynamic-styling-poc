@@ -12,9 +12,9 @@ extension Color: Codable {
 
         self.init(
             .sRGB,
-            red: Double(rgba.r),
-            green: Double(rgba.g),
-            blue: Double(rgba.b),
+            red: Double(rgba.red),
+            green: Double(rgba.green),
+            blue: Double(rgba.blue),
             opacity: Double(rgba.alpha)
         )
     }
@@ -40,29 +40,29 @@ extension Color: Codable {
             return nil
         }
 
-        let r = Float(components[0])
-        let g = Float(components[1])
-        let b = Float(components[2])
-        var a = Float(1.0)
+        let rr = Float(components[0])
+        let gg = Float(components[1])
+        let bb = Float(components[2])
+        var aa = Float(1.0)
 
         if components.count >= 4 {
-            a = Float(components[3])
+            aa = Float(components[3])
         }
 
         if alpha {
             return String(
                 format: "%02lX%02lX%02lX%02lX",
-                lroundf(r * 255),
-                lroundf(g * 255),
-                lroundf(b * 255),
-                lroundf(a * 255)
+                lroundf(rr * 255),
+                lroundf(gg * 255),
+                lroundf(bb * 255),
+                lroundf(aa * 255)
             )
         } else {
             return String(
                 format: "%02lX%02lX%02lX",
-                lroundf(r * 255),
-                lroundf(g * 255),
-                lroundf(b * 255)
+                lroundf(rr * 255),
+                lroundf(gg * 255),
+                lroundf(bb * 255)
             )
         }
     }

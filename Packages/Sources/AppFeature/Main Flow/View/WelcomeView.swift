@@ -38,6 +38,6 @@ struct WelcomeView: View {
 
 #Preview {
     let viewModel = PreviewWelcomeViewModel()
-    let appStyleProvider = LiveAppStyleProvider(initialDesignSystem: .preview)
+    let appStyleProvider = PreviewFactory.makeStyleProvider()
     return WelcomeView(viewModel: viewModel, appStyleProvider: appStyleProvider)
 }

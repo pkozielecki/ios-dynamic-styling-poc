@@ -20,7 +20,13 @@ struct DependenciesInitializer {
     }
 
     func registerDependencies() {
+        let networkModule = NetworkingFactory.makeNetworkModule(baseURL: URL(string: "https://whg.com")!)
+        let appStyleProvider = LiveAppStyleProvider(
+            appStyleSynchroniser: LiveAppStyleSynchroniser(networkModule: networkModule),
+            initialDesignSystem: designSystem
+        )
+        dependenciesRegistrator.register(networkModule, for: NetworkModule.self)
         dependenciesRegistrator.register(LiveNavigationRouter(), for: NavigationRouter.self)
-        dependenciesRegistrator.register(LiveAppStyleProvider(initialDesignSystem: designSystem), for: AppStyleProvider.self)
+        dependenciesRegistrator.register(appStyleProvider, for: AppStyleProvider.self)
     }
 }

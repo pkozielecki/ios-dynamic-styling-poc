@@ -5,8 +5,7 @@
 
 import Foundation
 
-public enum AppButtonType: Equatable, CaseIterable {
-    // TODO: Add more button types.
+public enum AppButtonType: String, Equatable, Codable, CaseIterable {
     case primary
     case secondry
 }
