@@ -32,12 +32,3 @@ public extension AppComponentsStyles {
         )
     }
 }
-
-public struct AppComponentsStylesUpdate: Equatable, Codable {
-    public let text: [String: AppTextStyleUpdate]?
-}
-
-public struct AppTextStyleUpdate: Equatable, Codable {
-    public let font: String?
-    public let color: String?
-}

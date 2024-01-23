@@ -9,9 +9,9 @@ public struct AppStyle: Equatable, Codable {
     public let designSystem: AppDesignSystem
     public let components: AppComponentsStyles
 
-    private var buttonStyles: [AppButtonType: AppButtonStyle]
-    private var textStyles: [AppTextType: AppTextModifier.StyleGuide]
-    private var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
+    private(set) var buttonStyles: [AppButtonType: AppButtonStyle]
+    private(set) var textStyles: [AppTextType: AppTextModifier.StyleGuide]
+    private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
 
     private enum CodingKeys: String, CodingKey {
         case designSystem, components
@@ -41,17 +41,6 @@ public struct AppStyle: Equatable, Codable {
         // TODO: Transform the rest:
         buttonStyles = AppStyle.composeButtonStyles(designSystem: initialDesignSystem)
         textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: initialDesignSystem)
-    }
-
-    public mutating func update(with appStyleUpdate: AppStyleUpdate?) {
-        if let designSystemUpdate = appStyleUpdate?.designSystem {
-            let newDesignSystem = designSystem.merging(with: designSystemUpdate)
-            // TODO: Extract components from style and include them here:
-            textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
-            // TODO: Merge merge components
-            buttonStyles = AppStyle.composeButtonStyles(designSystem: newDesignSystem)
-            textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: newDesignSystem)
-        }
     }
 }
 
@@ -83,7 +72,7 @@ private extension AppStyle {
         var styles = [AppTextType: AppTextModifier.StyleGuide]()
         for (key, value) in components.text {
             if let textType = AppTextType(rawValue: key) {
-                styles[textType] = makeInitialTextStyleGuide(appTextType: textType, textStyle: value, designSystem: designSystem)
+                styles[textType] = makeTextStyleGuide(appTextType: textType, colorName: value.color, designSystem: designSystem)
             }
         }
         return styles
@@ -117,22 +106,25 @@ private extension AppStyle {
         }
     }
 
-    static func makeInitialTextStyleGuide(appTextType: AppTextType, textStyle: AppTextStyle, designSystem: AppDesignSystem) -> AppTextModifier.StyleGuide {
+    static func makeTextStyleGuide(appTextType: AppTextType, colorName: String, designSystem: AppDesignSystem) -> AppTextModifier.StyleGuide {
+        // TODO: Extract to a dedicated factory:
+        let font = designSystem.fonts.getFont(textType: appTextType)
+        let color = designSystem.colors.getColor(named: colorName)
         switch appTextType {
         case .title:
-            AppTextModifier.StyleGuide(
-                font: designSystem.fonts.title,
-                color: designSystem.colors.text500
+            return AppTextModifier.StyleGuide(
+                font: font ?? designSystem.fonts.title,
+                color: color ?? designSystem.colors.text500
             )
         case .subtitle:
-            AppTextModifier.StyleGuide(
-                font: designSystem.fonts.subtitle,
-                color: designSystem.colors.text500
+            return AppTextModifier.StyleGuide(
+                font: font ?? designSystem.fonts.subtitle,
+                color: color ?? designSystem.colors.text500
             )
         case .text:
-            AppTextModifier.StyleGuide(
-                font: designSystem.fonts.text,
-                color: designSystem.colors.text500
+            return AppTextModifier.StyleGuide(
+                font: font ?? designSystem.fonts.text,
+                color: color ?? designSystem.colors.text500
             )
         }
     }

@@ -1,5 +1,5 @@
 //
-//  JSONParser.swift
+//  JSONMerger.swift
 //  Dynamic Styling POC
 //
 

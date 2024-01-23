@@ -18,19 +18,31 @@ public final class LiveAppStyleSynchroniser: AppStyleSynchroniser {
     }
 
     @MainActor public func synchroniseStyles(currentStyle: AppStyle) async -> AppStyle {
-        var newStyle = currentStyle
-        let request = FetchStylesUpdateRequest()
         do {
-            /*
-             let response = try await networkModule.perform(request: request)
-             let appStyleUpdate = try JSONDecoder().decode(AppStyleUpdate.self, from: response.data ?? Data())
-             newStyle.update(with: nil, and: appStyleUpdate.designSystem)
-              */
-            let appStyleUpdate = try await networkModule.performAndDecode(request: request, responseType: AppStyleUpdate.self)
-            newStyle.update(with: appStyleUpdate)
+            let request = FetchStylesUpdateRequest()
+            let response = try await networkModule.perform(request: request)
+            return update(currentStyle: currentStyle, with: response.data)
         } catch {
-            print(error)
+            print("🔴 Style update download error: \(error)")
+            return currentStyle
         }
-        return newStyle
+    }
+}
+
+private extension LiveAppStyleSynchroniser {
+    func update(currentStyle: AppStyle, with styleUpdateData: Data?) -> AppStyle {
+        let currentStyleDict = currentStyle.toDictionary()
+        let styleUpdateDict = try? JSONSerialization.jsonObject(with: styleUpdateData ?? Data(), options: [])
+        if let currentStyleDict = currentStyleDict as? [String: AnyHashable],
+           let styleUpdateDict = styleUpdateDict as? [String: AnyHashable] {
+            // Discussion: The concept is really simple. Instead of merging style values menually,
+            // ... let's just convert style structures to Dictionaries and merge them once:
+            let mergedStyleDict = JSONMerger.mergeDictionary(currentStyleDict, with: styleUpdateDict)
+            let mergedStyleData = try? JSONSerialization.data(withJSONObject: mergedStyleDict, options: [])
+            // Discussion: Resulting Dictionaty will retain the structure of the original AppStyle:
+            let mergedStyle = try? JSONDecoder().decode(AppStyle.self, from: mergedStyleData ?? Data())
+            return mergedStyle ?? currentStyle
+        }
+        return currentStyle
     }
 }
