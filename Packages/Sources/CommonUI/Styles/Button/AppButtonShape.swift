@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public enum AppButtonShape: Equatable {
+public enum AppButtonShape: Equatable, Codable {
     case capsule
     case roundedRectangle(CGFloat)
     case `default`

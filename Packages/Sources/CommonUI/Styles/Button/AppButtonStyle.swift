@@ -5,33 +5,33 @@
 
 import SwiftUI
 
-public struct AppButtonStyle: ButtonStyle, Equatable {
-    public let styleGuide: StyleGuide
+public struct AppButtonStyle: Equatable, Codable {
+    public let shape: AppButtonShape
+    public let backgroundColor: String
+    public let textColor: String
+    public let padding: [CGFloat]
 
-    public init(styleGuide: StyleGuide) {
-        self.styleGuide = styleGuide
-    }
-
-    public func makeBody(configuration: AppButtonStyle.Configuration) -> some View {
-        configuration.label
-            .foregroundColor(styleGuide.textColor)
-            .padding(styleGuide.padding)
-            .opacity(configuration.isPressed ? 0.5 : 1.0)
-            .background(makeBackgroundView())
+    public func makeStyleGuide(designStystem: AppDesignSystem) -> StyleGuide {
+        StyleGuide(
+            shape: shape,
+            backgroundColor: designStystem.colors.getColor(named: backgroundColor) ?? designStystem.colors.clear,
+            textColor: designStystem.colors.getColor(named: textColor) ?? designStystem.colors.clear,
+            padding: padding.edgeInsets
+        )
     }
 }
 
 public extension AppButtonStyle {
     struct StyleGuide: Equatable {
         public let shape: AppButtonShape
-        public let backgroundColor: Color
-        public let textColor: Color
+        public let backgroundColor: AppColor
+        public let textColor: AppColor
         public let padding: EdgeInsets
 
         public init(
             shape: AppButtonShape,
-            backgroundColor: Color,
-            textColor: Color,
+            backgroundColor: AppColor,
+            textColor: AppColor,
             padding: EdgeInsets
         ) {
             self.shape = shape
@@ -42,17 +42,27 @@ public extension AppButtonStyle {
     }
 }
 
-extension AppButtonStyle {
+extension AppButtonStyle.StyleGuide: ButtonStyle {
+    public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
+        configuration.label
+            .foregroundColor(textColor.color)
+            .padding(padding)
+            .opacity(configuration.isPressed ? 0.5 : 1.0)
+            .background(makeBackgroundView())
+    }
+}
+
+private extension AppButtonStyle.StyleGuide {
     @ViewBuilder func makeBackgroundView() -> some View {
-        switch styleGuide.shape {
+        switch shape {
         case .capsule:
-            Capsule().fill(styleGuide.backgroundColor)
+            Capsule().fill(backgroundColor.color ?? .clear)
         case .circle:
-            Circle().fill(styleGuide.backgroundColor)
+            Circle().fill(backgroundColor.color ?? .clear)
         case .roundedRectangle(let radius):
-            RoundedRectangle(cornerRadius: radius).fill(styleGuide.backgroundColor)
+            RoundedRectangle(cornerRadius: radius).fill(backgroundColor.color ?? .clear)
         case .default:
-            Rectangle().fill(styleGuide.backgroundColor)
+            Rectangle().fill(backgroundColor.color ?? .clear)
         }
     }
 }

@@ -9,7 +9,7 @@ public struct AppStyle: Equatable, Codable {
     public let designSystem: AppDesignSystem
     public let components: AppComponentsStyles
 
-    private(set) var buttonStyles: [AppButtonType: AppButtonStyle]
+    private(set) var buttonStyles: [AppButtonType: AppButtonStyle.StyleGuide]
     private(set) var textStyles: [AppTextType: AppTextModifier.StyleGuide]
     private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
 
@@ -22,8 +22,8 @@ public struct AppStyle: Equatable, Codable {
         designSystem = try container.decode(AppDesignSystem.self, forKey: .designSystem)
         components = try container.decode(AppComponentsStyles.self, forKey: .components)
         textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
+        buttonStyles = AppStyle.composeButtonStyles(components: components, designSystem: designSystem)
         // TODO: Transform the rest:
-        buttonStyles = AppStyle.composeButtonStyles(designSystem: designSystem)
         textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: designSystem)
     }
 
@@ -38,14 +38,14 @@ public struct AppStyle: Equatable, Codable {
         designSystem = initialDesignSystem
         components = intialComponents
         textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
+        buttonStyles = AppStyle.composeButtonStyles(components: components, designSystem: initialDesignSystem)
         // TODO: Transform the rest:
-        buttonStyles = AppStyle.composeButtonStyles(designSystem: initialDesignSystem)
         textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: initialDesignSystem)
     }
 }
 
 public extension AppStyle {
-    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle? {
+    func getButtonStyle(for buttonType: AppButtonType) -> AppButtonStyle.StyleGuide? {
         buttonStyles[buttonType]
     }
 
@@ -59,11 +59,11 @@ public extension AppStyle {
 }
 
 private extension AppStyle {
-    static func composeButtonStyles(designSystem: AppDesignSystem) -> [AppButtonType: AppButtonStyle] {
-        var styles = [AppButtonType: AppButtonStyle]()
+    static func composeButtonStyles(components: AppComponentsStyles, designSystem: AppDesignSystem) -> [AppButtonType: AppButtonStyle.StyleGuide] {
+        var styles = [AppButtonType: AppButtonStyle.StyleGuide]()
+        // TODO: Get button styles from components:
         for buttonType in AppButtonType.allCases {
-            let styleGuide = makeInitialButtonStyleGuide(buttonType: buttonType, designSystem: designSystem)
-            styles[buttonType] = AppButtonStyle(styleGuide: styleGuide)
+            styles[buttonType] = makeInitialButtonStyleGuide(buttonType: buttonType, designSystem: designSystem)
         }
         return styles
     }
@@ -92,15 +92,15 @@ private extension AppStyle {
         case .primary:
             AppButtonStyle.StyleGuide(
                 shape: .capsule,
-                backgroundColor: designSystem.colors.primary500.color ?? .clear,
-                textColor: designSystem.colors.text500.color ?? .clear,
+                backgroundColor: designSystem.colors.primary500,
+                textColor: designSystem.colors.text500,
                 padding: .init(top: 15, leading: 30, bottom: 15, trailing: 30) // TODO: Get padding from Design System
             )
         case .secondry:
             AppButtonStyle.StyleGuide(
                 shape: .default,
-                backgroundColor: designSystem.colors.clear.color ?? .clear,
-                textColor: designSystem.colors.primary500.color ?? .clear,
+                backgroundColor: designSystem.colors.clear,
+                textColor: designSystem.colors.primary500,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10) // TODO: Get padding from Design System
             )
         }
