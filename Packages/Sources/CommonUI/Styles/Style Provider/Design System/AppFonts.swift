@@ -36,7 +36,7 @@ public extension AppFonts {
             text
         }
     }
-    
+
     func getFont(textFieldType: AppTextFieldType) -> AppFont? {
         // TODO: Change to some more specialized font:
         switch textFieldType {
