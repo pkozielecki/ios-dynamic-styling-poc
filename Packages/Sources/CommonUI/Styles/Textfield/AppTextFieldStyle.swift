@@ -5,36 +5,29 @@
 
 import SwiftUI
 
-public struct AppTextFieldStyle: TextFieldStyle, Equatable {
-    public let styleGuide: StyleGuide
-
-    public init(styleGuide: StyleGuide) {
-        self.styleGuide = styleGuide
-    }
-
-    public func _body(configuration: TextField<_Label>) -> some View {
-        configuration
-            .padding(styleGuide.padding)
-            .background(makeBackgroundView())
-            .keyboardType(styleGuide.keyboardType)
-            .font(styleGuide.font)
-    }
+public struct AppTextFieldStyle: Codable, Equatable {
+    public let shape: AppTextFieldShape
+    public let backgroundColor: String
+    public let textColor: String
+    public let font: String
+    public let padding: [CGFloat]
+    public let keyboardType: Int
 }
 
 public extension AppTextFieldStyle {
     struct StyleGuide: Equatable {
         public let shape: AppTextFieldShape
-        public let backgroundColor: Color
-        public let textColor: Color
-        public let font: Font
+        public let backgroundColor: AppColor
+        public let textColor: AppColor
+        public let font: AppFont
         public let padding: EdgeInsets
         public let keyboardType: UIKeyboardType
 
         public init(
             shape: AppTextFieldShape,
-            backgroundColor: Color,
-            textColor: Color,
-            font: Font,
+            backgroundColor: AppColor,
+            textColor: AppColor,
+            font: AppFont,
             padding: EdgeInsets,
             keyboardType: UIKeyboardType
         ) {
@@ -48,11 +41,21 @@ public extension AppTextFieldStyle {
     }
 }
 
-extension AppTextFieldStyle {
+extension AppTextFieldStyle.StyleGuide: TextFieldStyle {
+    public func _body(configuration: TextField<_Label>) -> some View {
+        configuration
+            .padding(padding)
+            .background(makeBackgroundView())
+            .keyboardType(keyboardType)
+            .font(font.font)
+    }
+}
+
+extension AppTextFieldStyle.StyleGuide {
     @ViewBuilder func makeBackgroundView() -> some View {
-        switch styleGuide.shape {
+        switch shape {
         case .rounded(let radius):
-            RoundedRectangle(cornerRadius: radius).fill(styleGuide.backgroundColor)
+            RoundedRectangle(cornerRadius: radius).fill(backgroundColor.color ?? .clear)
         case .plain:
             Color.clear
         }

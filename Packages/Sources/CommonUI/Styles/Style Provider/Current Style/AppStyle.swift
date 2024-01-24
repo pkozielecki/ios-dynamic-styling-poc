@@ -11,7 +11,7 @@ public struct AppStyle: Equatable, Codable {
 
     private(set) var buttonStyles: [AppButtonType: AppButtonStyle.StyleGuide]
     private(set) var textStyles: [AppTextType: AppTextModifier.StyleGuide]
-    private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle]
+    private(set) var textFieldStyles: [AppTextFieldType: AppTextFieldStyle.StyleGuide]
 
     private enum CodingKeys: String, CodingKey {
         case designSystem, components
@@ -23,8 +23,7 @@ public struct AppStyle: Equatable, Codable {
         components = try container.decode(AppComponentsStyles.self, forKey: .components)
         textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
         buttonStyles = AppStyle.composeButtonStyles(components: components, designSystem: designSystem)
-        // TODO: Transform the rest:
-        textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: designSystem)
+        textFieldStyles = AppStyle.composeAppTextFieldStyles(components: components, designSystem: designSystem)
     }
 
     // But we want to store `fullName` in the JSON anyhow
@@ -39,8 +38,7 @@ public struct AppStyle: Equatable, Codable {
         components = intialComponents
         textStyles = AppStyle.composeAppTextStyles(components: components, designSystem: designSystem)
         buttonStyles = AppStyle.composeButtonStyles(components: components, designSystem: initialDesignSystem)
-        // TODO: Transform the rest:
-        textFieldStyles = AppStyle.composeAppTextFieldStyles(designSystem: initialDesignSystem)
+        textFieldStyles = AppStyle.composeAppTextFieldStyles(components: components, designSystem: initialDesignSystem)
     }
 }
 
@@ -53,7 +51,7 @@ public extension AppStyle {
         textStyles[labelType]
     }
 
-    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle? {
+    func getTextFieldStyle(for textFieldType: AppTextFieldType) -> AppTextFieldStyle.StyleGuide? {
         textFieldStyles[textFieldType]
     }
 }
@@ -78,16 +76,17 @@ private extension AppStyle {
         return styles
     }
 
-    static func composeAppTextFieldStyles(designSystem: AppDesignSystem) -> [AppTextFieldType: AppTextFieldStyle] {
-        var styles = [AppTextFieldType: AppTextFieldStyle]()
+    static func composeAppTextFieldStyles(components: AppComponentsStyles, designSystem: AppDesignSystem) -> [AppTextFieldType: AppTextFieldStyle.StyleGuide] {
+        var styles = [AppTextFieldType: AppTextFieldStyle.StyleGuide]()
+        // TODO: Get text field styles from components:
         for textFiledType in AppTextFieldType.allCases {
-            let styleGuide = makeInitialTextFieldStyleGuide(appTextFieldType: textFiledType, designSystem: designSystem)
-            styles[textFiledType] = AppTextFieldStyle(styleGuide: styleGuide)
+            styles[textFiledType] = makeTextFieldStyleGuide(appTextFieldType: textFiledType, designSystem: designSystem)
         }
         return styles
     }
 
     static func makeInitialButtonStyleGuide(buttonType: AppButtonType, designSystem: AppDesignSystem) -> AppButtonStyle.StyleGuide {
+        // TODO: Use styles defined in components:
         switch buttonType {
         case .primary:
             AppButtonStyle.StyleGuide(
@@ -129,23 +128,24 @@ private extension AppStyle {
         }
     }
 
-    static func makeInitialTextFieldStyleGuide(appTextFieldType: AppTextFieldType, designSystem: AppDesignSystem) -> AppTextFieldStyle.StyleGuide {
+    static func makeTextFieldStyleGuide(appTextFieldType: AppTextFieldType, designSystem: AppDesignSystem) -> AppTextFieldStyle.StyleGuide {
+        // TODO: Use styles defined in components:
         switch appTextFieldType {
         case .email:
             AppTextFieldStyle.StyleGuide(
                 shape: .rounded(10),
-                backgroundColor: designSystem.colors.primary900.color ?? .clear,
-                textColor: designSystem.colors.text500.color ?? .clear,
-                font: designSystem.fonts.text.font,
+                backgroundColor: designSystem.colors.primary900,
+                textColor: designSystem.colors.text500,
+                font: designSystem.fonts.text,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
                 keyboardType: .emailAddress
             )
         case .password:
             AppTextFieldStyle.StyleGuide(
                 shape: .rounded(10),
-                backgroundColor: designSystem.colors.primary500.color ?? .clear,
-                textColor: designSystem.colors.secondary500.color ?? .clear,
-                font: designSystem.fonts.text.font,
+                backgroundColor: designSystem.colors.primary500,
+                textColor: designSystem.colors.secondary500,
+                font: designSystem.fonts.text,
                 padding: .init(top: 10, leading: 10, bottom: 10, trailing: 10), // TODO: Get padding from Design System
                 keyboardType: .default
             )

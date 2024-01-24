@@ -10,15 +10,6 @@ public struct AppButtonStyle: Equatable, Codable {
     public let backgroundColor: String
     public let textColor: String
     public let padding: [CGFloat]
-
-    public func makeStyleGuide(designStystem: AppDesignSystem) -> StyleGuide {
-        StyleGuide(
-            shape: shape,
-            backgroundColor: designStystem.colors.getColor(named: backgroundColor) ?? designStystem.colors.clear,
-            textColor: designStystem.colors.getColor(named: textColor) ?? designStystem.colors.clear,
-            padding: padding.edgeInsets
-        )
-    }
 }
 
 public extension AppButtonStyle {
