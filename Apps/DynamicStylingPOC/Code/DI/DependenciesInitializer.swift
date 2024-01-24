@@ -26,7 +26,7 @@ struct DependenciesInitializer {
             appStyleSynchroniser: LiveAppStyleSynchroniser(networkModule: networkModule),
             initialAppStyle: .init(
                 initialDesignSystem: designSystem,
-                intialComponents: .makeDefault(designSystem: designSystem)
+                intialComponents: .default
             )
         )
         dependenciesRegistrator.register(networkModule, for: NetworkModule.self)

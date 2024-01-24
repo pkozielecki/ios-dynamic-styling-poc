@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public enum AppTextFieldType: Equatable, CaseIterable {
+public enum AppTextFieldType: String, Equatable, Codable, CaseIterable {
     case email
     case password
 }

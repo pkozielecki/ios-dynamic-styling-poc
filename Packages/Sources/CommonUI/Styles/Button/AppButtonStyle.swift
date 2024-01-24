@@ -33,6 +33,15 @@ public extension AppButtonStyle {
     }
 }
 
+public extension [String: AppButtonStyle] {
+    static var `default`: [String: AppButtonStyle] {
+        [
+            AppButtonType.primary.rawValue: AppButtonStyle(shape: .capsule, backgroundColor: "primary500", textColor: "text500", padding: [15, 30, 15, 30]),
+            AppButtonType.secondry.rawValue: AppButtonStyle(shape: .default, backgroundColor: "clear", textColor: "primary500", padding: [10]),
+        ]
+    }
+}
+
 extension AppButtonStyle.StyleGuide: ButtonStyle {
     public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
         configuration.label

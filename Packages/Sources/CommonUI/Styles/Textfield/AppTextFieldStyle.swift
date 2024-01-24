@@ -41,6 +41,29 @@ public extension AppTextFieldStyle {
     }
 }
 
+public extension [String: AppTextFieldStyle] {
+    static var `default`: [String: AppTextFieldStyle] {
+        [
+            AppTextFieldType.email.rawValue: AppTextFieldStyle(
+                shape: .rounded(10),
+                backgroundColor: "primary900",
+                textColor: "text500",
+                font: "text",
+                padding: [10],
+                keyboardType: UIKeyboardType.emailAddress.rawValue
+            ),
+            AppTextFieldType.password.rawValue: AppTextFieldStyle(
+                shape: .rounded(10),
+                backgroundColor: "primary500",
+                textColor: "secondary500",
+                font: "text",
+                padding: [10],
+                keyboardType: UIKeyboardType.default.rawValue
+            ),
+        ]
+    }
+}
+
 extension AppTextFieldStyle.StyleGuide: TextFieldStyle {
     public func _body(configuration: TextField<_Label>) -> some View {
         configuration
@@ -51,7 +74,7 @@ extension AppTextFieldStyle.StyleGuide: TextFieldStyle {
     }
 }
 
-extension AppTextFieldStyle.StyleGuide {
+private extension AppTextFieldStyle.StyleGuide {
     @ViewBuilder func makeBackgroundView() -> some View {
         switch shape {
         case .rounded(let radius):
