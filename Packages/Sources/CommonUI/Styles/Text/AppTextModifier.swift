@@ -43,23 +43,4 @@ public extension AppTextModifier {
             self.color = color
         }
     }
-
-    struct StyleGuideUpdate: Equatable, Codable {
-        public let font: AppFont?
-        public let color: AppColor?
-
-        public init(font: AppFont?, color: AppColor?) {
-            self.font = font
-            self.color = color
-        }
-    }
-}
-
-public extension AppTextModifier.StyleGuide {
-    func merging(with designUpdate: AppTextModifier.StyleGuideUpdate) -> AppTextModifier.StyleGuide {
-        AppTextModifier.StyleGuide(
-            font: designUpdate.font ?? font,
-            color: designUpdate.color ?? color
-        )
-    }
 }

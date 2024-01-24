@@ -84,40 +84,26 @@ public struct AppColors: Equatable, Codable {
         self.warning500 = warning500
         self.clear = clear
     }
-
-    public func merging(with colorUpdate: AppColorsUpdate?) -> AppColors {
-        AppColors(
-            error500: colorUpdate?.error500 ?? error500,
-            informative500: colorUpdate?.informative500 ?? informative500,
-            neutral500: colorUpdate?.neutral500 ?? neutral500,
-            primary100: colorUpdate?.primary100 ?? primary100,
-            primary500: colorUpdate?.primary500 ?? primary500,
-            primary900: colorUpdate?.primary900 ?? primary900,
-            secondary100: colorUpdate?.secondary100 ?? secondary100,
-            secondary500: colorUpdate?.secondary500 ?? secondary500,
-            secondary900: colorUpdate?.secondary900 ?? secondary900,
-            success500: colorUpdate?.success500 ?? success500,
-            tertiary100: colorUpdate?.tertiary100 ?? tertiary100,
-            text500: colorUpdate?.text500 ?? text500,
-            warning500: colorUpdate?.warning500 ?? warning500,
-            clear: colorUpdate?.clear ?? clear
-        )
-    }
 }
 
-public struct AppColorsUpdate: Equatable, Codable {
-    public let error500: AppColor?
-    public let informative500: AppColor?
-    public let neutral500: AppColor?
-    public let primary100: AppColor?
-    public let primary500: AppColor?
-    public let primary900: AppColor?
-    public let secondary100: AppColor?
-    public let secondary500: AppColor?
-    public let secondary900: AppColor?
-    public let success500: AppColor?
-    public let tertiary100: AppColor?
-    public let text500: AppColor?
-    public let warning500: AppColor?
-    public let clear: AppColor?
+public extension AppColors {
+    func getColor(named name: String) -> AppColor? {
+        switch name {
+        case "error500": error500
+        case "informative500": informative500
+        case "neutral500": neutral500
+        case "primary100": primary100
+        case "primary500": primary500
+        case "primary900": primary900
+        case "secondary100": secondary100
+        case "secondary500": secondary500
+        case "secondary900": secondary900
+        case "success500": success500
+        case "tertiary100": tertiary100
+        case "text500": text500
+        case "warning500": warning500
+        case "clear": clear
+        default: nil
+        }
+    }
 }

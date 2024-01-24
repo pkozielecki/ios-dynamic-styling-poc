@@ -12,7 +12,7 @@ import Foundation
 
 final class PreviewAppStyleSynchroniser: AppStyleSynchroniser {
     func synchroniseStyles(currentStyle: CommonUI.AppStyle) async -> AppStyle {
-        AppStyle(initialDesignSystem: .init(colors: .preview, fonts: .default))
+        AppStyle(initialDesignSystem: .init(colors: .preview, fonts: .default), intialComponents: .preview)
     }
 }
 
@@ -26,7 +26,7 @@ enum PreviewFactory {
     static func makeStyleProvider() -> AppStyleProvider {
         LiveAppStyleProvider(
             appStyleSynchroniser: PreviewAppStyleSynchroniser(),
-            initialDesignSystem: .preview
+            initialAppStyle: .init(initialDesignSystem: .preview, intialComponents: .preview)
         )
     }
 }

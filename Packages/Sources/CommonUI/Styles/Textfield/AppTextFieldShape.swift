@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public enum AppTextFieldShape: Equatable {
+public enum AppTextFieldShape: Equatable, Codable {
     case rounded(CGFloat)
     case plain
 }
