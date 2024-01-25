@@ -7,7 +7,7 @@ import SwiftUI
 
 public enum AppButtonShape: Equatable, Codable {
     case capsule
-    case roundedRectangle(CGFloat)
+    case roundedRectangle(cornerRadius: CGFloat)
     case `default`
     case circle
 }

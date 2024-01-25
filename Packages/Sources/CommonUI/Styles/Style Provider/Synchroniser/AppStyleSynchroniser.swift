@@ -40,8 +40,13 @@ private extension LiveAppStyleSynchroniser {
             let mergedStyleDict = JSONMerger.mergeDictionary(currentStyleDict, with: styleUpdateDict)
             let mergedStyleData = try? JSONSerialization.data(withJSONObject: mergedStyleDict, options: [])
             // Discussion: Resulting Dictionaty will retain the structure of the original AppStyle:
-            let mergedStyle = try? JSONDecoder().decode(AppStyle.self, from: mergedStyleData ?? Data())
-            return mergedStyle ?? currentStyle
+            do {
+                let mergedStyle = try JSONDecoder().decode(AppStyle.self, from: mergedStyleData ?? Data())
+                return mergedStyle
+            } catch {
+                print("💥 Failed to decode merged style json: \(error)")
+                return currentStyle
+            }
         }
         return currentStyle
     }

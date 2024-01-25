@@ -16,14 +16,12 @@ public protocol AppStyleProvider: Observable {
 
 @Observable public final class LiveAppStyleProvider {
     private let appStyleSynchroniser: AppStyleSynchroniser
-//    private var initialDesignSystem: AppDesignSystem
     public private(set) var appStyle: AppStyle
 
     public init(appStyleSynchroniser: AppStyleSynchroniser, initialAppStyle: AppStyle) {
         // Discussion: This is initial (built-in) app style.
         // ... It will be merged with the one obrained from the BE.
         self.appStyleSynchroniser = appStyleSynchroniser
-//        self.initialDesignSystem = initialDesignSystem
         appStyle = initialAppStyle
     }
 }

@@ -27,7 +27,7 @@ struct WelcomeView: View {
             Button("Sign Up") {
                 viewModel.didRequestSignUp()
             }
-            .appButtonStyleFor(.secondry, appStyle: appStyleProvider.appStyle)
+            .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
         }
         .padding()
         .onAppear {

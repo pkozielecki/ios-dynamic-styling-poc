@@ -10,6 +10,14 @@ public struct AppButtonStyle: Equatable, Codable {
     public let backgroundColor: String
     public let textColor: String
     public let padding: [CGFloat]
+
+    private enum CodingKeys: String, CodingKey {
+        // SeeAlso: `JSONMerger.RestrictedMergerKeys.buttonShape`
+        case shape = "buttonShape"
+        case backgroundColor
+        case textColor
+        case padding
+    }
 }
 
 public extension AppButtonStyle {
@@ -37,7 +45,7 @@ public extension [String: AppButtonStyle] {
     static var `default`: [String: AppButtonStyle] {
         [
             AppButtonType.primary.rawValue: AppButtonStyle(shape: .capsule, backgroundColor: "primary500", textColor: "text500", padding: [15, 30, 15, 30]),
-            AppButtonType.secondry.rawValue: AppButtonStyle(shape: .default, backgroundColor: "clear", textColor: "primary500", padding: [10]),
+            AppButtonType.secondary.rawValue: AppButtonStyle(shape: .default, backgroundColor: "clear", textColor: "primary500", padding: [10]),
         ]
     }
 }

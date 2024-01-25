@@ -31,7 +31,7 @@ private extension AppButtonStyleFactory {
                 textColor: textColor ?? designSystem.colors.text500,
                 padding: padding.edgeInsets
             )
-        case .secondry:
+        case .secondary:
             return AppButtonStyle.StyleGuide(
                 shape: shape,
                 backgroundColor: backgroundColor ?? designSystem.colors.clear,

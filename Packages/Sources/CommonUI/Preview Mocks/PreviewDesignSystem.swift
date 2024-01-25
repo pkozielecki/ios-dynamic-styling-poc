@@ -60,7 +60,7 @@ public extension [String: AppButtonStyle] {
     static var preview: [String: AppButtonStyle] {
         [
             AppButtonType.primary.rawValue: AppButtonStyle(shape: .capsule, backgroundColor: "text500", textColor: "primary500", padding: [15, 30, 15, 30]),
-            AppButtonType.secondry.rawValue: AppButtonStyle(shape: .default, backgroundColor: "clear", textColor: "primary500", padding: [10, 10, 10, 10]),
+            AppButtonType.secondary.rawValue: AppButtonStyle(shape: .default, backgroundColor: "clear", textColor: "primary500", padding: [10, 10, 10, 10]),
         ]
     }
 }

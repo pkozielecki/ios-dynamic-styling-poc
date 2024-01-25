@@ -30,7 +30,7 @@ struct EmailEntryView: View {
             Button("Send") {
                 viewModel.onEmailRegistrationRequested(email: email)
             }
-            .appButtonStyleFor(.secondry, appStyle: appStyleProvider.appStyle)
+            .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
             .disabled(email.isEmpty)
         }
         .task {
