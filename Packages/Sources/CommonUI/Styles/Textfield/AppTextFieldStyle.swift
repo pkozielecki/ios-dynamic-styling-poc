@@ -12,6 +12,16 @@ public struct AppTextFieldStyle: Codable, Equatable {
     public let font: String
     public let padding: [CGFloat]
     public let keyboardType: Int
+
+    private enum CodingKeys: String, CodingKey {
+        // SeeAlso: `JSONMerger.RestrictedMergerKeys.textFieldShape`
+        case shape = "textFieldShape"
+        case backgroundColor
+        case textColor
+        case font
+        case padding
+        case keyboardType
+    }
 }
 
 public extension AppTextFieldStyle {
@@ -45,7 +55,7 @@ public extension [String: AppTextFieldStyle] {
     static var `default`: [String: AppTextFieldStyle] {
         [
             AppTextFieldType.email.rawValue: AppTextFieldStyle(
-                shape: .rounded(10),
+                shape: .rounded(cornerRadius: 10),
                 backgroundColor: "primary900",
                 textColor: "text500",
                 font: "text",
@@ -53,7 +63,7 @@ public extension [String: AppTextFieldStyle] {
                 keyboardType: UIKeyboardType.emailAddress.rawValue
             ),
             AppTextFieldType.password.rawValue: AppTextFieldStyle(
-                shape: .rounded(10),
+                shape: .rounded(cornerRadius: 10),
                 backgroundColor: "primary500",
                 textColor: "secondary500",
                 font: "text",

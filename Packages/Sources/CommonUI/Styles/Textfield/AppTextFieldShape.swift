@@ -6,6 +6,6 @@
 import SwiftUI
 
 public enum AppTextFieldShape: Equatable, Codable {
-    case rounded(CGFloat)
+    case rounded(cornerRadius: CGFloat)
     case plain
 }

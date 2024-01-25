@@ -38,7 +38,7 @@ private extension SignInFeatureDemoApp {
         let networkModule = NetworkingFactory.makeNetworkModule(baseURL: URL(string: "https://whg.com")!)
         let appStyleProvider = LiveAppStyleProvider(
             appStyleSynchroniser: LiveAppStyleSynchroniser(networkModule: networkModule),
-            initialDesignSystem: .default
+            initialAppStyle: AppStyle(initialDesignSystem: .default, intialComponents: .default)
         )
         dependencyManager?.register(networkModule, for: NetworkModule.self)
         dependencyManager?.register(LiveNavigationRouter(), for: NavigationRouter.self)

@@ -35,5 +35,6 @@ public enum JSONMerger {
 public extension JSONMerger {
     enum RestrictedMergerKeys: String {
         case buttonShape
+        case textFieldShape
     }
 }
