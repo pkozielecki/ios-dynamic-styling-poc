@@ -13,7 +13,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:DynamicStylingPOC.xcodeproj",
         "identifier" : "2A3E09242B34693800B3C2CD",

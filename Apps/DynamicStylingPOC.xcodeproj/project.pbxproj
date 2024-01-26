@@ -34,6 +34,7 @@
 		2A41C4312B63A3570066FC37 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
 		2A41C4322B63A3580066FC37 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
 		2A41C4332B63A3580066FC37 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
+		2A41C4352B63E3E00066FC37 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A41C4342B63E3E00066FC37 /* main.swift */; };
 		2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */; };
 		2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4392B3477E800EF8777 /* Assets.xcassets */; };
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
@@ -95,6 +96,7 @@
 		2A3FAD2D2B2C91410016163B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = DynamicStylingPOC/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		2A3FAD312B301E830016163B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A3FAD632B3194E90016163B /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		2A41C4342B63E3E00066FC37 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2AB9191F2B6387FC00AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2AB919202B63880000AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2AB919212B63880200AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				2A3FAD332B3026A30016163B /* UI */,
 				2A3FAD292B2C8C370016163B /* DI */,
 				2A3FAD312B301E830016163B /* AppDelegate.swift */,
+				2A41C4342B63E3E00066FC37 /* main.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */,
+				2A41C4352B63E3E00066FC37 /* main.swift in Sources */,
 				2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */,
 				2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */,
 				2AC3D44C2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift in Sources */,

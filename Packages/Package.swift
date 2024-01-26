@@ -83,12 +83,17 @@ let package = Package(
             name: "CommonTests",
             dependencies: [
                 "TestUtils",
+                "Common",
             ]
         ),
         .testTarget(
             name: "CommonUITests",
             dependencies: [
                 "TestUtils",
+                "CommonUI",
+            ],
+            resources: [
+                .process("Resources"),
             ]
         ),
     ]
