@@ -5,10 +5,12 @@
 
 import CommonUI
 import SwiftUI
+import Inject
 
 struct WelcomeView: View {
     let viewModel: WelcomeViewModel
     let appStyleProvider: AppStyleProvider
+    @ObserveInjection private var iO
 
     var body: some View {
         VStack(spacing: 10) {
@@ -33,6 +35,7 @@ struct WelcomeView: View {
         .onAppear {
             viewModel.onViewAppeared()
         }
+        .enableInjection()
     }
 }
 
