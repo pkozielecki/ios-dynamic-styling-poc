@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A26D2062B2B295300F68A9E /* AppFeature */; };
+		2A2E9C312B62803900C0D174 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
+		2A2E9C322B62807800C0D174 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
+		2A2E9C3A2B62903900C0D174 /* PlaybookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E9C392B62903900C0D174 /* PlaybookApp.swift */; };
+		2A2E9C3E2B62903A00C0D174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A2E9C3D2B62903A00C0D174 /* Assets.xcassets */; };
+		2A2E9C452B6290F000C0D174 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54B2B57AEF900FCEBB2 /* Inter-Black.ttf */; };
+		2A2E9C462B6290F000C0D174 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54A2B57AEF900FCEBB2 /* Inter-Bold.ttf */; };
+		2A2E9C472B6290F000C0D174 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54E2B57AEFA00FCEBB2 /* Inter-Light.ttf */; };
+		2A2E9C482B6290F000C0D174 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54D2B57AEFA00FCEBB2 /* Inter-Medium.ttf */; };
+		2A2E9C492B6290F000C0D174 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54C2B57AEF900FCEBB2 /* Inter-Regular.ttf */; };
+		2A2E9C4A2B6290F000C0D174 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A54F2B57AEFA00FCEBB2 /* Inter-SemiBold.ttf */; };
+		2A2E9C4B2B6290F000C0D174 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5492B57AEF900FCEBB2 /* Inter-Thin.ttf */; };
+		2A2E9C4C2B6290F000C0D174 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5512B57AEFA00FCEBB2 /* Inter-UltraLight.ttf */; };
+		2A2E9C4D2B62910D00C0D174 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
+		2A2E9C4F2B62911800C0D174 /* PlaybookFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A2E9C4E2B62911800C0D174 /* PlaybookFeature */; };
+		2A2E9C512B62998600C0D174 /* PlaybookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E9C502B62998600C0D174 /* PlaybookView.swift */; };
 		2A3E09142B34582400B3C2CD /* SignUpFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */; };
 		2A3E09182B34582700B3C2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3E09172B34582700B3C2CD /* Assets.xcassets */; };
 		2A3E09202B345AEC00B3C2CD /* SignUpFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A3E091F2B345AEC00B3C2CD /* SignUpFeature */; };
@@ -16,6 +31,7 @@
 		2A3FAD302B2C92A30016163B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3FAD2C2B2C91410016163B /* Assets.xcassets */; };
 		2A3FAD322B301E830016163B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD312B301E830016163B /* AppDelegate.swift */; };
 		2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FAD632B3194E90016163B /* RootNavigationController.swift */; };
+		2AB919232B638B8200AF285A /* AppColorsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB919222B638B8200AF285A /* AppColorsExtensions.swift */; };
 		2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */; };
 		2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4392B3477E800EF8777 /* Assets.xcassets */; };
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
@@ -63,6 +79,10 @@
 
 /* Begin PBXFileReference section */
 		2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicStylingPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A2E9C372B62903900C0D174 /* PlaybookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaybookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A2E9C392B62903900C0D174 /* PlaybookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookApp.swift; sourceTree = "<group>"; };
+		2A2E9C3D2B62903A00C0D174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A2E9C502B62998600C0D174 /* PlaybookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookView.swift; sourceTree = "<group>"; };
 		2A3E09112B34582400B3C2CD /* DemoApp-SignUpFeature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoApp-SignUpFeature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFeatureDemoApp.swift; sourceTree = "<group>"; };
 		2A3E09172B34582700B3C2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +93,10 @@
 		2A3FAD2D2B2C91410016163B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = DynamicStylingPOC/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		2A3FAD312B301E830016163B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A3FAD632B3194E90016163B /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		2AB9191F2B6387FC00AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2AB919202B63880000AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2AB919212B63880200AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2AB919222B638B8200AF285A /* AppColorsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorsExtensions.swift; sourceTree = "<group>"; };
 		2AC3D4332B3477E600EF8777 /* DemoApp-SignInFeature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoApp-SignInFeature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFeatureDemoApp.swift; sourceTree = "<group>"; };
 		2AC3D4392B3477E800EF8777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +122,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A26D2072B2B295300F68A9E /* AppFeature in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A2E9C342B62903900C0D174 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A2E9C4F2B62911800C0D174 /* PlaybookFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +165,7 @@
 				2A26D1D42B2B16E800F68A9E /* DynamicStylingPOC */,
 				2A3E09122B34582400B3C2CD /* DemoApp-SignUpFeature */,
 				2AC3D4342B3477E600EF8777 /* DemoApp-SignInFeature */,
+				2A2E9C382B62903900C0D174 /* PlaybookApp */,
 				2A3E09262B34693900B3C2CD /* AllTests */,
 				2A26D1D32B2B16E800F68A9E /* Products */,
 				2A26D2052B2B295300F68A9E /* Frameworks */,
@@ -146,6 +179,7 @@
 				2A3E09112B34582400B3C2CD /* DemoApp-SignUpFeature.app */,
 				2A3E09252B34693800B3C2CD /* AllTests.xctest */,
 				2AC3D4332B3477E600EF8777 /* DemoApp-SignInFeature.app */,
+				2A2E9C372B62903900C0D174 /* PlaybookApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,9 +211,22 @@
 			path = Code;
 			sourceTree = "<group>";
 		};
+		2A2E9C382B62903900C0D174 /* PlaybookApp */ = {
+			isa = PBXGroup;
+			children = (
+				2AB919212B63880200AF285A /* Info.plist */,
+				2A2E9C392B62903900C0D174 /* PlaybookApp.swift */,
+				2AB919222B638B8200AF285A /* AppColorsExtensions.swift */,
+				2A2E9C502B62998600C0D174 /* PlaybookView.swift */,
+				2A2E9C3D2B62903A00C0D174 /* Assets.xcassets */,
+			);
+			path = PlaybookApp;
+			sourceTree = "<group>";
+		};
 		2A3E09122B34582400B3C2CD /* DemoApp-SignUpFeature */ = {
 			isa = PBXGroup;
 			children = (
+				2AB9191F2B6387FC00AF285A /* Info.plist */,
 				2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */,
 				2AC3D4502B4FCF1E00EF8777 /* CustomSignUpFlowViewFactory.swift */,
 				2A3E09172B34582700B3C2CD /* Assets.xcassets */,
@@ -235,6 +282,7 @@
 		2AC3D4342B3477E600EF8777 /* DemoApp-SignInFeature */ = {
 			isa = PBXGroup;
 			children = (
+				2AB919202B63880000AF285A /* Info.plist */,
 				2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */,
 				2AC3D44E2B4FCBCB00EF8777 /* CustomSignInFlowViewFactory.swift */,
 				2AC3D4392B3477E800EF8777 /* Assets.xcassets */,
@@ -294,6 +342,26 @@
 			);
 			productName = DynamicStylingPOC;
 			productReference = 2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A2E9C362B62903900C0D174 /* PlaybookApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A2E9C422B62903A00C0D174 /* Build configuration list for PBXNativeTarget "PlaybookApp" */;
+			buildPhases = (
+				2A2E9C332B62903900C0D174 /* Sources */,
+				2A2E9C342B62903900C0D174 /* Frameworks */,
+				2A2E9C352B62903900C0D174 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlaybookApp;
+			packageProductDependencies = (
+				2A2E9C4E2B62911800C0D174 /* PlaybookFeature */,
+			);
+			productName = PlaybookApp;
+			productReference = 2A2E9C372B62903900C0D174 /* PlaybookApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2A3E09102B34582400B3C2CD /* DemoApp-SignUpFeature */ = {
@@ -361,11 +429,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					2A26D1D12B2B16E800F68A9E = {
 						CreatedOnToolsVersion = 15.1;
+					};
+					2A2E9C362B62903900C0D174 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 					2A3E09102B34582400B3C2CD = {
 						CreatedOnToolsVersion = 15.1;
@@ -397,6 +468,7 @@
 				2A26D1D12B2B16E800F68A9E /* DynamicStylingPOC */,
 				2A3E09102B34582400B3C2CD /* DemoApp-SignUpFeature */,
 				2AC3D4322B3477E600EF8777 /* DemoApp-SignInFeature */,
+				2A2E9C362B62903900C0D174 /* PlaybookApp */,
 				2A3E09242B34693800B3C2CD /* AllTests */,
 			);
 		};
@@ -420,6 +492,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2A2E9C352B62903900C0D174 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A2E9C452B6290F000C0D174 /* Inter-Black.ttf in Resources */,
+				2A2E9C462B6290F000C0D174 /* Inter-Bold.ttf in Resources */,
+				2A2E9C472B6290F000C0D174 /* Inter-Light.ttf in Resources */,
+				2A2E9C482B6290F000C0D174 /* Inter-Medium.ttf in Resources */,
+				2A2E9C492B6290F000C0D174 /* Inter-Regular.ttf in Resources */,
+				2A2E9C4A2B6290F000C0D174 /* Inter-SemiBold.ttf in Resources */,
+				2A2E9C4B2B6290F000C0D174 /* Inter-Thin.ttf in Resources */,
+				2A2E9C4C2B6290F000C0D174 /* Inter-UltraLight.ttf in Resources */,
+				2A2E9C4D2B62910D00C0D174 /* Colors.xcassets in Resources */,
+				2A2E9C3E2B62903A00C0D174 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A3E090F2B34582400B3C2CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,9 +519,10 @@
 				2AF7A55F2B57AEFA00FCEBB2 /* Inter-Medium.ttf in Resources */,
 				2AF7A5532B57AEFA00FCEBB2 /* Inter-Thin.ttf in Resources */,
 				2AF7A5652B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */,
-				2A3E09182B34582700B3C2CD /* Assets.xcassets in Resources */,
 				2AF7A5592B57AEFA00FCEBB2 /* Inter-Black.ttf in Resources */,
 				2AF7A5622B57AEFA00FCEBB2 /* Inter-Light.ttf in Resources */,
+				2A3E09182B34582700B3C2CD /* Assets.xcassets in Resources */,
+				2A2E9C312B62803900C0D174 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,9 +543,10 @@
 				2AF7A5602B57AEFA00FCEBB2 /* Inter-Medium.ttf in Resources */,
 				2AF7A5542B57AEFA00FCEBB2 /* Inter-Thin.ttf in Resources */,
 				2AF7A5662B57AEFA00FCEBB2 /* Inter-SemiBold.ttf in Resources */,
-				2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */,
 				2AF7A55A2B57AEFA00FCEBB2 /* Inter-Black.ttf in Resources */,
 				2AF7A5632B57AEFA00FCEBB2 /* Inter-Light.ttf in Resources */,
+				2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */,
+				2A2E9C322B62807800C0D174 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +563,16 @@
 				2AC3D44C2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift in Sources */,
 				2AC3D4482B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift in Sources */,
 				2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A2E9C332B62903900C0D174 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A2E9C3A2B62903900C0D174 /* PlaybookApp.swift in Sources */,
+				2AB919232B638B8200AF285A /* AppColorsExtensions.swift in Sources */,
+				2A2E9C512B62998600C0D174 /* PlaybookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +810,84 @@
 			};
 			name = Release;
 		};
+		2A2E9C432B62903A00C0D174 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 663KXV4GKQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlaybookApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.whitehatgaming.PlaybookApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2A2E9C442B62903A00C0D174 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 663KXV4GKQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlaybookApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.whitehatgaming.PlaybookApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		2A3E091D2B34582700B3C2CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -719,6 +898,7 @@
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DemoApp-SignUpFeature/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = DemoSignUp;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -753,6 +933,7 @@
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DemoApp-SignUpFeature/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = DemoSignUp;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -824,6 +1005,7 @@
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DemoApp-SignInFeature/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = DemoSignIn;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -859,6 +1041,7 @@
 				DEVELOPMENT_TEAM = 663KXV4GKQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DemoApp-SignInFeature/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = DemoSignIn;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -904,6 +1087,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		2A2E9C422B62903A00C0D174 /* Build configuration list for PBXNativeTarget "PlaybookApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A2E9C432B62903A00C0D174 /* Debug */,
+				2A2E9C442B62903A00C0D174 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2A3E091C2B34582700B3C2CD /* Build configuration list for PBXNativeTarget "DemoApp-SignUpFeature" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -937,6 +1129,10 @@
 		2A26D2062B2B295300F68A9E /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
+		};
+		2A2E9C4E2B62911800C0D174 /* PlaybookFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PlaybookFeature;
 		};
 		2A3E091F2B345AEC00B3C2CD /* SignUpFeature */ = {
 			isa = XCSwiftPackageProductDependency;

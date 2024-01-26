@@ -32,6 +32,17 @@ let package = Package(
             ]
         ),
         .target(
+            name: "PlaybookFeature",
+            dependencies: Dependencies.common + [
+                "GamesFeature",
+                "AppFeature",
+                "SignInFeature",
+                "SignUpFeature",
+                .product(name: "Playbook", package: "playbook-ios"),
+                .product(name: "PlaybookUI", package: "playbook-ios"),
+            ]
+        ),
+        .target(
             name: "GamesFeature",
             dependencies: Dependencies.common
         ),
@@ -42,13 +53,6 @@ let package = Package(
         .target(
             name: "SignUpFeature",
             dependencies: Dependencies.common
-        ),
-        .target(
-            name: "PlaybookFeature",
-            dependencies: Dependencies.common + [
-                .product(name: "Playbook", package: "playbook-ios"),
-                .product(name: "PlaybookUI", package: "playbook-ios"),
-            ]
         ),
         .target(
             name: "CommonUI",

@@ -21,7 +21,7 @@ public extension AppFonts {
     static var `default`: AppFonts {
         AppFonts(
             title: .init(fontName: AppFont.Name.inter, fontSize: 22, fontWeight: .black),
-            subtitle: .init(fontName: AppFont.Name.inter, fontSize: 16, fontWeight: .bold),
+            subtitle: .init(fontName: AppFont.Name.inter, fontSize: 18, fontWeight: .bold),
             text: .init(fontName: AppFont.Name.inter, fontSize: 14, fontWeight: .regular)
         )
     }

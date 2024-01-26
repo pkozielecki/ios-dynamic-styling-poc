@@ -35,7 +35,7 @@ public extension AppColors {
             primary500: UIColor(Color("Primary500", bundle: Bundle.module)),
             primary900: UIColor(Color("Primary900", bundle: Bundle.module)),
             secondary100: UIColor(Color("Secondary100", bundle: Bundle.module)),
-            secondary500: UIColor(Color("econdary500", bundle: Bundle.module)),
+            secondary500: UIColor(Color("Secondary500", bundle: Bundle.module)),
             secondary900: UIColor(Color("Secondary900", bundle: Bundle.module)),
             success500: UIColor(Color("Success500", bundle: Bundle.module)),
             tertiary100: UIColor(Color("Tertiary100", bundle: Bundle.module)),
