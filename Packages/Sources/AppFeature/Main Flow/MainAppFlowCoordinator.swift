@@ -25,14 +25,14 @@ final class MainAppFlowCoordinator: FlowCoordinator {
         navigator: Navigator,
         parent: FlowCoordinator? = nil,
         dependencyProvider: DependencyProvider = LiveDependencyManager.shared,
-        viewFactories: [ViewComponentFactory] = [MainAppFlowViewFactory()],
-        coordinatorFactories: [FlowCoordinatorFactory] = [MainAppFlowCoordinatorFactory()]
+        viewFactories: [ViewComponentFactory]? = nil,
+        coordinatorFactories: [FlowCoordinatorFactory]? = nil
     ) {
         self.navigator = navigator
         self.parent = parent
         self.dependencyProvider = dependencyProvider
-        self.viewFactories = viewFactories
-        self.coordinatorFactories = coordinatorFactories
+        self.viewFactories = viewFactories ?? [MainAppFlowViewFactory(dependencyProvider: dependencyProvider)]
+        self.coordinatorFactories = coordinatorFactories ?? [MainAppFlowCoordinatorFactory(dependencyProvider: dependencyProvider)]
     }
 
     func start(animated: Bool) {

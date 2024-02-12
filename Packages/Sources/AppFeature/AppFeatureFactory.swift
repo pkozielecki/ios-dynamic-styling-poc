@@ -21,8 +21,8 @@ public enum AppFeatureFactory {
             navigator: navigator,
             parent: parentFlow,
             dependencyProvider: dependencyProvider,
-            viewFactories: MainAppFlowViewFactory().combine(withCustomFactory: viewFactory),
-            coordinatorFactories: MainAppFlowCoordinatorFactory().combine(withCustomFactory: coordinatorFactory)
+            viewFactories: MainAppFlowViewFactory(dependencyProvider: dependencyProvider).combine(withCustomFactory: viewFactory),
+            coordinatorFactories: MainAppFlowCoordinatorFactory(dependencyProvider: dependencyProvider).combine(withCustomFactory: coordinatorFactory)
         )
     }
 }

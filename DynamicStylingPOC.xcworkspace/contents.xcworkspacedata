@@ -13,4 +13,7 @@
    <FileRef
       location = "group:Packages/Tests/CommonUITests/CommonUITests.xctestplan">
    </FileRef>
+   <FileRef
+      location = "group:Packages/Tests/CommonTests/CommonTests.xctestplan">
+   </FileRef>
 </Workspace>

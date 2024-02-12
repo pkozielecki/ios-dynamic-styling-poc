@@ -19,8 +19,8 @@ public enum SignInFeatureFactory {
             navigator: navigator,
             dependencyProvider: dependencyProvider,
             parent: parentFlow,
-            viewFactories: SignInFlowViewFactory().combine(withCustomFactory: viewFactory),
-            coordinatorFactories: SignInFlowCoordinatorFactory().combine(withCustomFactory: coordinatorFactory)
+            viewFactories: SignInFlowViewFactory(dependencyProvider: dependencyProvider).combine(withCustomFactory: viewFactory),
+            coordinatorFactories: SignInFlowCoordinatorFactory(dependencyProvider: dependencyProvider).combine(withCustomFactory: coordinatorFactory)
         )
     }
 }

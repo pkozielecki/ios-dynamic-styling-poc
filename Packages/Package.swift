@@ -74,7 +74,7 @@ let package = Package(
         ),
         .target(
             name: "TestUtils",
-            dependencies: [
+            dependencies: Dependencies.common + [
                 .product(name: "Difference", package: "Difference"),
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
             ]
@@ -94,6 +94,13 @@ let package = Package(
             ],
             resources: [
                 .process("Resources"),
+            ]
+        ),
+        .testTarget(
+            name: "SignUpFeatureTests",
+            dependencies: [
+                "TestUtils",
+                "SignUpFeature",
             ]
         ),
     ]

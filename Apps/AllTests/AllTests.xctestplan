@@ -32,6 +32,13 @@
         "identifier" : "CommonUITests",
         "name" : "CommonUITests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Packages",
+        "identifier" : "SignUpFeatureTests",
+        "name" : "SignUpFeatureTests"
+      }
     }
   ],
   "version" : 1

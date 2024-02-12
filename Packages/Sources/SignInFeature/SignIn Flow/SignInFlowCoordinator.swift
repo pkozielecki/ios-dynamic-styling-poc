@@ -23,14 +23,14 @@ final class SignInFlowCoordinator: FlowCoordinator {
         navigator: Navigator,
         dependencyProvider: DependencyProvider = LiveDependencyManager.shared,
         parent: FlowCoordinator? = nil,
-        viewFactories: [ViewComponentFactory] = [SignInFlowViewFactory()],
-        coordinatorFactories: [FlowCoordinatorFactory] = [SignInFlowCoordinatorFactory()]
+        viewFactories: [ViewComponentFactory]? = nil,
+        coordinatorFactories: [FlowCoordinatorFactory]? = nil
     ) {
         self.navigator = navigator
         self.dependencyProvider = dependencyProvider
         self.parent = parent
-        self.viewFactories = viewFactories
-        self.coordinatorFactories = coordinatorFactories
+        self.viewFactories = viewFactories ?? [SignInFlowViewFactory(dependencyProvider: dependencyProvider)]
+        self.coordinatorFactories = coordinatorFactories ?? [SignInFlowCoordinatorFactory(dependencyProvider: dependencyProvider)]
     }
 
     func start(animated: Bool) {

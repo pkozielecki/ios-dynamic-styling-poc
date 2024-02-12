@@ -1,11 +1,10 @@
 //
-//  SnapshotTestingExports.swift
+//  DifferenceExports.swift
 //  Dynamic Styling POC
 //
 
-@_exported import Difference
-// Discussion: To avoid importing testing essential across the app.
-@_exported import SnapshotTesting
+@_exported import Difference // Discussion: To avoid importing testing essential across the app.
+
 import XCTest
 
 public extension XCTestCase {
