@@ -6,9 +6,17 @@
 import CommonUI
 
 public final class FakeNavigationRouter: NavigationRouter {
+    public private(set) var lastShownRoute: (any Route)?
+    public private(set) var lestShownRouteData: AnyHashable?
+
     public var currentFlow: FlowCoordinator?
 
-    public func show(route: any Route, withData: AnyHashable?) {}
+    public init() {}
+
+    public func show(route: any Route, withData: AnyHashable?) {
+        lastShownRoute = route
+        lestShownRouteData = withData
+    }
 
     public func `switch`(toRoute route: any Route, withData: AnyHashable?) {}
 
