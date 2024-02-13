@@ -97,10 +97,24 @@ let package = Package(
             ]
         ),
         .testTarget(
+            name: "AppFeatureTests",
+            dependencies: [
+                "TestUtils",
+                "AppFeature",
+            ]
+        ),
+        .testTarget(
             name: "SignUpFeatureTests",
             dependencies: [
                 "TestUtils",
                 "SignUpFeature",
+            ]
+        ),
+        .testTarget(
+            name: "SignInFeatureTests",
+            dependencies: [
+                "TestUtils",
+                "SignInFeature",
             ]
         ),
     ]

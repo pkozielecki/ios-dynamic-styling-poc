@@ -38,7 +38,6 @@ public extension AppFonts {
     }
 
     func getFont(textFieldType: AppTextFieldType) -> AppFont? {
-        // TODO: Change to some more specialized font:
         switch textFieldType {
         case .email:
             text

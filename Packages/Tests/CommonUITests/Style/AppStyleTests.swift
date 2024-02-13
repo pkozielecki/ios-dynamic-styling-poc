@@ -16,7 +16,6 @@ final class AppStyleTests: XCTestCase {
 
         //  when:
         let data = try? JSONEncoder().encode(defaultStyle)
-        print(String(data: data!, encoding: .utf8)!)
 
         //  then:
         XCTAssertNotNil(data, "Should encode to the data object")

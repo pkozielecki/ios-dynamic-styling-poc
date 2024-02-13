@@ -20,10 +20,10 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
     func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData: AnyHashable?) -> FlowCoordinator? {
         switch route.name {
         case MainAppRoute.signUp.name:
-            SignUpFeatureFactory.makeSignUpFlowCoordinator(navigator: navigator, parentFlow: parent)
+            SignUpFeatureFactory.makeSignUpFlowCoordinator(navigator: navigator, parentFlow: parent, dependencyProvider: dependencyProvider)
 
         case MainAppRoute.signIn.name:
-            SignInFeatureFactory.makeSignInFlowCoordinator(navigator: navigator, parentFlow: parent)
+            SignInFeatureFactory.makeSignInFlowCoordinator(navigator: navigator, parentFlow: parent, dependencyProvider: dependencyProvider)
 
         default:
             nil
