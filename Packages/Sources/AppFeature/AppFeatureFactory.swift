@@ -13,16 +13,16 @@ public enum AppFeatureFactory {
     public static func makeAppFeature(
         navigator: Navigator,
         parentFlow: FlowCoordinator? = nil,
-        viewFactory: ViewComponentFactory? = nil,
-        coordinatorFactory: FlowCoordinatorFactory? = nil,
+        viewFactories: [ViewComponentFactory] = [],
+        coordinatorFactories: [FlowCoordinatorFactory] = [],
         dependencyProvider: DependencyProvider = LiveDependencyManager.shared
     ) -> FlowCoordinator {
         MainAppFlowCoordinator(
             navigator: navigator,
             parent: parentFlow,
             dependencyProvider: dependencyProvider,
-            viewFactories: MainAppFlowViewFactory(dependencyProvider: dependencyProvider).combine(withCustomFactory: viewFactory),
-            coordinatorFactories: MainAppFlowCoordinatorFactory(dependencyProvider: dependencyProvider).combine(withCustomFactory: coordinatorFactory)
+            viewFactories: MainAppFlowViewFactory(dependencyProvider: dependencyProvider).combine(withCustomFactories: viewFactories),
+            coordinatorFactories: MainAppFlowCoordinatorFactory(dependencyProvider: dependencyProvider).combine(withCustomFactories: coordinatorFactories)
         )
     }
 }

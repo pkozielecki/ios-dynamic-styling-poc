@@ -13,12 +13,12 @@ import UIKit
 final class MainAppFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
+    let viewFactories: [ViewComponentFactory]
+    let coordinatorFactories: [FlowCoordinatorFactory]
     var completionCallback: (() -> Void)?
     weak var adaptivePresentationDelegate: UIAdaptivePresentationControllerDelegate?
     var child: FlowCoordinator?
 
-    private let viewFactories: [ViewComponentFactory]
-    private let coordinatorFactories: [FlowCoordinatorFactory]
     private let dependencyProvider: DependencyProvider
 
     init(

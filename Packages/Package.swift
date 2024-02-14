@@ -13,6 +13,7 @@ let package = Package(
         .singleTargetLibrary("SignInFeature"),
         .singleTargetLibrary("SignUpFeature"),
         .singleTargetLibrary("PlaybookFeature"),
+        .singleTargetLibrary("TestUtils"), // To be able to use the Utils when testing Main App target.
     ],
     dependencies: [
         .package(url: "https://github.com/krzysztofzablocki/Inject.git", exact: "1.2.4"),

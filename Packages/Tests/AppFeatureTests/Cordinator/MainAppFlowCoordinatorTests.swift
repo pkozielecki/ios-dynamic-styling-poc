@@ -6,6 +6,7 @@
 @testable import AppFeature
 @testable import Common
 @testable import CommonUI
+@testable import SignUpFeature
 import SwiftUI
 @testable import TestUtils
 import UIKit
@@ -60,5 +61,22 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
         //  then:
         XCTAssertEqual(fakeNavigator.lastPoppedToViewController?.route.matches(MainAppRoute.welcome), true, "Should pop back to root")
         XCTAssertEqual(didCallCallback, true, "Should call completion callback")
+    }
+
+    func test_whenStartingChildFlow_thatUsesCustomViewAndCoordinatorFactories_shouldPassTheseFactoriesToChildFlow() {
+        //  given:
+        sut.start(animated: false)
+
+        //  when:
+        sut.show(route: MainAppRoute.signUp)
+
+        //  then:
+        let childFlow = sut.child as? SignUpFlowCoordinator
+        let viewFactories = childFlow?.viewFactories ?? []
+        let coordinatorFactories = childFlow?.coordinatorFactories ?? []
+        XCTAssertEqual(viewFactories.count, 2)
+        XCTAssertTrue(viewFactories.contains(where: { $0.id == "MainAppFlowViewFactory" }), "Should contain Main Flow's view factory")
+        XCTAssertEqual(coordinatorFactories.count, 2)
+        XCTAssertTrue(coordinatorFactories.contains(where: { $0.id == "MainAppFlowCoordinatorFactory" }), "Should contain Main Flow's coord. factory")
     }
 }

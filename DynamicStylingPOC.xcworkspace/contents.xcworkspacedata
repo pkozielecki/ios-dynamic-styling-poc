@@ -8,12 +8,6 @@
       location = "container:Apps/DynamicStylingPOC.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Apps/AllTests/AllTests.xctestplan">
-   </FileRef>
-   <FileRef
-      location = "group:Packages/Tests/CommonUITests/CommonUITests.xctestplan">
-   </FileRef>
-   <FileRef
-      location = "group:Packages/Tests/CommonTests/CommonTests.xctestplan">
+      location = "group:Apps/DynamicStylingPOC/DynamicStylingPOC.xctestplan">
    </FileRef>
 </Workspace>

@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "781B8B2D-CDA9-4FE2-B09E-DB5852187FC1",
+      "id" : "4744C522-E067-4488-9F91-12F09AB898DF",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -9,14 +9,20 @@
     }
   ],
   "defaultOptions" : {
-
+    "language" : "en-GB",
+    "region" : "GB",
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:DynamicStylingPOC.xcodeproj",
+      "identifier" : "2A26D1D12B2B16E800F68A9E",
+      "name" : "DynamicStylingPOC"
+    }
   },
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:DynamicStylingPOC.xcodeproj",
-        "identifier" : "2A3E09242B34693800B3C2CD",
-        "name" : "AllTests"
+        "containerPath" : "container:..\/Packages",
+        "identifier" : "AppFeatureTests",
+        "name" : "AppFeatureTests"
       }
     },
     {
@@ -36,22 +42,22 @@
     {
       "target" : {
         "containerPath" : "container:..\/Packages",
+        "identifier" : "SignInFeatureTests",
+        "name" : "SignInFeatureTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Packages",
         "identifier" : "SignUpFeatureTests",
         "name" : "SignUpFeatureTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:..\/Packages",
-        "identifier" : "AppFeatureTests",
-        "name" : "AppFeatureTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:..\/Packages",
-        "identifier" : "SignInFeatureTests",
-        "name" : "SignInFeatureTests"
+        "containerPath" : "container:DynamicStylingPOC.xcodeproj",
+        "identifier" : "2AC510452B7C9F270030B196",
+        "name" : "DynamicStylingPOCTests"
       }
     }
   ],

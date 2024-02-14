@@ -17,6 +17,8 @@ public protocol FlowCoordinator: ViewComponent, ViewComponentFactory, FlowCoordi
     var parent: FlowCoordinator? { get }
     var child: FlowCoordinator? { get set }
     var completionCallback: (() -> Void)? { get set }
+    var viewFactories: [ViewComponentFactory] { get }
+    var coordinatorFactories: [FlowCoordinatorFactory] { get }
 
     func start(animated: Bool)
     func stop()
@@ -29,6 +31,10 @@ public protocol FlowCoordinator: ViewComponent, ViewComponentFactory, FlowCoordi
 }
 
 public extension FlowCoordinator {
+    var id: String {
+        String(describing: Self.self)
+    }
+
     var viewController: UIViewController {
         navigator.navigationStack
     }
