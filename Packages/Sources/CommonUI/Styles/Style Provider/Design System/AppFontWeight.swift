@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public enum AppFontWeight: String, Equatable, Codable {
+public enum AppFontWeight: String, Equatable, Codable, CaseIterable, Hashable, RawRepresentable {
     case ultraLight, thin, light, regular, medium, semibold, bold, heavy, black
 }
 

@@ -4,6 +4,7 @@
 //
 
 @_exported import AppFeature
+@_exported import AutomaticSettings
 @_exported import Common
 @_exported import CommonUI
 @_exported import Playbook

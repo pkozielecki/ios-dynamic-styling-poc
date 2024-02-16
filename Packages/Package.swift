@@ -22,6 +22,7 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.12.0"),
         .package(url: "https://github.com/realm/SwiftLint", exact: "0.52.3"),
         .package(url: "https://github.com/netguru/ng-ios-network-module", from: "1.0.4"),
+        .package(url: "https://github.com/krzysztofzablocki/AutomaticSettings", from: "1.1.0"),
     ],
     targets: [
         .target(
@@ -41,6 +42,7 @@ let package = Package(
                 "SignUpFeature",
                 .product(name: "Playbook", package: "playbook-ios"),
                 .product(name: "PlaybookUI", package: "playbook-ios"),
+                .product(name: "AutomaticSettings", package: "AutomaticSettings"),
             ]
         ),
         .target(

@@ -3,29 +3,53 @@
 //  Dynamic Styling POC
 //
 
+import AutomaticSettings
 @_exported import Inject
 import PlaybookFeature
 import SwiftUI
 
 struct PlaybookView: View {
     @ObserveInjection private var iO
+    let viewModel: PlaybookViewModel
     @State private var email: String = ""
+    @State private var selectedTab: Int = 0
 
     var body: some View {
-        PlaybookCatalog(name: "WHG WL", playbook: makePlaybook())
-            .id(UUID())
-            .enableInjection()
+        TabView(selection: $selectedTab) {
+            VStack {
+                PlaybookCatalog(name: "", playbook: makePlaybook())
+            }
+            .tabItem {
+                Label(
+                    title: { Text("Playbook") },
+                    icon: { Image(systemName: "house.fill") }
+                )
+            }
+
+            VStack {
+                NavigationStack {
+                    BetaSettingsView(viewModel: viewModel.settingsViewModel!)
+                        .navigationTitle("Settings")
+                }
+            }
+            .tabItem {
+                Label(
+                    title: { Text("Settings") },
+                    icon: { Image(systemName: "gear") }
+                )
+            }
+        }
+        .id(UUID())
+        .enableInjection()
     }
 }
 
 extension PlaybookView {
     func makePlaybook() -> Playbook {
-        let design = AppDesignSystem(colors: .default, fonts: .default)
-        let appStyle = AppStyle(initialDesignSystem: design, intialComponents: .default)
         let playbook = Playbook()
-        addTextScenarios(playbook, appStyle)
-        addButtonScenarios(playbook, appStyle)
-        addTextFieldScenarios(playbook, appStyle)
+        addTextScenarios(playbook, viewModel.appStyle)
+        addButtonScenarios(playbook, viewModel.appStyle)
+        addTextFieldScenarios(playbook, viewModel.appStyle)
         return playbook
     }
 

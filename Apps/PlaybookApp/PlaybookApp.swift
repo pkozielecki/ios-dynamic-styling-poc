@@ -7,9 +7,10 @@ import SwiftUI
 
 @main
 struct PlaybookAppApp: App {
+    let viewModel = PlaybookViewModel()
     var body: some Scene {
         WindowGroup {
-            PlaybookView()
+            PlaybookView(viewModel: viewModel)
         }
     }
 }

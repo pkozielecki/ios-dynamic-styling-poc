@@ -1,0 +1,11 @@
+sources:
+  - Packages/Sources/PlaybookFeature
+  - Apps/PlaybookApp
+templates:
+  - SourceryTemplates
+output:
+  Apps/PlaybookApp/Settings/Generated
+args:
+  settingsView: BetaSettingsView
+  settingsStructure: BetaSettings
+  settingsExternalData: BetaSettingsExternalData

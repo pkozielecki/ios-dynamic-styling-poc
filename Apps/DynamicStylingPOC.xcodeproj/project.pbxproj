@@ -46,6 +46,10 @@
 		2AC510502B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC5104F2B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift */; };
 		2AC510532B7CA8500030B196 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC510522B7CA8500030B196 /* AppFeature */; };
 		2AC510552B7CA8C60030B196 /* TestUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC510542B7CA8C60030B196 /* TestUtils */; };
+		2AC510592B7CDB330030B196 /* BetaSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC510582B7CDB330030B196 /* BetaSettings.swift */; };
+		2AC5105B2B7CE0A70030B196 /* BetaSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC5105A2B7CE0A70030B196 /* BetaSettingsView.swift */; };
+		2AC510692B7DF1F50030B196 /* AutomaticSettings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC510682B7DF1F50030B196 /* AutomaticSettings.generated.swift */; };
+		2AC5106F2B7F57AC0030B196 /* PlaybookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC5106E2B7F57AC0030B196 /* PlaybookViewModel.swift */; };
 		2AF7A5522B57AEFA00FCEBB2 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5492B57AEF900FCEBB2 /* Inter-Thin.ttf */; };
 		2AF7A5532B57AEFA00FCEBB2 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5492B57AEF900FCEBB2 /* Inter-Thin.ttf */; };
 		2AF7A5542B57AEFA00FCEBB2 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7A5492B57AEF900FCEBB2 /* Inter-Thin.ttf */; };
@@ -112,6 +116,10 @@
 		2AC510462B7C9F270030B196 /* DynamicStylingPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicStylingPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC5104F2B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainAppFlowViewFactoryTests.swift; sourceTree = "<group>"; };
 		2AC510512B7CA8410030B196 /* TestUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestUtils; path = ../Packages/Sources/TestUtils; sourceTree = "<group>"; };
+		2AC510582B7CDB330030B196 /* BetaSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaSettings.swift; sourceTree = "<group>"; };
+		2AC5105A2B7CE0A70030B196 /* BetaSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaSettingsView.swift; sourceTree = "<group>"; };
+		2AC510682B7DF1F50030B196 /* AutomaticSettings.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticSettings.generated.swift; sourceTree = "<group>"; };
+		2AC5106E2B7F57AC0030B196 /* PlaybookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookViewModel.swift; sourceTree = "<group>"; };
 		2AF7A5492B57AEF900FCEBB2 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Thin.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-Thin.ttf"; sourceTree = "<group>"; };
 		2AF7A54A2B57AEF900FCEBB2 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Bold.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		2AF7A54B2B57AEF900FCEBB2 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Black.ttf"; path = "../../../../../../Downloads/Inter/static/Inter-Black.ttf"; sourceTree = "<group>"; };
@@ -226,7 +234,8 @@
 			children = (
 				2AB919212B63880200AF285A /* Info.plist */,
 				2A2E9C392B62903900C0D174 /* PlaybookApp.swift */,
-				2A2E9C502B62998600C0D174 /* PlaybookView.swift */,
+				2AC510562B7CDB0C0030B196 /* Playbook */,
+				2AC510572B7CDB170030B196 /* Settings */,
 				2A2E9C3D2B62903A00C0D174 /* Assets.xcassets */,
 			);
 			path = PlaybookApp;
@@ -313,6 +322,33 @@
 				2AC5104F2B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift */,
 			);
 			path = DynamicStylingPOCTests;
+			sourceTree = "<group>";
+		};
+		2AC510562B7CDB0C0030B196 /* Playbook */ = {
+			isa = PBXGroup;
+			children = (
+				2A2E9C502B62998600C0D174 /* PlaybookView.swift */,
+				2AC5106E2B7F57AC0030B196 /* PlaybookViewModel.swift */,
+			);
+			path = Playbook;
+			sourceTree = "<group>";
+		};
+		2AC510572B7CDB170030B196 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2AC510672B7DF1E30030B196 /* Generated */,
+				2AC510582B7CDB330030B196 /* BetaSettings.swift */,
+				2AC5105A2B7CE0A70030B196 /* BetaSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2AC510672B7DF1E30030B196 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				2AC510682B7DF1F50030B196 /* AutomaticSettings.generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		2AF7A5482B57AE0B00FCEBB2 /* Fonts */ = {
@@ -584,9 +620,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC510692B7DF1F50030B196 /* AutomaticSettings.generated.swift in Sources */,
 				2A2E9C3A2B62903900C0D174 /* PlaybookApp.swift in Sources */,
 				2A41C4332B63A3580066FC37 /* DesignSystemExtensions.swift in Sources */,
+				2AC510592B7CDB330030B196 /* BetaSettings.swift in Sources */,
 				2A2E9C512B62998600C0D174 /* PlaybookView.swift in Sources */,
+				2AC5105B2B7CE0A70030B196 /* BetaSettingsView.swift in Sources */,
+				2AC5106F2B7F57AC0030B196 /* PlaybookViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
