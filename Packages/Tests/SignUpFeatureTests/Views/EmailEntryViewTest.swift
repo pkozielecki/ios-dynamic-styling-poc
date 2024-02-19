@@ -16,7 +16,7 @@ final class EmailEntryViewTest: XCTestCase {
 
     override func setUp() {
         fakeEmailEntryViewModel = FakeEmailEntryViewModel()
-        fakeAppStyleProvider = FakeAppStyleProvider()
+        fakeAppStyleProvider = FakeAppStyleProvider.test
         sut = EmailEntryView(viewModel: fakeEmailEntryViewModel, appStyleProvider: fakeAppStyleProvider)
     }
 

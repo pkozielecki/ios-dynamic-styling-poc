@@ -1,11 +1,25 @@
-sources:
-  - Packages/Sources/PlaybookFeature
-  - Apps/PlaybookApp
-templates:
-  - SourceryTemplates
-output:
-  Apps/PlaybookApp/Settings/Generated
-args:
-  settingsView: BetaSettingsView
-  settingsStructure: BetaSettings
-  settingsExternalData: BetaSettingsExternalData
+configurations:
+  # Playbook and Automatic settings:
+  - sources:
+      - Packages/Sources/PlaybookFeature
+      - Apps/PlaybookApp
+    templates:
+      - SourceryTemplates/AutomaticSettings.stencil
+    output:
+      Apps/PlaybookApp/Settings/Generated
+    args:
+      settingsView: BetaSettingsView
+      settingsStructure: BetaSettings
+      settingsExternalData: BetaSettingsExternalData
+  # Common 
+  - sources:
+      - Packages/Sources/
+    templates:
+      - SourceryTemplates/AutoMockable.stencil
+    output:
+      Packages/Sources/TestUtils/Generated
+    args:
+      autoMockableImports:
+        - Common
+        - CommonUI
+        - SwiftUI

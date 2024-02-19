@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
+// sourcery: AutoMockable
 public protocol AppStyleProvider: Observable {
     var appStyle: AppStyle { get }
     func refreshStyles() async

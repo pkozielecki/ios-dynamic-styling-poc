@@ -5,6 +5,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 public protocol NavigationRouter: AnyObject {
     var currentFlow: FlowCoordinator? { get }
 

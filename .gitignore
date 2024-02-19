@@ -90,3 +90,5 @@ fastlane/test_output
 iOSInjectionProject/
 
 Apps/PlaybookApp/Settings/Generated/AutomaticSettings.generated.swift
+
+Packages/Sources/TestUtils/Generated/AutoMockable.generated.swift

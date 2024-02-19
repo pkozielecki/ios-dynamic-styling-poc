@@ -10,7 +10,7 @@ opt_in_rules:
   - weak_delegate
 
 excluded:
-  - "*.generated"
+  - Packages/Sources/TestUtils/Generated/AutoMockable.generated.swift
 
 custom_rules:
   # check's for Combine's .assign(to: xxx, on: self) ref-cycle
