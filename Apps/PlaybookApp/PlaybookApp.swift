@@ -6,11 +6,33 @@
 import SwiftUI
 
 @main
-struct PlaybookAppApp: App {
+struct PlaybookApp: App {
     let viewModel = PlaybookViewModel()
+
     var body: some Scene {
         WindowGroup {
-            PlaybookView(viewModel: viewModel)
+            TabView(selection: Binding<Int>.init(get: { viewModel.selectedTab }, set: { viewModel.selectedTab = $0 })) {
+                PlaybookView(viewModel: viewModel)
+                    .tag(0)
+                    .tabItem {
+                        Label(
+                            title: { Text("Playbook") },
+                            icon: { Image(systemName: "house.fill") }
+                        )
+                    }
+
+                NavigationStack {
+                    BetaSettingsView(viewModel: viewModel.settingsViewModel!)
+                        .navigationTitle("Settings")
+                }
+                .tag(1)
+                .tabItem {
+                    Label(
+                        title: { Text("Settings") },
+                        icon: { Image(systemName: "gear") }
+                    )
+                }
+            }
         }
     }
 }

@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Observation
 import PlaybookFeature
 import SwiftUI
 
@@ -11,6 +12,7 @@ import SwiftUI
 final class PlaybookViewModel {
     private(set) var appStyle = AppStyle.default
     private(set) var settingsViewModel: AutomaticSettingsViewModel<BetaSettings, BetaSettingsExternalData>?
+    var selectedTab: Int = 0
 
     init() {
         settingsViewModel = AutomaticSettingsViewModel(
@@ -18,6 +20,9 @@ final class PlaybookViewModel {
             externalData: BetaSettingsExternalData(),
             save: {
                 self.updateAppStyle(with: $0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.selectedTab = 0
+                }
             },
             dismiss: {}
         )
@@ -26,7 +31,6 @@ final class PlaybookViewModel {
 
 private extension PlaybookViewModel {
     func updateAppStyle(with betaSettings: BetaSettings) {
-        print("Updafing style with: \(betaSettings)")
         let designSystem = AppDesignSystem(
             colors: .init(
                 betaColors: betaSettings.colors

@@ -4,56 +4,32 @@
 //
 
 import AutomaticSettings
-@_exported import Inject
 import PlaybookFeature
 import SwiftUI
 
 struct PlaybookView: View {
-    @ObserveInjection private var iO
     let viewModel: PlaybookViewModel
-    @State private var email: String = ""
     @State private var selectedTab: Int = 0
 
-    var body: some View {
-        TabView(selection: $selectedTab) {
-            VStack {
-                PlaybookCatalog(name: "", playbook: makePlaybook())
-            }
-            .tabItem {
-                Label(
-                    title: { Text("Playbook") },
-                    icon: { Image(systemName: "house.fill") }
-                )
-            }
+    init(viewModel: PlaybookViewModel) {
+        self.viewModel = viewModel
+    }
 
-            VStack {
-                NavigationStack {
-                    BetaSettingsView(viewModel: viewModel.settingsViewModel!)
-                        .navigationTitle("Settings")
-                }
-            }
-            .tabItem {
-                Label(
-                    title: { Text("Settings") },
-                    icon: { Image(systemName: "gear") }
-                )
-            }
-        }
-        .id(UUID())
-        .enableInjection()
+    var body: some View {
+        PlaybookCatalog(name: "", playbook: PlaybookView.makePlaybook(appStyle: viewModel.appStyle))
     }
 }
 
 extension PlaybookView {
-    func makePlaybook() -> Playbook {
+    static func makePlaybook(appStyle: AppStyle) -> Playbook {
         let playbook = Playbook()
-        addTextScenarios(playbook, viewModel.appStyle)
-        addButtonScenarios(playbook, viewModel.appStyle)
-        addTextFieldScenarios(playbook, viewModel.appStyle)
+        addTextScenarios(playbook, appStyle)
+        addButtonScenarios(playbook, appStyle)
+        addTextFieldScenarios(playbook, appStyle)
         return playbook
     }
 
-    func addTextScenarios(_ playbook: Playbook, _ appStyle: AppStyle) {
+    static func addTextScenarios(_ playbook: Playbook, _ appStyle: AppStyle) {
         playbook.addScenarios(of: "Texts") {
             Scenario("Title", layout: .fill) { _ in
                 Text("This is title")
@@ -70,7 +46,7 @@ extension PlaybookView {
         }
     }
 
-    func addButtonScenarios(_ playbook: Playbook, _ appStyle: AppStyle) {
+    static func addButtonScenarios(_ playbook: Playbook, _ appStyle: AppStyle) {
         playbook.addScenarios(of: "Buttons") {
             Scenario("Primary Button", layout: .fill) { _ in
                 VStack {
@@ -99,16 +75,16 @@ extension PlaybookView {
         }
     }
 
-    func addTextFieldScenarios(_ playbook: Playbook, _ appStyle: AppStyle) {
+    static func addTextFieldScenarios(_ playbook: Playbook, _ appStyle: AppStyle) {
         playbook.addScenarios(of: "Text Fields") {
             Scenario("Email Text Field", layout: .fill) { _ in
                 VStack {
                     Spacer()
-                    TextField("Email", text: $email)
+                    TextField("Email", text: .constant("my@email.com"))
                         .appTextFieldStyleFor(.email, appStyle: appStyle)
                         .padding(20)
                     Spacer()
-                    TextField("Email - disabled", text: $email)
+                    TextField("Email - disabled", text: .constant(""))
                         .appTextFieldStyleFor(.email, appStyle: appStyle)
                         .padding(20)
                     Spacer()
@@ -117,11 +93,11 @@ extension PlaybookView {
             Scenario("Password Text Field", layout: .fill) { _ in
                 VStack {
                     Spacer()
-                    TextField("Password", text: $email)
+                    TextField("Password", text: .constant("my@email.com"))
                         .appTextFieldStyleFor(.password, appStyle: appStyle)
                         .padding(20)
                     Spacer()
-                    TextField("Password - disabled", text: $email)
+                    TextField("Password - disabled", text: .constant(""))
                         .appTextFieldStyleFor(.password, appStyle: appStyle)
                         .padding(20)
                     Spacer()

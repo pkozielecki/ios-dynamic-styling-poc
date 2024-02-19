@@ -29,7 +29,6 @@ struct BetaSettingsView: View, AutomaticSettingsViewDSL {
                     subtitleFontLink()
                     textFontLink()
                 }
-                .textFieldStyle(.roundedBorder)
             }
         }
         .padding()
