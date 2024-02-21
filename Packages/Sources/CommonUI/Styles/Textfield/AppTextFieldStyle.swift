@@ -22,6 +22,22 @@ public struct AppTextFieldStyle: Codable, Equatable {
         case padding
         case keyboardType
     }
+
+    public init(
+        shape: AppTextFieldShape,
+        backgroundColor: String,
+        textColor: String,
+        font: String,
+        padding: [CGFloat],
+        keyboardType: Int
+    ) {
+        self.shape = shape
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.font = font
+        self.padding = padding
+        self.keyboardType = keyboardType
+    }
 }
 
 public extension AppTextFieldStyle {

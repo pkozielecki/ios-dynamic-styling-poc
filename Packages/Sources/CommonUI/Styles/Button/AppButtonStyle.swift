@@ -18,6 +18,13 @@ public struct AppButtonStyle: Equatable, Codable {
         case textColor
         case padding
     }
+
+    public init(shape: AppButtonShape, backgroundColor: String, textColor: String, padding: [CGFloat]) {
+        self.shape = shape
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.padding = padding
+    }
 }
 
 public extension AppButtonStyle {

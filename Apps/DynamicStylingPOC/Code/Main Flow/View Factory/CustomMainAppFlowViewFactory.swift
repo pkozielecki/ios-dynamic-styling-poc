@@ -3,7 +3,6 @@
 //  Dynamic Styling POC
 //
 
-import AppFeature
 import Common
 import CommonUI
 import SwiftUI

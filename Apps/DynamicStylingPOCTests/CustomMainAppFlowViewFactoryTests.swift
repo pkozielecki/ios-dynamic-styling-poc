@@ -3,10 +3,8 @@
 //  Dynamic Styling POC
 //
 
-@testable import AppFeature
 import CommonUI
 @testable import DynamicStylingPOC
-import SnapshotTesting
 @testable import TestUtils
 import UIKit
 import XCTest

@@ -12,7 +12,7 @@ import XCTest
 final class AppStyleTests: XCTestCase {
     func test_shouldEncodeAndDecode() {
         //  given:
-        let defaultStyle = AppStyle(initialDesignSystem: .preview, intialComponents: .default)
+        let defaultStyle = AppStyle(initialDesignSystem: .test, intialComponents: .default)
 
         //  when:
         let data = try? JSONEncoder().encode(defaultStyle)
@@ -29,7 +29,7 @@ final class AppStyleTests: XCTestCase {
 
     func test_whenDecodingStyleFromJSON_shoulProduceProperStyleObject() {
         //  given:
-        let expectedStyle = AppStyle(initialDesignSystem: .preview, intialComponents: .default)
+        let expectedStyle = AppStyle(initialDesignSystem: .test, intialComponents: .default)
 
         //  when:
         let style = FileReader.readAndDecodeBundleResource(file: "mockAppStyle", extensionName: "json", decodedInto: AppStyle.self)

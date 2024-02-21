@@ -8,7 +8,7 @@ import CommonUI
 public extension FakeAppStyleProvider {
     static var test: FakeAppStyleProvider {
         let provider = FakeAppStyleProvider()
-        provider.underlyingAppStyle = AppStyle(initialDesignSystem: .preview, intialComponents: .preview)
+        provider.underlyingAppStyle = AppStyle(initialDesignSystem: .test, intialComponents: .test)
         return provider
     }
 }

@@ -9,7 +9,6 @@ let package = Package(
         .iOS(.v17),
     ],
     products: [
-        .singleTargetLibrary("AppFeature"),
         .singleTargetLibrary("OnboardingFeature"),
         .singleTargetLibrary("SignInFeature"),
         .singleTargetLibrary("SignUpFeature"),
@@ -27,19 +26,9 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "AppFeature",
-            dependencies: Dependencies.common + [
-                "OnboardingFeature",
-                "GamesFeature",
-                "SignInFeature",
-                "SignUpFeature",
-            ]
-        ),
-        .target(
             name: "PlaybookFeature",
             dependencies: Dependencies.common + [
                 "GamesFeature",
-                "AppFeature",
                 "SignInFeature",
                 "SignUpFeature",
                 .product(name: "Playbook", package: "playbook-ios"),
@@ -86,7 +75,11 @@ let package = Package(
             dependencies: Dependencies.common + [
                 .product(name: "Difference", package: "Difference"),
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
-            ]
+            ],
+            resources: [
+                .process("Resources"),
+            ],
+            swiftSettings: [.define("ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS")]
         ),
         .testTarget(
             name: "CommonTests",
@@ -98,10 +91,6 @@ let package = Package(
             resources: [
                 .process("Resources"),
             ]
-        ),
-        .testTarget(
-            name: "AppFeatureTests",
-            dependencies: Dependencies.test + ["AppFeature"]
         ),
         .testTarget(
             name: "SignUpFeatureTests",

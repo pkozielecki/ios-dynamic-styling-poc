@@ -8,6 +8,11 @@ import Foundation
 public struct AppTextStyle: Equatable, Codable {
     public let font: String
     public let color: String
+
+    public init(font: String, color: String) {
+        self.font = font
+        self.color = color
+    }
 }
 
 public extension [String: AppTextStyle] {

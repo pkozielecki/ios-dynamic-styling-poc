@@ -20,9 +20,9 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:..\/Packages",
-        "identifier" : "AppFeatureTests",
-        "name" : "AppFeatureTests"
+        "containerPath" : "container:DynamicStylingPOC.xcodeproj",
+        "identifier" : "2AC510452B7C9F270030B196",
+        "name" : "DynamicStylingPOCTests"
       }
     },
     {
@@ -51,13 +51,6 @@
         "containerPath" : "container:..\/Packages",
         "identifier" : "SignUpFeatureTests",
         "name" : "SignUpFeatureTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:DynamicStylingPOC.xcodeproj",
-        "identifier" : "2AC510452B7C9F270030B196",
-        "name" : "DynamicStylingPOCTests"
       }
     }
   ],

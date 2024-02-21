@@ -3,7 +3,6 @@
 //  Dynamic Styling POC
 //
 
-import AppFeature
 import Combine
 import Common
 import CommonUI
@@ -24,9 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let dependencyProvider = LiveDependencyManager.shared
         let router: NavigationRouter = dependencyProvider.resolve()
-
         let navigationController = RootNavigationController()
-        let mainAppFlow = AppFeatureFactory.makeAppFeature(navigator: navigationController)
+        let mainAppFlow = MainAppFlowCoordinator(
+            navigator: navigationController,
+            parent: nil,
+            dependencyProvider: dependencyProvider,
+            viewFactories: [MainAppFlowViewFactory(dependencyProvider: dependencyProvider)], // TODO: Add custom view factories.
+            coordinatorFactories: [MainAppFlowCoordinatorFactory(dependencyProvider: dependencyProvider)] // TODO: Add custom coord. factories.
+        )
+
         // Discussion: Use `viewFactory: CustomMainAppFlowViewFactory()` to inject custom view factory.
         // Discussion: Use `coordinatorFactory: CustomMainAppFlowCoordinatorFactory()` to inject custom flow coordinator factory.
 

@@ -3,9 +3,9 @@
 //  Dynamic Styling POC
 //
 
-@testable import AppFeature
 @testable import Common
 @testable import CommonUI
+@testable import DynamicStylingPOC
 @testable import SignUpFeature
 import SwiftUI
 @testable import TestUtils
@@ -30,11 +30,11 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
                 "UserStatusProvider": fakeUserStatusProvider as Any,
             ]
         )
-        sut = AppFeatureFactory.makeAppFeature(
+        sut = MainAppFlowCoordinator(
             navigator: fakeNavigator,
-            parentFlow: nil,
+            parent: nil,
             dependencyProvider: fakeDependencyProvider
-        ) as? MainAppFlowCoordinator
+        )
     }
 
     func test_whenStartingFlow_shouldDeployToProvidedNavigator() {
