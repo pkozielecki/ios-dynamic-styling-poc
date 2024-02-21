@@ -54,14 +54,4 @@ final class MainAppFlowCoordinator: FlowCoordinator {
     func canShow(route: any Route) -> Bool {
         route as? MainAppRoute != nil
     }
-
-    func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
-        viewFactories.makeViewComponents(forRoute: route, withData: data)
-    }
-
-    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
-        let coordinator = coordinatorFactories.makeFlowCoordinator(forRoute: route, navigator: navigator, parent: parent, withData: data)
-        child = coordinator
-        return coordinator
-    }
 }

@@ -58,18 +58,27 @@ private extension OnboardingView {
             VStack {
                 Spacer()
                 Text("Welcome to Dynamic Styling showcase!")
+                    .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
+                    .multilineTextAlignment(.center)
                 Spacer()
                 Button("Skip", action: onSkipOnboardingPressed)
                     .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
             }
             .padding(.bottom, 65)
+            .padding(.top, 65)
         }
     }
 
     struct OnboardingView2: View {
         let appStyleProvider: AppStyleProvider
         var body: some View {
-            Text("Shake your device to download style updates from server.")
+            VStack {
+                Spacer()
+                Text("Shake your device to download style updates from server.")
+                    .appTextStyleFor(.subtitle, appStyle: appStyleProvider.appStyle)
+                    .multilineTextAlignment(.center)
+                Spacer()
+            }
         }
     }
 
@@ -81,11 +90,13 @@ private extension OnboardingView {
             VStack {
                 Spacer()
                 Text("Last screen! 🎉")
+                    .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
                 Spacer()
                 Button("Get Started", action: onGetStartedPress)
                     .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
             }
             .padding(.bottom, 65)
+            .padding(.top, 65)
         }
     }
 }

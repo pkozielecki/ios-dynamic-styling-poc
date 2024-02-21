@@ -194,6 +194,16 @@ public extension FlowCoordinator {
     func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator) -> FlowCoordinator? {
         makeFlowCoordinator(forRoute: route, navigator: navigator, parent: nil, withData: nil)
     }
+
+    func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
+        viewFactories.makeViewComponents(forRoute: route, withData: data)
+    }
+
+    func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
+        let coordinator = coordinatorFactories.makeFlowCoordinator(forRoute: route, navigator: navigator, parent: parent, withData: data)
+        child = coordinator
+        return coordinator
+    }
 }
 
 // MARK: - Private
