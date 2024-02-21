@@ -17,8 +17,8 @@ struct MainAppFlowViewFactory: ViewComponentFactory {
 
     func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
         switch route.name {
-        case MainAppRoute.welcome.name:
-            [makeWelcomeScreen().viewController]
+        case MainAppRoute.splashScreen.name:
+            [makeSplashScreenView().viewController]
         default:
             []
         }
@@ -26,9 +26,12 @@ struct MainAppFlowViewFactory: ViewComponentFactory {
 }
 
 private extension MainAppFlowViewFactory {
-    func makeWelcomeScreen() -> UIViewController {
-        let viewModel = LiveWelcomeViewModel(router: dependencyProvider.resolve())
+    func makeSplashScreenView() -> UIViewController {
+        let viewModel = LiveSplashScreenViewModel(
+            router: dependencyProvider.resolve(),
+            userStatusProvider: dependencyProvider.resolve()
+        )
         let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
-        return WelcomeView(viewModel: viewModel, appStyleProvider: appStyleProvider).viewController
+        return SplashScreenView(viewModel: viewModel, appStyleProvider: appStyleProvider).viewController
     }
 }

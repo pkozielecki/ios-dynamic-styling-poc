@@ -22,7 +22,7 @@ public protocol FlowCoordinator: ViewComponent, ViewComponentFactory, FlowCoordi
 
     func start(animated: Bool)
     func stop()
-    func show(route: any Route, withData: AnyHashable?)
+    func show(route: any Route, withData: AnyHashable?, introspective: Bool)
     func canShow(route: any Route) -> Bool
     func `switch`(toRoute route: any Route, withData: AnyHashable?)
     func navigateBack(animated: Bool)
@@ -57,8 +57,11 @@ public extension FlowCoordinator {
         }
     }
 
-    func show(route: any Route, withData: AnyHashable?) {
+    func show(route: any Route, withData: AnyHashable?, introspective: Bool) {
         guard canShow(route: route) else {
+            if let parent, introspective {
+                parent.show(route: route, withData: withData, introspective: true)
+            }
             return
         }
         if initialInternalRoute == nil {
@@ -100,7 +103,7 @@ public extension FlowCoordinator {
                 }
 
                 navigateBackToRoot(animated: true, dismissPopup: false)
-                show(route: route, withData: withData)
+                show(route: route, withData: withData, introspective: false)
             }
         } else if let parent {
             parent.switch(toRoute: route, withData: withData)
@@ -114,7 +117,7 @@ public extension FlowCoordinator {
     }
 
     func show(route: any Route) {
-        show(route: route, withData: nil)
+        show(route: route, withData: nil, introspective: false)
     }
 
     func `switch`(toRoute route: any Route) {

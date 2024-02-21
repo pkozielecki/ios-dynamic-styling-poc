@@ -4,14 +4,14 @@
 //
 
 import Common
-import CommonUI
 import Foundation
 
 public enum MainAppRoute: String, Route {
-    case welcome
+    case splashScreen
+    case onboarding
     case signIn
     case signUp
-    case authenticatedUser
+    case lobby
 }
 
 public extension MainAppRoute {
@@ -20,7 +20,7 @@ public extension MainAppRoute {
     }
 
     var isFlow: Bool {
-        if case .welcome = self {
+        if case .splashScreen = self {
             return false
         }
         return true

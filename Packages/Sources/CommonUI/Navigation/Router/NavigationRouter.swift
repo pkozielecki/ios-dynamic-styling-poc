@@ -9,7 +9,7 @@ import Foundation
 public protocol NavigationRouter: AnyObject {
     var currentFlow: FlowCoordinator? { get }
 
-    func show(route: any Route, withData: AnyHashable?)
+    func show(route: any Route, withData: AnyHashable?, introspective: Bool)
     func `switch`(toRoute route: any Route, withData: AnyHashable?)
     func navigateBack(animated: Bool)
     func stopCurrentFlow()
@@ -28,10 +28,8 @@ public final class LiveNavigationRouter: NavigationRouter {
         initialFlow.start(animated: animated)
     }
 
-    public func show(route: any Route, withData: AnyHashable?) {
-        if currentFlow?.canShow(route: route) == true {
-            currentFlow?.show(route: route, withData: withData)
-        }
+    public func show(route: any Route, withData: AnyHashable?, introspective: Bool) {
+        currentFlow?.show(route: route, withData: withData, introspective: introspective)
     }
 
     public func `switch`(toRoute route: any Route, withData: AnyHashable?) {

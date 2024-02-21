@@ -1,17 +1,14 @@
 //
-//  MainAppFlowCoordinator.swift
+//  OnboardingFlowCoordinator.swift
 //  Dynamic Styling POC
 //
 
 import Common
 import CommonUI
-import OnboardingFeature
-import SignInFeature
-import SignUpFeature
 import SwiftUI
 import UIKit
 
-final class MainAppFlowCoordinator: FlowCoordinator {
+final class OnboardingFlowCoordinator: FlowCoordinator {
     let parent: FlowCoordinator?
     let navigator: Navigator
     let viewFactories: [ViewComponentFactory]
@@ -32,15 +29,15 @@ final class MainAppFlowCoordinator: FlowCoordinator {
         self.navigator = navigator
         self.parent = parent
         self.dependencyProvider = dependencyProvider
-        self.viewFactories = viewFactories ?? [MainAppFlowViewFactory(dependencyProvider: dependencyProvider)]
-        self.coordinatorFactories = coordinatorFactories ?? [MainAppFlowCoordinatorFactory(dependencyProvider: dependencyProvider)]
+        self.viewFactories = viewFactories ?? [OnboardingFlowViewFactory(dependencyProvider: dependencyProvider)]
+        self.coordinatorFactories = coordinatorFactories ?? []
     }
 
     func start(animated: Bool) {
-        let initialRoute = MainAppRoute.splashScreen
-        let welcomeScreen = makeViewComponents(forRoute: initialRoute, withData: nil)[0]
-        welcomeScreen.route = initialRoute
-        navigator.pushViewController(welcomeScreen.viewController, animated: animated)
+        let initialRoute = OnboardingRoute.onboarding
+        let onboardingScreen = makeViewComponents(forRoute: initialRoute, withData: nil)[0]
+        onboardingScreen.route = initialRoute
+        navigator.pushViewController(onboardingScreen.viewController, animated: animated)
         initialInternalRoute = initialRoute
     }
 
@@ -52,7 +49,7 @@ final class MainAppFlowCoordinator: FlowCoordinator {
     }
 
     func canShow(route: any Route) -> Bool {
-        route as? MainAppRoute != nil
+        route as? OnboardingRoute != nil
     }
 
     func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
@@ -60,8 +57,6 @@ final class MainAppFlowCoordinator: FlowCoordinator {
     }
 
     func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData data: AnyHashable?) -> FlowCoordinator? {
-        let coordinator = coordinatorFactories.makeFlowCoordinator(forRoute: route, navigator: navigator, parent: parent, withData: data)
-        child = coordinator
-        return coordinator
+        coordinatorFactories.makeFlowCoordinator(forRoute: route, navigator: navigator, parent: parent, withData: data)
     }
 }

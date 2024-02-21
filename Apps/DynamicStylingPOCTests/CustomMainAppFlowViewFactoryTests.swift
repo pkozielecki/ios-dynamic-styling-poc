@@ -4,9 +4,10 @@
 //
 
 @testable import AppFeature
+import CommonUI
 @testable import DynamicStylingPOC
 import SnapshotTesting
-import TestUtils
+@testable import TestUtils
 import UIKit
 import XCTest
 
@@ -17,14 +18,14 @@ final class CustomMainAppFlowViewFactoryTest: XCTestCase {
         sut = CustomMainAppFlowViewFactory()
     }
 
-    func test_whenHandlingWelcomeRoute_thenShouldCreateCustomView() {
+    func test_whenHandlingSplashscreenRoute_thenShouldCreateCustomView() {
         //  given:
-        let fixtureRoute = MainAppRoute.welcome
+        let fixtureRoute = MainAppRoute.splashScreen
 
         //  when:
         let viewController = sut.makeViewComponents(forRoute: fixtureRoute, withData: nil).first?.viewController ?? UIViewController()
 
         //  then:
-        executeSnapshotTests(forViewController: viewController, named: "CustomMainAppFlowViewFactory-MainAppRoute.welcome")
+        executeSnapshotTests(forViewController: viewController, named: "CustomMainAppFlowViewFactory-MainAppRoute.splashScreen")
     }
 }

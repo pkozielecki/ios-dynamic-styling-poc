@@ -22,19 +22,4 @@ final class PreviewPasswordEntryViewModel: PasswordEntryViewModel {
     func onPasswordRegistrationRequested(password: String) {}
 }
 
-final class PreviewAppStyleSynchroniser: AppStyleSynchroniser {
-    func synchroniseStyles(currentStyle: CommonUI.AppStyle) async -> AppStyle {
-        AppStyle(initialDesignSystem: .init(colors: .preview, fonts: .default), intialComponents: .preview)
-    }
-}
-
-enum PreviewFactory {
-    static func makeStyleProvider() -> AppStyleProvider {
-        LiveAppStyleProvider(
-            appStyleSynchroniser: PreviewAppStyleSynchroniser(),
-            initialAppStyle: AppStyle(initialDesignSystem: .preview, intialComponents: .preview)
-        )
-    }
-}
-
 #endif

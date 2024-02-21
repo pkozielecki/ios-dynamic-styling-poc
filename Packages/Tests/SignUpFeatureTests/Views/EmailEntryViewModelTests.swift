@@ -27,8 +27,9 @@ final class EmailEntryViewModelTest: XCTestCase {
 
         //  then:
         let expectedRoute = SignUpRoute.passwordEntry
-        XCTAssertEqual(fakeNavigationRouter.showRouteAnyRouteWithDataAnyHashableVoidCalled, true, "Should request showing route")
-        XCTAssertEqual(fakeNavigationRouter.showRouteAnyRouteWithDataAnyHashableVoidReceivedArguments?.route.matches(expectedRoute), true, "Should show the correct route")
-        XCTAssertNoDifference(fakeNavigationRouter.showRouteAnyRouteWithDataAnyHashableVoidReceivedArguments?.withData as? String, fixtureEmail)
+        let arguments = fakeNavigationRouter.showRouteAnyRouteWithDataAnyHashableIntrospectiveBoolVoidReceivedArguments
+        XCTAssertEqual(fakeNavigationRouter.showRouteAnyRouteWithDataAnyHashableIntrospectiveBoolVoidCalled, true, "Should request showing route")
+        XCTAssertEqual(arguments?.route.matches(expectedRoute), true, "Should show the correct route")
+        XCTAssertNoDifference(arguments?.withData as? String, fixtureEmail)
     }
 }

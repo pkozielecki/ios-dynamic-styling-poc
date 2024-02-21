@@ -31,7 +31,7 @@ protocol EmailEntryViewModel: Observable {
     func onViewAppeared() {}
 
     func onEmailRegistrationRequested(email: String) {
-        router.show(route: SignUpRoute.passwordEntry, withData: email)
+        router.show(route: SignUpRoute.passwordEntry, withData: email, introspective: false)
     }
 }
 

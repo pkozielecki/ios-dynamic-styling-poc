@@ -10,6 +10,7 @@ let package = Package(
     ],
     products: [
         .singleTargetLibrary("AppFeature"),
+        .singleTargetLibrary("OnboardingFeature"),
         .singleTargetLibrary("SignInFeature"),
         .singleTargetLibrary("SignUpFeature"),
         .singleTargetLibrary("PlaybookFeature"),
@@ -28,6 +29,7 @@ let package = Package(
         .target(
             name: "AppFeature",
             dependencies: Dependencies.common + [
+                "OnboardingFeature",
                 "GamesFeature",
                 "SignInFeature",
                 "SignUpFeature",
@@ -47,6 +49,10 @@ let package = Package(
         ),
         .target(
             name: "GamesFeature",
+            dependencies: Dependencies.common
+        ),
+        .target(
+            name: "OnboardingFeature",
             dependencies: Dependencies.common
         ),
         .target(
@@ -84,41 +90,30 @@ let package = Package(
         ),
         .testTarget(
             name: "CommonTests",
-            dependencies: [
-                "TestUtils",
-                "Common",
-            ]
+            dependencies: Dependencies.test + ["Common"]
         ),
         .testTarget(
             name: "CommonUITests",
-            dependencies: [
-                "TestUtils",
-                "CommonUI",
-            ],
+            dependencies: Dependencies.test + ["CommonUI"],
             resources: [
                 .process("Resources"),
             ]
         ),
         .testTarget(
             name: "AppFeatureTests",
-            dependencies: [
-                "TestUtils",
-                "AppFeature",
-            ]
+            dependencies: Dependencies.test + ["AppFeature"]
         ),
         .testTarget(
             name: "SignUpFeatureTests",
-            dependencies: [
-                "TestUtils",
-                "SignUpFeature",
-            ]
+            dependencies: Dependencies.test + ["SignUpFeature"]
         ),
         .testTarget(
             name: "SignInFeatureTests",
-            dependencies: [
-                "TestUtils",
-                "SignInFeature",
-            ]
+            dependencies: Dependencies.test + ["SignInFeature"]
+        ),
+        .testTarget(
+            name: "OnboardingFeatureTests",
+            dependencies: Dependencies.test + ["OnboardingFeature"]
         ),
     ]
 )
@@ -129,6 +124,12 @@ enum Dependencies {
             "CommonUI",
             "Common",
             "Inject",
+        ]
+    }
+
+    static var test: [Target.Dependency] {
+        [
+            "TestUtils",
         ]
     }
 }

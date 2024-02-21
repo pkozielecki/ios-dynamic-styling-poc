@@ -16,15 +16,18 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
     var fakeNavigator: FakeNavigator!
     var fakeNavigationRouter: FakeNavigationRouter!
     var fakeDependencyProvider: FakeDependencyProvider!
+    var fakeUserStatusProvider: FakeUserStatusProvider!
     var sut: MainAppFlowCoordinator!
 
     override func setUp() {
         fakeNavigator = FakeNavigator()
         fakeNavigationRouter = FakeNavigationRouter()
+        fakeUserStatusProvider = FakeUserStatusProvider()
         fakeDependencyProvider = FakeDependencyProvider(
             dependencies: [
                 "NavigationRouter": fakeNavigationRouter as Any,
                 "AppStyleProvider": FakeAppStyleProvider(),
+                "UserStatusProvider": fakeUserStatusProvider as Any,
             ]
         )
         sut = AppFeatureFactory.makeAppFeature(
@@ -36,7 +39,7 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
 
     func test_whenStartingFlow_shouldDeployToProvidedNavigator() {
         //  given:
-        let fixtureInitialRoute = MainAppRoute.welcome
+        let fixtureInitialRoute = MainAppRoute.splashScreen
 
         //  when:
         sut.start(animated: true)
@@ -59,7 +62,7 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
         sut.stop()
 
         //  then:
-        XCTAssertEqual(fakeNavigator.lastPoppedToViewController?.route.matches(MainAppRoute.welcome), true, "Should pop back to root")
+        XCTAssertEqual(fakeNavigator.lastPoppedToViewController?.route.matches(MainAppRoute.splashScreen), true, "Should pop back to root")
         XCTAssertEqual(didCallCallback, true, "Should call completion callback")
     }
 

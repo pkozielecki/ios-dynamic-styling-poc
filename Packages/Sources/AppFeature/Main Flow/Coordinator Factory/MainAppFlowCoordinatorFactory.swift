@@ -5,6 +5,7 @@
 
 import Common
 import CommonUI
+import OnboardingFeature
 import SignInFeature
 import SignUpFeature
 import SwiftUI
@@ -34,6 +35,14 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
                 parentFlow: parent,
                 viewFactories: parent?.viewFactories ?? [],
                 coordinatorFactories: parent?.coordinatorFactories ?? [],
+                dependencyProvider: dependencyProvider
+            )
+
+        case MainAppRoute.onboarding.name:
+            OnboardingFeatureFactory.makeOnboargingFeature(
+                navigator: navigator,
+                parentFlow: parent,
+                viewFactories: parent?.viewFactories ?? [],
                 dependencyProvider: dependencyProvider
             )
 

@@ -4,8 +4,8 @@
 //
 
 import CommonUI
-import SwiftUI
 import Inject
+import SwiftUI
 
 struct WelcomeView: View {
     let viewModel: WelcomeViewModel
@@ -32,15 +32,18 @@ struct WelcomeView: View {
             .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
         }
         .padding()
-        .onAppear {
+        .task {
             viewModel.onViewAppeared()
         }
         .enableInjection()
+        .navigationBarHidden(true)
     }
 }
 
+#if DEBUG
 #Preview {
     let viewModel = PreviewWelcomeViewModel()
     let appStyleProvider = PreviewFactory.makeStyleProvider()
     return WelcomeView(viewModel: viewModel, appStyleProvider: appStyleProvider)
 }
+#endif
