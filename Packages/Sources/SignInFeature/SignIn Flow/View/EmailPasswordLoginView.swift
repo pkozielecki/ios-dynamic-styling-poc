@@ -12,7 +12,8 @@ struct EmailPasswordLoginView: View {
     let appStyleProvider: AppStyleProvider
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var tapped: Bool = false
+    @State private var sendTapped: Bool = false
+    @State private var signUpTapped: Bool = false
 
     var body: some View {
         VStack(spacing: 10) {
@@ -34,22 +35,22 @@ struct EmailPasswordLoginView: View {
                 .frame(height: 50)
 
             Button("Send") {
-                guard !tapped else { return }
+                guard !sendTapped else { return }
                 viewModel.onLoginRequested(email: email, password: password)
-                tapped = true
+                sendTapped = true
             }
             .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
-            .disabled(email.isEmpty || tapped)
+            .disabled(email.isEmpty || sendTapped)
 
             Spacer()
 
             Button("Sign Up") {
-                guard !tapped else { return }
+                guard !signUpTapped else { return }
                 viewModel.onSignUpRequested()
-                tapped = true
+                signUpTapped = true
             }
             .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
-            .disabled(tapped)
+            .disabled(signUpTapped)
         }
         .task {
             viewModel.onViewAppeared()

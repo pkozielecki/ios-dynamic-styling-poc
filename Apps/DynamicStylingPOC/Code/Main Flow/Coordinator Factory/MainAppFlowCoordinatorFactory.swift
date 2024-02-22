@@ -10,6 +10,7 @@ import SignInFeature
 import SignUpFeature
 import SwiftUI
 import UIKit
+import VideoOnboardingFeature
 
 struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
     private let dependencyProvider: DependencyProvider
@@ -45,6 +46,14 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
                 viewFactories: parent?.viewFactories ?? [],
                 dependencyProvider: dependencyProvider
             )
+            // Discussion: Uncomment for video onboarding:
+            /*
+            VideoOnboardingFeatureFactory.makeOnboargingFeature(
+                navigator: navigator,
+                parentFlow: parent,
+                dependencyProvider: dependencyProvider
+            )
+             */
 
         default:
             nil

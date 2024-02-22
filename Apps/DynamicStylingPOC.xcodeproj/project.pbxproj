@@ -51,6 +51,7 @@
 		2A9CA5ED2B861FC000827C80 /* MainAppFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CA5DC2B861BAD00827C80 /* MainAppFlowViewFactory.swift */; };
 		2A9CA5EE2B86208A00827C80 /* PreviewMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CA5DE2B861BC400827C80 /* PreviewMocks.swift */; };
 		2A9CA5F42B87200100827C80 /* InitialAppFlowCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CA5F32B87200000827C80 /* InitialAppFlowCoordinatorFactory.swift */; };
+		2A9CA5F62B87827800827C80 /* VideoOnboardingFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A9CA5F52B87827800827C80 /* VideoOnboardingFeature */; };
 		2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */; };
 		2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4392B3477E800EF8777 /* Assets.xcassets */; };
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
@@ -157,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9CA5E42B861E0500827C80 /* PlaybookFeature in Frameworks */,
+				2A9CA5F62B87827800827C80 /* VideoOnboardingFeature in Frameworks */,
 				2A9CA5E22B861E0500827C80 /* OnboardingFeature in Frameworks */,
 				2A9CA5E62B861E0500827C80 /* SignInFeature in Frameworks */,
 				2A9CA5E82B861E0500827C80 /* SignUpFeature in Frameworks */,
@@ -458,6 +460,7 @@
 				2A9CA5E32B861E0500827C80 /* PlaybookFeature */,
 				2A9CA5E52B861E0500827C80 /* SignInFeature */,
 				2A9CA5E72B861E0500827C80 /* SignUpFeature */,
+				2A9CA5F52B87827800827C80 /* VideoOnboardingFeature */,
 			);
 			productName = DynamicStylingPOC;
 			productReference = 2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */;
@@ -1422,6 +1425,10 @@
 		2A9CA5E72B861E0500827C80 /* SignUpFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SignUpFeature;
+		};
+		2A9CA5F52B87827800827C80 /* VideoOnboardingFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VideoOnboardingFeature;
 		};
 		2AC3D4452B4D21C300EF8777 /* SignInFeature */ = {
 			isa = XCSwiftPackageProductDependency;

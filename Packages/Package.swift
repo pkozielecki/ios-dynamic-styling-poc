@@ -10,6 +10,7 @@ let package = Package(
     ],
     products: [
         .singleTargetLibrary("OnboardingFeature"),
+        .singleTargetLibrary("VideoOnboardingFeature"),
         .singleTargetLibrary("SignInFeature"),
         .singleTargetLibrary("SignUpFeature"),
         .singleTargetLibrary("PlaybookFeature"),
@@ -43,6 +44,14 @@ let package = Package(
         .target(
             name: "OnboardingFeature",
             dependencies: Dependencies.common
+        ),
+        .target(
+            name: "VideoOnboardingFeature",
+            dependencies: Dependencies.common,
+            resources: [
+                .process("Resources"),
+            ],
+            swiftSettings: [.define("ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS")]
         ),
         .target(
             name: "SignInFeature",
