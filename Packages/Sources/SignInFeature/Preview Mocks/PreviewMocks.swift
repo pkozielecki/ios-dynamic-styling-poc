@@ -13,6 +13,8 @@ import Foundation
 final class PreviewEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
     var viewState: EmailPasswordLoginViewState = .loading
     func onViewAppeared() {}
+    func onLoginRequested(email: String, password: String) {}
+    func onSignUpRequested() {}
 }
 
 #endif

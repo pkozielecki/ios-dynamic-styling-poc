@@ -29,8 +29,7 @@ private extension SplashScreenView {}
 
 #Preview {
     let viewModel = PreviewSplashScreenViewModel()
-    let appStyleProvider = PreviewFactory.makeStyleProvider()
-    return SplashScreenView(viewModel: viewModel, appStyleProvider: appStyleProvider)
+    return SplashScreenView(viewModel: viewModel, appStyleProvider: PreviewFactory.makeStyleProvider())
 }
 
 #endif

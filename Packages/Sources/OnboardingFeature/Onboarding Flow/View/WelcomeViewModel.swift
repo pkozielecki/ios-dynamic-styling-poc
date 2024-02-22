@@ -9,6 +9,7 @@ import Foundation
 import Observation
 import SwiftUI
 
+// sourcery: AutoMockable
 public protocol WelcomeViewModel: Observable {
     func onViewAppeared()
     func didRequestSignUp()

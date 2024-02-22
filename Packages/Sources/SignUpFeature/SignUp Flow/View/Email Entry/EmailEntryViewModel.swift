@@ -8,30 +8,36 @@ import CommonUI
 import Foundation
 import Observation
 
-enum EmailEntryViewState: Equatable {
+public enum EmailEntryViewState: Equatable {
     case loading
 }
 
-protocol EmailEntryViewModel: Observable {
+// sourcery: AutoMockable
+public protocol EmailEntryViewModel: Observable {
     var viewState: EmailEntryViewState { get }
     func onViewAppeared()
     func onEmailRegistrationRequested(email: String)
+    func onSignInRequested()
 }
 
-@Observable final class LiveEmailEntryViewModel: EmailEntryViewModel {
-    private(set) var viewState: EmailEntryViewState = .loading
+@Observable public final class LiveEmailEntryViewModel: EmailEntryViewModel {
+    public private(set) var viewState: EmailEntryViewState = .loading
     private let router: NavigationRouter
 
-    init(
+    public init(
         router: NavigationRouter = resolve()
     ) {
         self.router = router
     }
 
-    func onViewAppeared() {}
+    public func onViewAppeared() {}
 
-    func onEmailRegistrationRequested(email: String) {
+    public func onEmailRegistrationRequested(email: String) {
         router.show(route: SignUpRoute.passwordEntry, withData: email, introspective: false)
+    }
+
+    public func onSignInRequested() {
+        router.show(route: MainAppRoute.signIn, withData: nil, introspective: true)
     }
 }
 

@@ -1,5 +1,8 @@
 configurations:
-  # Playbook and Automatic settings:
+
+  ###############################################
+  ###  Playbook and Automatic settings:
+  ###############################################
   - sources:
       - Packages/Sources/PlaybookFeature
       - Apps/PlaybookApp
@@ -11,15 +14,62 @@ configurations:
       settingsView: BetaSettingsView
       settingsStructure: BetaSettings
       settingsExternalData: BetaSettingsExternalData
-  # Common 
+
+  ###############################################
+  ###  Test mocks - Common modules: 
+  ###############################################
   - sources:
-      - Packages/Sources/
+      - Packages/Sources/Common
+      - Packages/Sources/CommonUI
     templates:
       - SourceryTemplates/AutoMockable.stencil
     output:
       Packages/Sources/TestUtils/Generated
     args:
       autoMockableImports:
+        - SwiftUI
         - Common
         - CommonUI
+
+  ###############################################
+  ###  Test mocks - Features:
+  ###############################################
+  - sources:
+      - Packages/Sources/SignUpFeature
+    templates:
+      - SourceryTemplates/AutoMockable.stencil
+    output:
+      Packages/Tests/SignUpFeatureTests/Generated
+    args:
+      autoMockableImports:
         - SwiftUI
+      autoMockableTestableImports:
+        - SignUpFeature
+        - Common
+        - CommonUI
+  - sources:
+      - Packages/Sources/SignInFeature
+    templates:
+      - SourceryTemplates/AutoMockable.stencil
+    output:
+      Packages/Tests/SignInFeatureTests/Generated
+    args:
+      autoMockableImports:
+        - SwiftUI
+      autoMockableTestableImports:
+        - SignInFeature
+        - Common
+        - CommonUI
+  - sources:
+      - Packages/Sources/OnboardingFeature
+    templates:
+      - SourceryTemplates/AutoMockable.stencil
+    output:
+      Packages/Tests/OnboardingFeatureTests/Generated
+    args:
+      autoMockableImports:
+        - SwiftUI
+      autoMockableTestableImports:
+        - OnboardingFeature
+        - Common
+        - CommonUI

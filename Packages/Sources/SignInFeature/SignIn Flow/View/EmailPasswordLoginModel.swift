@@ -8,25 +8,41 @@ import CommonUI
 import Foundation
 import Observation
 
-enum EmailPasswordLoginViewState: Equatable {
+public enum EmailPasswordLoginViewState: Equatable {
     case loading
+    case idle
+    case error(String)
 }
 
-protocol EmailPasswordLoginViewModel: Observable {
+// sourcery: AutoMockable
+public protocol EmailPasswordLoginViewModel: Observable {
     var viewState: EmailPasswordLoginViewState { get }
     func onViewAppeared()
+    func onLoginRequested(email: String, password: String)
+    func onSignUpRequested()
 }
 
-@Observable final class LiveEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
-    private(set) var viewState: EmailPasswordLoginViewState = .loading
-
+@Observable public final class LiveEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
+    public private(set) var viewState: EmailPasswordLoginViewState = .idle
     private let router: NavigationRouter
 
-    init(router: NavigationRouter) {
+    public init(router: NavigationRouter) {
         self.router = router
     }
 
-    func onViewAppeared() {}
+    public func onViewAppeared() {
+        // Discussion: Add analytics, etc.
+    }
+
+    public func onLoginRequested(email: String, password: String) {
+        viewState = .loading
+
+        // TODO: Add fake login attempt + random error generation
+    }
+
+    public func onSignUpRequested() {
+        router.show(route: MainAppRoute.signUp, withData: nil, introspective: true)
+    }
 }
 
 private extension LiveEmailPasswordLoginViewModel {}

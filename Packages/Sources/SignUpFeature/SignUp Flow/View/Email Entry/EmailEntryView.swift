@@ -11,6 +11,7 @@ struct EmailEntryView: View {
     let viewModel: EmailEntryViewModel
     let appStyleProvider: AppStyleProvider
     @State private var email: String = ""
+    @State private var tapped: Bool = false
 
     var body: some View {
         VStack(spacing: 10) {
@@ -26,12 +27,25 @@ struct EmailEntryView: View {
                 .appTextFieldStyleFor(.email, appStyle: appStyleProvider.appStyle)
 
             Spacer()
+                .frame(height: 50)
 
             Button("Send") {
+                guard !tapped else { return }
                 viewModel.onEmailRegistrationRequested(email: email)
+                tapped = true
+            }
+            .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
+            .disabled(email.isEmpty || tapped)
+
+            Spacer()
+
+            Button("Sign In") {
+                guard !tapped else { return }
+                viewModel.onSignInRequested()
+                tapped = true
             }
             .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
-            .disabled(email.isEmpty)
+            .disabled(tapped)
         }
         .task {
             viewModel.onViewAppeared()
@@ -50,7 +64,6 @@ private extension EmailEntryView {
 #if DEBUG
 #Preview {
     let viewModel = PreviewEmailEntryViewModel()
-    let appStyleProvider = PreviewFactory.makeStyleProvider()
-    return EmailEntryView(viewModel: viewModel, appStyleProvider: appStyleProvider)
+    return EmailEntryView(viewModel: viewModel, appStyleProvider: PreviewFactory.makeStyleProvider())
 }
 #endif

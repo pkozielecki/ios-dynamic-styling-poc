@@ -36,7 +36,6 @@ struct PasswordEntryView: View {
 #if DEBUG
 #Preview {
     let viewModel = PreviewPasswordEntryViewModel()
-    let appStyleProvider = PreviewFactory.makeStyleProvider()
-    return PasswordEntryView(viewModel: viewModel, appStyleProvider: appStyleProvider)
+    return PasswordEntryView(viewModel: viewModel, appStyleProvider: PreviewFactory.makeStyleProvider())
 }
 #endif

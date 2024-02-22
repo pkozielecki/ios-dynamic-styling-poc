@@ -43,7 +43,6 @@ struct WelcomeView: View {
 #if DEBUG
 #Preview {
     let viewModel = PreviewWelcomeViewModel()
-    let appStyleProvider = PreviewFactory.makeStyleProvider()
-    return WelcomeView(viewModel: viewModel, appStyleProvider: appStyleProvider)
+    return WelcomeView(viewModel: viewModel, appStyleProvider: PreviewFactory.makeStyleProvider())
 }
 #endif

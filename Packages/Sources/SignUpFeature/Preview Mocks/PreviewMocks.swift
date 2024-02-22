@@ -14,10 +14,10 @@ final class PreviewEmailEntryViewModel: EmailEntryViewModel {
     var viewState: EmailEntryViewState = .loading
     func onViewAppeared() {}
     func onEmailRegistrationRequested(email password: String) {}
+    func onSignInRequested() {}
 }
 
 final class PreviewPasswordEntryViewModel: PasswordEntryViewModel {
-    var viewState: PasswordEntryViewState = .loading
     func onViewAppeared() {}
     func onPasswordRegistrationRequested(password: String) {}
 }

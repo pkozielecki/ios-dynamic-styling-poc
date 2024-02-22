@@ -24,9 +24,3 @@ final class EmailEntryViewTest: XCTestCase {
         executeSnapshotTests(forView: sut, named: "EmailEntryView")
     }
 }
-
-final class FakeEmailEntryViewModel: EmailEntryViewModel {
-    var viewState: EmailEntryViewState = .loading
-    func onViewAppeared() {}
-    func onEmailRegistrationRequested(email password: String) {}
-}

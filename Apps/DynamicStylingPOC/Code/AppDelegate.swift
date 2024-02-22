@@ -16,32 +16,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         let initializer = DependenciesInitializer(designSystem: .default)
         initializer.registerDependencies()
-
         super.init()
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let dependencyProvider = LiveDependencyManager.shared
-        let router: NavigationRouter = dependencyProvider.resolve()
-        let navigationController = RootNavigationController()
-        let mainAppFlow = MainAppFlowCoordinator(
-            navigator: navigationController,
-            parent: nil,
-            dependencyProvider: dependencyProvider,
-            viewFactories: [MainAppFlowViewFactory(dependencyProvider: dependencyProvider)], // TODO: Add custom view factories.
-            coordinatorFactories: [MainAppFlowCoordinatorFactory(dependencyProvider: dependencyProvider)] // TODO: Add custom coord. factories.
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        let rootNavigationController = RootNavigationController()
+
+        // Discussion: Inject custom factories:
+//        let viewFactories: [ViewComponentFactory] = [CustomMainAppFlowViewFactory()]
+        let viewFactories: [ViewComponentFactory] = []
+        let coordinatorFactories: [FlowCoordinatorFactory] = []
+        let initialFlow = InitialAppFlowCoordinatorFactory.makeInitialFlow(
+            rootNavigationController: rootNavigationController,
+            viewFactories: viewFactories,
+            coordinatorFactories: coordinatorFactories
         )
 
-        // Discussion: Use `viewFactory: CustomMainAppFlowViewFactory()` to inject custom view factory.
-        // Discussion: Use `coordinatorFactory: CustomMainAppFlowCoordinatorFactory()` to inject custom flow coordinator factory.
-
         window = UIWindow()
-        window?.rootViewController = navigationController
-
-        router.start(initialFlow: mainAppFlow, animated: false)
-
+        window?.rootViewController = rootNavigationController
+        router.start(initialFlow: initialFlow, animated: false)
         window?.makeKeyAndVisible()
-
         return true
+    }
+}
+
+private extension AppDelegate {
+    var router: NavigationRouter {
+        dependencyProvider.resolve()
+    }
+
+    var dependencyProvider: DependencyProvider {
+        LiveDependencyManager.shared
     }
 }

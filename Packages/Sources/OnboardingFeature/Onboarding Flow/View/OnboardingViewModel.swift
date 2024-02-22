@@ -8,6 +8,7 @@ import CommonUI
 import Foundation
 import Observation
 
+// sourcery: AutoMockable
 public protocol OnboardingViewModel: Observable {
     func onViewAppeared()
     func onFinishOnboardingPressed()

@@ -50,16 +50,15 @@
 		2A9CA5EC2B861FBD00827C80 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CA5DA2B861BAD00827C80 /* SplashScreenViewModel.swift */; };
 		2A9CA5ED2B861FC000827C80 /* MainAppFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CA5DC2B861BAD00827C80 /* MainAppFlowViewFactory.swift */; };
 		2A9CA5EE2B86208A00827C80 /* PreviewMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CA5DE2B861BC400827C80 /* PreviewMocks.swift */; };
+		2A9CA5F42B87200100827C80 /* InitialAppFlowCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CA5F32B87200000827C80 /* InitialAppFlowCoordinatorFactory.swift */; };
 		2AC3D4362B3477E600EF8777 /* SignInFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4352B3477E600EF8777 /* SignInFeatureDemoApp.swift */; };
 		2AC3D43A2B3477E800EF8777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4392B3477E800EF8777 /* Assets.xcassets */; };
 		2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
 		2AC3D4442B35B04B00EF8777 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
 		2AC3D4462B4D21C300EF8777 /* SignInFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC3D4452B4D21C300EF8777 /* SignInFeature */; };
-		2AC3D4482B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4472B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift */; };
 		2AC3D44C2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D44B2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift */; };
 		2AC3D44F2B4FCBCC00EF8777 /* CustomSignInFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D44E2B4FCBCB00EF8777 /* CustomSignInFlowViewFactory.swift */; };
 		2AC3D4512B4FCF1E00EF8777 /* CustomSignUpFlowViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4502B4FCF1E00EF8777 /* CustomSignUpFlowViewFactory.swift */; };
-		2AC510502B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC5104F2B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift */; };
 		2AC510592B7CDB330030B196 /* BetaSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC510582B7CDB330030B196 /* BetaSettings.swift */; };
 		2AC5105B2B7CE0A70030B196 /* BetaSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC5105A2B7CE0A70030B196 /* BetaSettingsView.swift */; };
 		2AC510692B7DF1F50030B196 /* AutomaticSettings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC510682B7DF1F50030B196 /* AutomaticSettings.generated.swift */; };
@@ -125,6 +124,7 @@
 		2A9CA5DC2B861BAD00827C80 /* MainAppFlowViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppFlowViewFactory.swift; sourceTree = "<group>"; };
 		2A9CA5DE2B861BC400827C80 /* PreviewMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMocks.swift; sourceTree = "<group>"; };
 		2A9CA5DF2B861C2900827C80 /* MainAppFlowCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppFlowCoordinatorTests.swift; sourceTree = "<group>"; };
+		2A9CA5F32B87200000827C80 /* InitialAppFlowCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAppFlowCoordinatorFactory.swift; sourceTree = "<group>"; };
 		2AB9191F2B6387FC00AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2AB919202B63880000AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2AB919212B63880200AF285A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -133,12 +133,10 @@
 		2AC3D4392B3477E800EF8777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemExtensions.swift; sourceTree = "<group>"; };
 		2AC3D4432B35AE4200EF8777 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		2AC3D4472B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainAppFlowViewFactory.swift; sourceTree = "<group>"; };
 		2AC3D44B2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainAppFlowCoordinatorFactory.swift; sourceTree = "<group>"; };
 		2AC3D44E2B4FCBCB00EF8777 /* CustomSignInFlowViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInFlowViewFactory.swift; sourceTree = "<group>"; };
 		2AC3D4502B4FCF1E00EF8777 /* CustomSignUpFlowViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignUpFlowViewFactory.swift; sourceTree = "<group>"; };
 		2AC510462B7C9F270030B196 /* DynamicStylingPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicStylingPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AC5104F2B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainAppFlowViewFactoryTests.swift; sourceTree = "<group>"; };
 		2AC510582B7CDB330030B196 /* BetaSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaSettings.swift; sourceTree = "<group>"; };
 		2AC5105A2B7CE0A70030B196 /* BetaSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaSettingsView.swift; sourceTree = "<group>"; };
 		2AC510682B7DF1F50030B196 /* AutomaticSettings.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticSettings.generated.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 		2A26D1D42B2B16E800F68A9E /* DynamicStylingPOC */ = {
 			isa = PBXGroup;
 			children = (
-				2A3FAD4A2B304AAD0016163B /* Preview Resources */,
 				2A3FAD2B2B2C91330016163B /* Resources */,
 				2A26D20B2B2B381500F68A9E /* Code */,
 			);
@@ -317,13 +314,6 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		2A3FAD4A2B304AAD0016163B /* Preview Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Resources";
-			sourceTree = "<group>";
-		};
 		2A9CA5C12B84E59D00827C80 /* DemoApp-Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +330,7 @@
 				2A9CA5D72B861BAD00827C80 /* MainAppFlowCoordinator.swift */,
 				2A9CA5D82B861BAD00827C80 /* View */,
 				2A9CA5DB2B861BAD00827C80 /* View Factory */,
+				2A9CA5F32B87200000827C80 /* InitialAppFlowCoordinatorFactory.swift */,
 			);
 			path = "Main Flow";
 			sourceTree = "<group>";
@@ -364,7 +355,6 @@
 		2A9CA5DB2B861BAD00827C80 /* View Factory */ = {
 			isa = PBXGroup;
 			children = (
-				2AC3D4472B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift */,
 				2A9CA5DC2B861BAD00827C80 /* MainAppFlowViewFactory.swift */,
 			);
 			path = "View Factory";
@@ -401,7 +391,6 @@
 			isa = PBXGroup;
 			children = (
 				2A9CA5DF2B861C2900827C80 /* MainAppFlowCoordinatorTests.swift */,
-				2AC5104F2B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift */,
 			);
 			path = DynamicStylingPOCTests;
 			sourceTree = "<group>";
@@ -731,9 +720,9 @@
 				2A3FAD642B3194E90016163B /* RootNavigationController.swift in Sources */,
 				2AC3D4422B35ADDE00EF8777 /* DesignSystemExtensions.swift in Sources */,
 				2AC3D44C2B4EB55F00EF8777 /* CustomMainAppFlowCoordinatorFactory.swift in Sources */,
+				2A9CA5F42B87200100827C80 /* InitialAppFlowCoordinatorFactory.swift in Sources */,
 				2A9CA5EB2B861FBD00827C80 /* SplashScreenView.swift in Sources */,
 				2A9CA5ED2B861FC000827C80 /* MainAppFlowViewFactory.swift in Sources */,
-				2AC3D4482B4E74B600EF8777 /* CustomMainAppFlowViewFactory.swift in Sources */,
 				2A3FAD282B2C8C270016163B /* DependenciesInitializer.swift in Sources */,
 				2A9CA5EC2B861FBD00827C80 /* SplashScreenViewModel.swift in Sources */,
 			);
@@ -786,7 +775,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC510502B7CA3960030B196 /* CustomMainAppFlowViewFactoryTests.swift in Sources */,
 				2A9CA5E02B861C2900827C80 /* MainAppFlowCoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

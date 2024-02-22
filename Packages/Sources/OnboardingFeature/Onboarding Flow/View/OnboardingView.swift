@@ -104,7 +104,6 @@ private extension OnboardingView {
 #if DEBUG
 #Preview {
     let viewModel = PreviewOnboardingViewModel()
-    let appStyleProvider = PreviewFactory.makeStyleProvider()
-    return OnboardingView(viewModel: viewModel, appStyleProvider: appStyleProvider)
+    return OnboardingView(viewModel: viewModel, appStyleProvider: PreviewFactory.makeStyleProvider())
 }
 #endif
