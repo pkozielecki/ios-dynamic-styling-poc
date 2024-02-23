@@ -24,17 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         let rootNavigationController = RootNavigationController()
-
-        // Discussion: Inject custom factories:
-//        let viewFactories: [ViewComponentFactory] = [CustomMainAppFlowViewFactory()]
-        let viewFactories: [ViewComponentFactory] = []
-        let coordinatorFactories: [FlowCoordinatorFactory] = []
         let initialFlow = InitialAppFlowCoordinatorFactory.makeInitialFlow(
-            rootNavigationController: rootNavigationController,
-            viewFactories: viewFactories,
-            coordinatorFactories: coordinatorFactories
+            rootNavigationController: rootNavigationController
         )
-
         window = UIWindow()
         window?.rootViewController = rootNavigationController
         router.start(initialFlow: initialFlow, animated: false)
