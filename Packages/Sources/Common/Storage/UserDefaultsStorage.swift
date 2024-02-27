@@ -11,6 +11,7 @@ extension UserDefaults: LocalStorage {
             throw StorageError.unableToEncodeData
         }
         set(encoded, forKey: key)
+        synchronize()
     }
 
     public func getValue<T: Decodable>(forKey key: String) throws -> T? {
@@ -22,5 +23,6 @@ extension UserDefaults: LocalStorage {
 
     public func removeValue(forKey key: String) throws {
         removeObject(forKey: key)
+        synchronize()
     }
 }

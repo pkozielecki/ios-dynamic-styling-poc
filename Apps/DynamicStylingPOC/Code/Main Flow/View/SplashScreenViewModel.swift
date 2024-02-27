@@ -16,13 +16,16 @@ protocol SplashScreenViewModel: Observable {
 final class LiveSplashScreenViewModel: SplashScreenViewModel {
     private let router: NavigationRouter
     private let userStatusProvider: UserStatusProvider
+    private let storage: LocalStorage
 
     init(
         router: NavigationRouter,
-        userStatusProvider: UserStatusProvider
+        userStatusProvider: UserStatusProvider,
+        storage: LocalStorage
     ) {
         self.router = router
         self.userStatusProvider = userStatusProvider
+        self.storage = storage
     }
 
     func onViewAppeared() {
@@ -30,6 +33,7 @@ final class LiveSplashScreenViewModel: SplashScreenViewModel {
             // Discussion: This is to simulate Remote Config / Styles update from server.
             try await Task.sleep(nanoseconds: 2000000000)
             router.show(route: routeToShow, withData: nil, introspective: false)
+            setFirstLaunchStatus()
         }
     }
 }
@@ -45,5 +49,9 @@ private extension LiveSplashScreenViewModel {
         case .onboardingFinished:
             return MainAppRoute.signUp
         }
+    }
+
+    func setFirstLaunchStatus() {
+        try? storage.setValue(false, forKey: StorageKeys.firstLaunch.rawValue)
     }
 }

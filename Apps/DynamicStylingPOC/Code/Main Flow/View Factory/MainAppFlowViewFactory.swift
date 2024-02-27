@@ -29,7 +29,8 @@ private extension MainAppFlowViewFactory {
     func makeSplashScreenView() -> UIViewController {
         let viewModel = LiveSplashScreenViewModel(
             router: dependencyProvider.resolve(),
-            userStatusProvider: dependencyProvider.resolve()
+            userStatusProvider: dependencyProvider.resolve(),
+            storage: dependencyProvider.resolve()
         )
         let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
         return SplashScreenView(viewModel: viewModel, appStyleProvider: appStyleProvider).viewController

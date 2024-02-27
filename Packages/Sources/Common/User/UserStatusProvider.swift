@@ -20,21 +20,21 @@ public protocol UserStatusProvider: AnyObject {
 public final class LiveUserStatusProvider: UserStatusProvider {
     private let storage: LocalStorage
 
-    public init(storage: LocalStorage) {
+    public init(storage: LocalStorage = resolve()) {
         self.storage = storage
     }
 
     public var userStatus: UserStatus {
-        let isFirstLaunch = (try? storage.getValue(forKey: StorageKeys.firstLaunch.rawValue)) ?? true
-        let completedOnboarding = (try? storage.getValue(forKey: StorageKeys.completedOnboarding.rawValue)) ?? false
-        let isAuthenticated: String? = try? storage.getValue(forKey: StorageKeys.authenticationToken.rawValue)
+        let isFirstLaunch: Bool? = try? storage.getValue(forKey: StorageKeys.firstLaunch.rawValue)
+        let completedOnboarding: Bool? = try? storage.getValue(forKey: StorageKeys.completedOnboarding.rawValue)
+        let authenticationToken: String? = try? storage.getValue(forKey: StorageKeys.authenticationToken.rawValue)
 
-        if isFirstLaunch {
+        if isFirstLaunch == nil {
             return .firstLaunch
-        } else if isAuthenticated != nil {
+        } else if authenticationToken != nil {
             return .authenticated
         } else {
-            return completedOnboarding ? .onboardingFinished : .onboardingNotFinished
+            return completedOnboarding == true ? .onboardingFinished : .onboardingNotFinished
         }
     }
 }

@@ -48,14 +48,13 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
             )
             // Discussion: Uncomment to inject custom view factory:
             /*
-            let viewFactory = CustomOnboardingFlowViewFactory(dependencyProvider: dependencyProvider)
-            return OnboardingFeatureFactory.makeOnboargingFeature(
+            OnboardingFeatureFactory.makeOnboargingFeature(
                 navigator: navigator,
                 parentFlow: parent,
-                viewFactories: [viewFactory],
+                viewFactories: [CustomOnboardingFlowViewFactory(dependencyProvider: dependencyProvider)],
                 dependencyProvider: dependencyProvider
             )
-             */
+            */
             // Discussion: Uncomment for video onboarding:
             /*
             VideoOnboardingFeatureFactory.makeOnboargingFeature(

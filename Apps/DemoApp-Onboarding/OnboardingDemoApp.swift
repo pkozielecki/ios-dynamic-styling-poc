@@ -34,7 +34,7 @@ struct OnboardingDemoApp: App {
 private extension OnboardingDemoApp {
     func initializeDependencies() {
         let dependencyManager = LiveDependencyManager.shared as? DependencyManager
-        let storage = UserDefaults.standard
+        let storage = UserDefaults(suiteName: "OnboardingDemoApp") ?? .standard
         let userStatusProvider = LiveUserStatusProvider(storage: storage)
         let networkModule = NetworkingFactory.makeNetworkModule(baseURL: URL(string: "https://whg.com")!)
         let appStyleProvider = LiveAppStyleProvider(
