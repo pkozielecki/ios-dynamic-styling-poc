@@ -21,7 +21,7 @@ let package = Package(
         .package(url: "https://github.com/krzysztofzablocki/Difference.git", exact: "1.0.2"),
         .package(url: "https://github.com/playbook-ui/playbook-ios", exact: "0.3.4"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.12.0"),
-        .package(url: "https://github.com/realm/SwiftLint", exact: "0.52.3"),
+        .package(url: "https://github.com/realm/SwiftLint", from: "0.54.0"),
         .package(url: "https://github.com/netguru/ng-ios-network-module", from: "1.0.4"),
         .package(url: "https://github.com/krzysztofzablocki/AutomaticSettings", from: "1.1.0"),
     ],

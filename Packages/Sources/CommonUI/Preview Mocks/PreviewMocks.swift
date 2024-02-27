@@ -9,16 +9,23 @@ import Foundation
 
 public enum PreviewFactory {
     public static func makeStyleProvider() -> AppStyleProvider {
-        LiveAppStyleProvider(
-            appStyleSynchroniser: PreviewAppStyleSynchroniser(),
-            initialAppStyle: .init(initialDesignSystem: .preview, intialComponents: .preview)
+        let designSystem = AppDesignSystem(colors: .preview, fonts: .default)
+        let appStyle = AppStyle(initialDesignSystem: designSystem, intialComponents: .default)
+        return LiveAppStyleProvider(
+            appStyleSynchroniser: PreviewAppStyleSynchroniser(styleToReturn: appStyle),
+            initialAppStyle: appStyle
         )
     }
 }
 
 public final class PreviewAppStyleSynchroniser: AppStyleSynchroniser {
+    private let styleToReturn: AppStyle
+    init(styleToReturn: AppStyle) {
+        self.styleToReturn = styleToReturn
+    }
+
     public func synchroniseStyles(currentStyle: AppStyle) async -> AppStyle {
-        AppStyle(initialDesignSystem: .init(colors: .preview, fonts: .default), intialComponents: .preview)
+        styleToReturn
     }
 }
 

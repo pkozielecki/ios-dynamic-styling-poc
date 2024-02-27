@@ -6,25 +6,6 @@
 import Foundation
 import SwiftUI
 
-public extension AppComponentsStyles {
-    static var preview: AppComponentsStyles {
-        AppComponentsStyles(
-            text: .preview,
-            button: .preview,
-            textField: .preview
-        )
-    }
-}
-
-public extension AppDesignSystem {
-    static var preview: AppDesignSystem {
-        AppDesignSystem(
-            colors: .preview,
-            fonts: .default
-        )
-    }
-}
-
 public extension AppColors {
     static var preview: AppColors {
         AppColors(
