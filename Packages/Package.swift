@@ -9,6 +9,7 @@ let package = Package(
         .iOS(.v17),
     ],
     products: [
+        .singleTargetLibrary("LobbyFeature"),
         .singleTargetLibrary("OnboardingFeature"),
         .singleTargetLibrary("VideoOnboardingFeature"),
         .singleTargetLibrary("SignInFeature"),
@@ -29,17 +30,12 @@ let package = Package(
         .target(
             name: "PlaybookFeature",
             dependencies: Dependencies.common + [
-                "GamesFeature",
                 "SignInFeature",
                 "SignUpFeature",
                 .product(name: "Playbook", package: "playbook-ios"),
                 .product(name: "PlaybookUI", package: "playbook-ios"),
                 .product(name: "AutomaticSettings", package: "AutomaticSettings"),
             ]
-        ),
-        .target(
-            name: "GamesFeature",
-            dependencies: Dependencies.common
         ),
         .target(
             name: "OnboardingFeature",
@@ -59,6 +55,10 @@ let package = Package(
         ),
         .target(
             name: "SignUpFeature",
+            dependencies: Dependencies.common
+        ),
+        .target(
+            name: "LobbyFeature",
             dependencies: Dependencies.common
         ),
         .target(

@@ -119,6 +119,10 @@
          "text":{
             "color":"text500",
             "font":"text"
+         },
+         "error":{
+            "color":"error500",
+            "font":"text"
          }
       },
       "button":{

@@ -37,6 +37,11 @@ private extension AppTextStyleFactory {
                 font: font ?? designSystem.fonts.text,
                 color: color ?? designSystem.colors.text500
             )
+        case .error:
+            return AppTextModifier.StyleGuide(
+                font: font ?? designSystem.fonts.text,
+                color: color ?? designSystem.colors.error500
+            )
         }
     }
 }

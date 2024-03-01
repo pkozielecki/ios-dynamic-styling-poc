@@ -13,52 +13,98 @@ struct EmailEntryView: View {
     @State private var email: String = ""
     @State private var sendTapped: Bool = false
     @State private var signInTapped: Bool = false
+    @FocusState private var isEditing: Bool
 
     var body: some View {
-        VStack(spacing: 10) {
-            Text("Enter Email")
-                .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
+        ZStack {
+            VStack(spacing: 10) {
+                Text("Enter Email")
+                    .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
 
-            Spacer()
+                Spacer()
 
-            Text("Enter an email address:")
-                .appTextStyleFor(.subtitle, appStyle: appStyleProvider.appStyle)
+                Text("Enter an email address:")
+                    .appTextStyleFor(.subtitle, appStyle: appStyleProvider.appStyle)
 
-            TextField("Email", text: $email)
-                .appTextFieldStyleFor(.email, appStyle: appStyleProvider.appStyle)
+                TextField("Email", text: $email)
+                    .appTextFieldStyleFor(.email, appStyle: appStyleProvider.appStyle)
+                    .focused($isEditing)
 
-            Spacer()
-                .frame(height: 50)
+                Text("An error has occurred: \(error ?? "")")
+                    .appTextStyleFor(.error, appStyle: appStyleProvider.appStyle)
+                    .opacity(error != nil ? 1 : 0)
+                    .animation(.easeIn, value: error)
 
-            Button("Send") {
-                guard !sendTapped else { return }
-                viewModel.onEmailRegistrationRequested(email: email)
-                sendTapped = true
+                Spacer()
+                    .frame(height: 50)
+
+                Button("Send") {
+                    guard !sendTapped else { return }
+                    Task {
+                        isEditing = false
+                        await viewModel.onEmailRegistrationRequested(email: email)
+                        sendTapped = true
+                    }
+                }
+                .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
+                .enabled(!email.isEmpty && !sendTapped)
+
+                Spacer()
+
+                Button("Sign In") {
+                    guard !signInTapped else { return }
+                    viewModel.onSignInRequested()
+                    signInTapped = true
+                }
+                .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
+                .disabled(signInTapped)
             }
-            .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
-            .disabled(email.isEmpty || sendTapped)
+            .animation(.easeIn, value: email)
 
-            Spacer()
-
-            Button("Sign In") {
-                guard !signInTapped else { return }
-                viewModel.onSignInRequested()
-                signInTapped = true
-            }
-            .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
-            .disabled(signInTapped)
+            LoaderView(message: "Checking...", appStyleProvider: appStyleProvider)
+                .opacity(isLoading ? 1 : 0)
         }
+        .padding(25)
+        .navigationBarHidden(true)
         .task {
+            resetView()
             viewModel.onViewAppeared()
         }
-        .animation(.easeIn, value: email)
-        .padding(25)
+        .dismissKeyboardToolbar {
+            isEditing = false
+        }
+        .onChange(of: viewModel.viewState) { _, newState in
+            if case .error = newState {
+                isEditing = false
+                sendTapped = false
+            }
+        }
     }
 }
 
 private extension EmailEntryView {
     var viewState: EmailEntryViewState {
         viewModel.viewState
+    }
+
+    var isLoading: Bool {
+        if case .loading = viewState {
+            return true
+        }
+        return false
+    }
+
+    var error: String? {
+        if case let .error(message) = viewState {
+            return message
+        }
+        return nil
+    }
+
+    func resetView() {
+        email = ""
+        sendTapped = false
+        signInTapped = false
     }
 }
 

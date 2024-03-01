@@ -21,6 +21,7 @@ final class EmailEntryViewTest: XCTestCase {
     }
 
     func test_whenInInitialState_shouldRenderViewProperly() {
+        fakeEmailEntryViewModel.viewState = .idle
         executeSnapshotTests(forView: sut, named: "EmailEntryView")
     }
 }

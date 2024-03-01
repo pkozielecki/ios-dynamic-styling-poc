@@ -99,6 +99,7 @@
 		2ACB02812B8DEC5200748399 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB025B2B8DEC5200748399 /* Inter-UltraLight.ttf */; };
 		2ACB02822B8DEC5200748399 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB025B2B8DEC5200748399 /* Inter-UltraLight.ttf */; };
 		2ACB02832B8DEC5200748399 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB025B2B8DEC5200748399 /* Inter-UltraLight.ttf */; };
+		2ACB02852B91FD8200748399 /* LobbyFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2ACB02842B91FD8200748399 /* LobbyFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ACB02852B91FD8200748399 /* LobbyFeature in Frameworks */,
 				2A9CA5E42B861E0500827C80 /* PlaybookFeature in Frameworks */,
 				2A9CA5F62B87827800827C80 /* VideoOnboardingFeature in Frameworks */,
 				2A9CA5E22B861E0500827C80 /* OnboardingFeature in Frameworks */,
@@ -496,6 +498,7 @@
 				2A9CA5E52B861E0500827C80 /* SignInFeature */,
 				2A9CA5E72B861E0500827C80 /* SignUpFeature */,
 				2A9CA5F52B87827800827C80 /* VideoOnboardingFeature */,
+				2ACB02842B91FD8200748399 /* LobbyFeature */,
 			);
 			productName = DynamicStylingPOC;
 			productReference = 2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */;
@@ -1481,6 +1484,10 @@
 		2AC3D4452B4D21C300EF8777 /* SignInFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SignInFeature;
+		};
+		2ACB02842B91FD8200748399 /* LobbyFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LobbyFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

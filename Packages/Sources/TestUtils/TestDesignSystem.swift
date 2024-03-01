@@ -54,6 +54,7 @@ public extension [String: AppTextStyle] {
             AppTextType.title.rawValue: AppTextStyle(font: "title", color: "text500"),
             AppTextType.subtitle.rawValue: AppTextStyle(font: "subtitle", color: "text500"),
             AppTextType.text.rawValue: AppTextStyle(font: "text", color: "text500"),
+            AppTextType.error.rawValue: AppTextStyle(font: "text", color: "error500"),
         ]
     }
 }

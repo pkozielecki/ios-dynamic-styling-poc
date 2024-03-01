@@ -11,15 +11,16 @@ import Foundation
 #if DEBUG
 
 final class PreviewEmailEntryViewModel: EmailEntryViewModel {
-    var viewState: EmailEntryViewState = .loading
+    var viewState: EmailEntryViewState = .idle
     func onViewAppeared() {}
-    func onEmailRegistrationRequested(email password: String) {}
+    func onEmailRegistrationRequested(email password: String) async {}
     func onSignInRequested() {}
 }
 
 final class PreviewPasswordEntryViewModel: PasswordEntryViewModel {
-    func onViewAppeared() {}
+    var viewState: PasswordEntryViewState = .idle
     func onPasswordRegistrationRequested(password: String) {}
+    func passwordsMatch(password: String, passwordConfirmation: String) -> Bool { true }
 }
 
 #endif

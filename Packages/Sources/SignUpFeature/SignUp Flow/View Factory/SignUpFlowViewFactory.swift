@@ -18,11 +18,14 @@ struct SignUpFlowViewFactory: ViewComponentFactory {
     func makeViewComponents(forRoute route: any Route, withData data: AnyHashable?) -> [ViewComponent] {
         switch route.name {
         case SignUpRoute.emailEntry.name:
-            [makeEmailEntryScreen()]
+            return [makeEmailEntryScreen()]
         case SignUpRoute.passwordEntry.name:
-            [makePasswordEntryScreen()]
+            if let email = data as? String {
+                return [makePasswordEntryScreen(email: email)]
+            }
+            return []
         default:
-            []
+            return []
         }
     }
 }
@@ -34,8 +37,8 @@ private extension SignUpFlowViewFactory {
         return EmailEntryView(viewModel: model, appStyleProvider: appStyleProvider).viewController
     }
 
-    func makePasswordEntryScreen() -> UIViewController {
-        let model = LivePasswordEntryViewModel(router: dependencyProvider.resolve())
+    func makePasswordEntryScreen(email: String) -> UIViewController {
+        let model = LivePasswordEntryViewModel(email: email, router: dependencyProvider.resolve())
         let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
         return PasswordEntryView(viewModel: model, appStyleProvider: appStyleProvider).viewController
     }

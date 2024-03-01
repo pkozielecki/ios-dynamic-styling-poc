@@ -17,21 +17,24 @@ final class LiveSplashScreenViewModel: SplashScreenViewModel {
     private let router: NavigationRouter
     private let userStatusProvider: UserStatusProvider
     private let storage: LocalStorage
+    private let delayGenerator: DelayGenerator
 
     init(
         router: NavigationRouter,
         userStatusProvider: UserStatusProvider,
-        storage: LocalStorage
+        storage: LocalStorage,
+        delayGenerator: DelayGenerator = LiveDelayGenerator()
     ) {
         self.router = router
         self.userStatusProvider = userStatusProvider
         self.storage = storage
+        self.delayGenerator = delayGenerator
     }
 
     func onViewAppeared() {
         Task { @MainActor in
             // Discussion: This is to simulate Remote Config / Styles update from server.
-            try await Task.sleep(nanoseconds: 2000000000)
+            await delayGenerator.generate(delay: 2)
             router.show(route: routeToShow, withData: nil, introspective: false)
             setFirstLaunchStatus()
         }

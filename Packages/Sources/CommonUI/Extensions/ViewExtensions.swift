@@ -11,4 +11,27 @@ public extension View {
     var viewController: UIViewController {
         UIHostingController(rootView: self)
     }
+
+    func enabled(_ isEnabled: Bool, disabledOpacity: Double = 0.3) -> some View {
+        opacity(isEnabled ? 1 : disabledOpacity)
+            .disabled(!isEnabled)
+    }
+
+    func dismissKeyboardToolbar(_ action: @escaping () -> Void, buttonLabel: String = "Done") -> some View {
+        toolbar {
+            ToolbarItem(placement: .keyboard) {
+                Button(buttonLabel, action: action)
+            }
+        }
+    }
+}
+
+public extension AnyView {
+    func dismissKeyboardToolbar(_ action: @escaping () -> Void, buttonLabel: String = "Done") -> some View {
+        toolbar {
+            ToolbarItem(placement: .keyboard) {
+                Button(buttonLabel, action: action)
+            }
+        }
+    }
 }

@@ -52,6 +52,13 @@
         "identifier" : "SignUpFeatureTests",
         "name" : "SignUpFeatureTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Packages",
+        "identifier" : "OnboardingFeatureTests",
+        "name" : "OnboardingFeatureTests"
+      }
     }
   ],
   "version" : 1

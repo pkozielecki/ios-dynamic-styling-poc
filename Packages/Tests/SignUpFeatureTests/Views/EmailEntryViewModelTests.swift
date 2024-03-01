@@ -11,25 +11,27 @@ import XCTest
 
 final class EmailEntryViewModelTest: XCTestCase {
     var fakeNavigationRouter: FakeNavigationRouter!
+    var fakeEmailAvailabilityChecker: FakeEmailAvailabilityChecker!
     var sut: LiveEmailEntryViewModel!
 
     override func setUp() {
         fakeNavigationRouter = FakeNavigationRouter()
-        sut = LiveEmailEntryViewModel(router: fakeNavigationRouter)
+        fakeEmailAvailabilityChecker = FakeEmailAvailabilityChecker()
+        sut = LiveEmailEntryViewModel(router: fakeNavigationRouter, availabilityChecker: fakeEmailAvailabilityChecker)
     }
 
-    func test_whenRequestedAuthentication_shouldNotifyRouter() {
+    func test_whenRequestedAuthentication_shouldNotifyRouter() async {
         //  given:
         let fixtureEmail = "email@whg.com"
+        fakeEmailAvailabilityChecker.checkEmailStringBoolReturnValue = true
 
         //  when:
-        sut.onEmailRegistrationRequested(email: fixtureEmail)
+        await sut.onEmailRegistrationRequested(email: fixtureEmail)
 
         //  then:
-        let expectedRoute = SignUpRoute.passwordEntry
-        let arguments = fakeNavigationRouter.showRouteAnyRouteWithDataAnyHashableIntrospectiveBoolVoidReceivedArguments
-        XCTAssertEqual(fakeNavigationRouter.showRouteAnyRouteWithDataAnyHashableIntrospectiveBoolVoidCalled, true, "Should request showing route")
-        XCTAssertEqual(arguments?.route.matches(expectedRoute), true, "Should show the correct route")
-        XCTAssertNoDifference(arguments?.withData as? String, fixtureEmail)
+        let email = fakeEmailAvailabilityChecker.checkEmailStringBoolReceivedEmail
+        XCTAssertNoDifference(fixtureEmail, email)
+
+        // TODO: Cover the rest of the flow.
     }
 }

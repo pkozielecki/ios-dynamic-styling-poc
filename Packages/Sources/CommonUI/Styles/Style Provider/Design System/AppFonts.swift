@@ -32,7 +32,7 @@ public extension AppFonts {
             title
         case .subtitle:
             subtitle
-        case .text:
+        case .text, .error:
             text
         }
     }

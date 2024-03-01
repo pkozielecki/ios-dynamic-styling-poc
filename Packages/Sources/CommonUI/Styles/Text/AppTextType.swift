@@ -7,6 +7,7 @@ import SwiftUI
 
 public enum AppTextType: String, Equatable, Codable, CaseIterable {
     case title
+    case error
     case subtitle
     case text
 }

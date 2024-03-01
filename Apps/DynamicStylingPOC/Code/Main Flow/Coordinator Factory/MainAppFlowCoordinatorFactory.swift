@@ -5,6 +5,7 @@
 
 import Common
 import CommonUI
+import LobbyFeature
 import OnboardingFeature
 import SignInFeature
 import SignUpFeature
@@ -21,6 +22,15 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
 
     func makeFlowCoordinator(forRoute route: any Route, navigator: Navigator, parent: FlowCoordinator?, withData: AnyHashable?) -> FlowCoordinator? {
         switch route.name {
+        case MainAppRoute.lobby.name:
+            LobbyFeatureFactory.makeLobbyFeature(
+                navigator: navigator,
+                parentFlow: parent,
+                viewFactories: parent?.viewFactories ?? [],
+                coordinatorFactories: parent?.coordinatorFactories ?? [],
+                dependencyProvider: dependencyProvider
+            )
+
         case MainAppRoute.signUp.name:
             SignUpFeatureFactory.makeSignUpFlowCoordinator(
                 navigator: navigator,
