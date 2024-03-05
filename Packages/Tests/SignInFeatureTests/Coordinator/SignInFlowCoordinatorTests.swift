@@ -14,14 +14,17 @@ import XCTest
 final class SignUpFlowCoordinatorTests: XCTestCase {
     var fakeNavigator: FakeNavigator!
     var fakeNavigationRouter: FakeNavigationRouter!
+    var fakeLocalStorage: FakeLocalStorage!
     var fakeDependencyProvider: FakeDependencyProvider!
     var sut: SignInFlowCoordinator!
 
     override func setUp() {
         fakeNavigator = FakeNavigator()
         fakeNavigationRouter = FakeNavigationRouter()
+        fakeLocalStorage = FakeLocalStorage()
         fakeDependencyProvider = FakeDependencyProvider(
             dependencies: [
+                "LocalStorage": fakeLocalStorage as Any,
                 "NavigationRouter": fakeNavigationRouter as Any,
                 "AppStyleProvider": FakeAppStyleProvider(),
             ]

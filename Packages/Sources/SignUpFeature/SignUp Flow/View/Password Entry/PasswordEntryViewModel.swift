@@ -47,10 +47,10 @@ public protocol PasswordEntryViewModel: Observable {
                     // TODO: Add Biometric setup view.
                     router.show(route: MainAppRoute.lobby, withData: email, introspective: true)
                 } else {
-                    viewState = .error("Email is not available.")
+                    viewState = .error("Password is invalid.")
                 }
             } catch {
-                let message = (error as? EmailAvailabilityCheckError)?.message ?? "Unknown error"
+                let message = (error as? UserRegistrationError)?.message ?? "Unknown error"
                 viewState = .error("Failed: \(message)")
             }
         }

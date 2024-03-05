@@ -5,12 +5,21 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 public protocol UserRegistrationService: AnyObject {
     func register(email: String, password: String) async throws -> Bool
 }
 
 public enum UserRegistrationError: Error, CaseIterable {
-    case unknown
+    case invalid
+    case failed
+
+    public var message: String {
+        switch self {
+        case .invalid: "Password is invalid."
+        case .failed: "Failed to regster a password."
+        }
+    }
 }
 
 public class LiveUserRegistrationService: UserRegistrationService {
@@ -31,7 +40,7 @@ public class LiveUserRegistrationService: UserRegistrationService {
             try localStorage.setValue("very-secure-token", forKey: StorageKeys.authenticationToken.rawValue)
             return true
         } else {
-            throw UserRegistrationError.unknown
+            throw UserRegistrationError.invalid
         }
     }
 }

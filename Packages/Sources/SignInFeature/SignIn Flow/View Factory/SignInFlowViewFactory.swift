@@ -27,7 +27,10 @@ struct SignInFlowViewFactory: ViewComponentFactory {
 
 private extension SignInFlowViewFactory {
     func makeEmailLoginScreen() -> UIViewController {
-        let model = LiveEmailPasswordLoginViewModel(router: dependencyProvider.resolve())
+        let model = LiveEmailPasswordLoginViewModel(
+            router: dependencyProvider.resolve(),
+            authenticationService: LiveEmailPasswordAuthenticationService(localStorage: dependencyProvider.resolve())
+        )
         let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
         return EmailPasswordLoginView(viewModel: model, appStyleProvider: appStyleProvider).viewController
     }

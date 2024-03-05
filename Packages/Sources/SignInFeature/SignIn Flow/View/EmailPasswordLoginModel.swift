@@ -25,9 +25,14 @@ public protocol EmailPasswordLoginViewModel: Observable {
 @Observable public final class LiveEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
     public private(set) var viewState: EmailPasswordLoginViewState = .idle
     private let router: NavigationRouter
+    private let authenticationService: EmailPasswordAuthenticationService
 
-    public init(router: NavigationRouter) {
+    public init(
+        router: NavigationRouter,
+        authenticationService: EmailPasswordAuthenticationService = LiveEmailPasswordAuthenticationService()
+    ) {
         self.router = router
+        self.authenticationService = authenticationService
     }
 
     public func onViewAppeared() {
@@ -36,13 +41,24 @@ public protocol EmailPasswordLoginViewModel: Observable {
 
     public func onLoginRequested(email: String, password: String) {
         viewState = .loading
-
-        // TODO: Add fake login attempt + random error generation
+        Task { @MainActor in
+            do {
+                let success = try await authenticationService.authenticate(email: email, password: password)
+                if success {
+                    viewState = .idle
+                    // TODO: Add Biometric setup view.
+                    router.show(route: MainAppRoute.lobby, withData: email, introspective: true)
+                } else {
+                    viewState = .error("Credentaials are invalid.")
+                }
+            } catch {
+                let message = (error as? UserAuthenticationError)?.message ?? "Unknown error"
+                viewState = .error("Failed: \(message)")
+            }
+        }
     }
 
     public func onSignUpRequested() {
         router.show(route: MainAppRoute.signUp, withData: nil, introspective: true)
     }
 }
-
-private extension LiveEmailPasswordLoginViewModel {}

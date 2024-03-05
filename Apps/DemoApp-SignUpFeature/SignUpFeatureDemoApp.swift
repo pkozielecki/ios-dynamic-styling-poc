@@ -41,6 +41,7 @@ private extension SignUpFeatureDemoApp {
             appStyleSynchroniser: LiveAppStyleSynchroniser(networkModule: networkModule),
             initialAppStyle: AppStyle(initialDesignSystem: .default, intialComponents: .default)
         )
+        dependencyManager?.register(UserDefaults.standard, for: LocalStorage.self)
         dependencyManager?.register(networkModule, for: NetworkModule.self)
         dependencyManager?.register(LiveNavigationRouter(), for: NavigationRouter.self)
         dependencyManager?.register(appStyleProvider, for: AppStyleProvider.self)
