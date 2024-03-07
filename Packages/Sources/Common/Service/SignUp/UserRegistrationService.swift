@@ -7,7 +7,7 @@ import Foundation
 
 // sourcery: AutoMockable
 public protocol UserRegistrationService: AnyObject {
-    func register(email: String, password: String) async throws -> Bool
+    func register(email: String, password: String) async throws -> String
 }
 
 public enum UserRegistrationError: Error, CaseIterable {
@@ -24,21 +24,16 @@ public enum UserRegistrationError: Error, CaseIterable {
 
 public class LiveUserRegistrationService: UserRegistrationService {
     private let delayGenerator: DelayGenerator
-    private let localStorage: LocalStorage
-
     public init(
-        localStorage: LocalStorage = resolve(),
         delayGenerator: DelayGenerator = LiveDelayGenerator()
     ) {
-        self.localStorage = localStorage
         self.delayGenerator = delayGenerator
     }
 
-    public func register(email: String, password: String) async throws -> Bool {
+    public func register(email: String, password: String) async throws -> String {
         await delayGenerator.generate(delay: .random(in: 1..<3))
         if Bool.random() {
-            try localStorage.setValue("very-secure-token", forKey: StorageKeys.authenticationToken.rawValue)
-            return true
+            return "very-secure-token"
         } else {
             throw UserRegistrationError.invalid
         }

@@ -13,7 +13,7 @@ excluded:
   - Packages/Sources/TestUtils/Generated/AutoMockable.generated.swift
   - Packages/Tests/SignUpFeatureTests/Generated/AutoMockable.generated.swift
   - Packages/Tests/SignInFeatureTests/Generated/AutoMockable.generated.swift
-  - Packages/Tests/OnboardingFeature/Generated/AutoMockable.generated.swift
+  - Packages/Tests/OnboardingFeatureTests/Generated/AutoMockable.generated.swift
   
 custom_rules:
   # check's for Combine's .assign(to: xxx, on: self) ref-cycle

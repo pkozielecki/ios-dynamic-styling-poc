@@ -24,16 +24,19 @@ public protocol PasswordEntryViewModel: Observable {
 @Observable public final class LivePasswordEntryViewModel: PasswordEntryViewModel {
     public private(set) var viewState: PasswordEntryViewState = .idle
     private let router: NavigationRouter
+    private let storage: InMemoryStorage
     private let email: String
     private let userRegistrationService: UserRegistrationService
 
     public init(
         email: String,
         router: NavigationRouter = resolve(),
+        storage: InMemoryStorage = resolve(),
         userRegistrationService: UserRegistrationService = LiveUserRegistrationService()
     ) {
         self.email = email
         self.router = router
+        self.storage = storage
         self.userRegistrationService = userRegistrationService
     }
 
@@ -41,14 +44,10 @@ public protocol PasswordEntryViewModel: Observable {
         viewState = .loading
         Task { @MainActor in
             do {
-                let success = try await userRegistrationService.register(email: email, password: password)
-                if success {
-                    viewState = .idle
-                    // TODO: Add Biometric setup view.
-                    router.show(route: MainAppRoute.lobby, withData: email, introspective: true)
-                } else {
-                    viewState = .error("Password is invalid.")
-                }
+                let token = try await userRegistrationService.register(email: email, password: password)
+                storage.setValue(token, forKey: .refreshToken)
+                viewState = .idle
+                router.show(route: MainAppRoute.biometricSetup, withData: nil, introspective: true)
             } catch {
                 let message = (error as? UserRegistrationError)?.message ?? "Unknown error"
                 viewState = .error("Failed: \(message)")

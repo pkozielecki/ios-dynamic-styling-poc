@@ -50,7 +50,9 @@ private extension LiveSplashScreenViewModel {
         case .authenticated:
             return MainAppRoute.lobby
         case .onboardingFinished:
-            return MainAppRoute.signUp
+            return MainAppRoute.signIn
+        case .biometricsSetup:
+            return MainAppRoute.biometricAuthentication
         }
     }
 

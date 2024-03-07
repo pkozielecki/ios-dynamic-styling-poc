@@ -17,4 +17,8 @@ public extension Encodable {
             return nil
         }
     }
+
+    var data: Data? {
+        try? JSONEncoder().encode(self)
+    }
 }

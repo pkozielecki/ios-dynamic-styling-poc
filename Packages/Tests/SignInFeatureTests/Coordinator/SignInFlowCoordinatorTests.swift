@@ -16,17 +16,20 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
     var fakeNavigationRouter: FakeNavigationRouter!
     var fakeLocalStorage: FakeLocalStorage!
     var fakeDependencyProvider: FakeDependencyProvider!
+    var fakeInMemeoryStorage: LiveInMemoryStorage!
     var sut: SignInFlowCoordinator!
 
     override func setUp() {
         fakeNavigator = FakeNavigator()
         fakeNavigationRouter = FakeNavigationRouter()
         fakeLocalStorage = FakeLocalStorage()
+        fakeInMemeoryStorage = LiveInMemoryStorage()
         fakeDependencyProvider = FakeDependencyProvider(
             dependencies: [
                 "LocalStorage": fakeLocalStorage as Any,
                 "NavigationRouter": fakeNavigationRouter as Any,
                 "AppStyleProvider": FakeAppStyleProvider(),
+                "InMemoryStorage": fakeInMemeoryStorage as Any
             ]
         )
         sut = SignInFeatureFactory.makeSignInFlowCoordinator(

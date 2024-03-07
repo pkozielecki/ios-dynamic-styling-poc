@@ -18,7 +18,7 @@ struct EmailEntryView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 10) {
-                Text("Enter Email")
+                Text("Sign Up")
                     .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
 
                 Spacer()

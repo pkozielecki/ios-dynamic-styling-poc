@@ -20,12 +20,12 @@ struct EmailPasswordLoginView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 10) {
-                Text("Enter Email and Password")
+                Text("Sign In")
                     .appTextStyleFor(.title, appStyle: appStyleProvider.appStyle)
 
                 Spacer()
 
-                Text("Email:")
+                Text("Enter an email:")
                     .appTextStyleFor(.text, appStyle: appStyleProvider.appStyle)
                 TextField("E.g. jane.doe[at]whg.com", text: $email)
                     .appTextFieldStyleFor(.email, appStyle: appStyleProvider.appStyle)
@@ -34,7 +34,7 @@ struct EmailPasswordLoginView: View {
                 Spacer()
                     .frame(height: 30)
 
-                Text("Password:")
+                Text("Enter password:")
                     .appTextStyleFor(.text, appStyle: appStyleProvider.appStyle)
                 TextField("E.g. myStrongP@ssword123", text: $password)
                     .appTextFieldStyleFor(.password, appStyle: appStyleProvider.appStyle)

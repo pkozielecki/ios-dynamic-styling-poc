@@ -7,7 +7,7 @@ import Foundation
 
 // sourcery: AutoMockable
 public protocol EmailPasswordAuthenticationService: AnyObject {
-    func authenticate(email: String, password: String) async throws -> Bool
+    func authenticate(email: String, password: String) async throws -> String
 }
 
 public enum UserAuthenticationError: Error, CaseIterable {
@@ -20,21 +20,17 @@ public enum UserAuthenticationError: Error, CaseIterable {
 
 public class LiveEmailPasswordAuthenticationService: EmailPasswordAuthenticationService {
     private let delayGenerator: DelayGenerator
-    private let localStorage: LocalStorage
 
     public init(
-        localStorage: LocalStorage = resolve(),
         delayGenerator: DelayGenerator = LiveDelayGenerator()
     ) {
-        self.localStorage = localStorage
         self.delayGenerator = delayGenerator
     }
 
-    public func authenticate(email: String, password: String) async throws -> Bool {
+    public func authenticate(email: String, password: String) async throws -> String {
         await delayGenerator.generate(delay: .random(in: 1..<2))
         if Bool.random() {
-            try localStorage.setValue("very-secure-token", forKey: StorageKeys.authenticationToken.rawValue)
-            return true
+            return "very-secure-token"
         } else {
             throw UserAuthenticationError.invalidCredentials
         }

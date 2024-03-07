@@ -15,6 +15,7 @@ let package = Package(
         .singleTargetLibrary("SignInFeature"),
         .singleTargetLibrary("SignUpFeature"),
         .singleTargetLibrary("PlaybookFeature"),
+        .singleTargetLibrary("BiometricAuthenticationFeature"),
         .singleTargetLibrary("TestUtils"), // To be able to use the Utils when testing Main App target.
     ],
     dependencies: [
@@ -25,6 +26,7 @@ let package = Package(
         .package(url: "https://github.com/realm/SwiftLint", from: "0.54.0"),
         .package(url: "https://github.com/netguru/ng-ios-network-module", from: "1.0.4"),
         .package(url: "https://github.com/krzysztofzablocki/AutomaticSettings", from: "1.1.0"),
+        .package(url: "https://github.com/kishikawakatsumi/KeychainAccess", from: "4.2.0"),
     ],
     targets: [
         .target(
@@ -58,6 +60,10 @@ let package = Package(
             dependencies: Dependencies.common
         ),
         .target(
+            name: "BiometricAuthenticationFeature",
+            dependencies: Dependencies.common
+        ),
+        .target(
             name: "LobbyFeature",
             dependencies: Dependencies.common
         ),
@@ -77,6 +83,7 @@ let package = Package(
             dependencies: [
                 .product(name: "NgNetworkModuleCore", package: "ng-ios-network-module"),
                 .product(name: "ConcurrentNgNetworkModule", package: "ng-ios-network-module"),
+                .product(name: "KeychainAccess", package: "KeychainAccess"),
             ]
         ),
         .target(
@@ -108,6 +115,10 @@ let package = Package(
         .testTarget(
             name: "SignInFeatureTests",
             dependencies: Dependencies.test + ["SignInFeature"]
+        ),
+        .testTarget(
+            name: "BiometricAuthenticationFeatureTests",
+            dependencies: Dependencies.test + ["BiometricAuthenticationFeature"]
         ),
         .testTarget(
             name: "OnboardingFeatureTests",

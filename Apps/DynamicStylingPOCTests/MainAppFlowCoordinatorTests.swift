@@ -7,8 +7,8 @@
 @testable import CommonUI
 @testable import DynamicStylingPOC
 @testable import SignUpFeature
-@testable import TestUtils
 import SwiftUI
+@testable import TestUtils
 import UIKit
 import XCTest
 
@@ -18,6 +18,7 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
     var fakeDependencyProvider: FakeDependencyProvider!
     var fakeUserStatusProvider: FakeUserStatusProvider!
     var fakeLocalStorage: FakeLocalStorage!
+    var fakeInMemeoryStorage: LiveInMemoryStorage!
     var sut: MainAppFlowCoordinator!
 
     override func setUp() {
@@ -25,12 +26,14 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
         fakeNavigationRouter = FakeNavigationRouter()
         fakeUserStatusProvider = FakeUserStatusProvider()
         fakeLocalStorage = FakeLocalStorage()
+        fakeInMemeoryStorage = LiveInMemoryStorage()
         fakeDependencyProvider = FakeDependencyProvider(
             dependencies: [
                 "NavigationRouter": fakeNavigationRouter as Any,
                 "AppStyleProvider": FakeAppStyleProvider(),
                 "UserStatusProvider": fakeUserStatusProvider as Any,
                 "LocalStorage": fakeLocalStorage as Any,
+                "InMemoryStorage": fakeInMemeoryStorage as Any,
             ]
         )
         sut = MainAppFlowCoordinator(

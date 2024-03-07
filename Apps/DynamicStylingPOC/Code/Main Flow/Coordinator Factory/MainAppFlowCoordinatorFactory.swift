@@ -3,6 +3,7 @@
 //  Dynamic Styling POC
 //
 
+import BiometricAuthenticationFeature
 import Common
 import CommonUI
 import LobbyFeature
@@ -28,6 +29,24 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
                 parentFlow: parent,
                 viewFactories: parent?.viewFactories ?? [],
                 coordinatorFactories: parent?.coordinatorFactories ?? [],
+                dependencyProvider: dependencyProvider
+            )
+
+        case MainAppRoute.biometricSetup.name:
+            BiometricAuthenticationFeature.makeBiometricAuthenticationFlowCoordinator(
+                workMode: .registration,
+                navigator: navigator,
+                parentFlow: parent,
+                viewFactories: parent?.viewFactories ?? [],
+                dependencyProvider: dependencyProvider
+            )
+
+        case MainAppRoute.biometricAuthentication.name:
+            BiometricAuthenticationFeature.makeBiometricAuthenticationFlowCoordinator(
+                workMode: .authentication,
+                navigator: navigator,
+                parentFlow: parent,
+                viewFactories: parent?.viewFactories ?? [],
                 dependencyProvider: dependencyProvider
             )
 

@@ -8,7 +8,7 @@ import Foundation
 public enum StorageKeys: String {
     case firstLaunch
     case completedOnboarding
-    case authenticationToken
+    case biometricsSetUp
 }
 
 public enum StorageError: Error {

@@ -11,6 +11,8 @@ public enum MainAppRoute: String, Route {
     case onboarding
     case signIn
     case signUp
+    case biometricSetup
+    case biometricAuthentication
     case lobby
 }
 

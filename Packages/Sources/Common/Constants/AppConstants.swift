@@ -10,4 +10,6 @@ public enum AppConstants {
     public static let contentTypeFieldValue = "application/json"
     public static let acceptFieldName = "Accept"
     public static let acceptFieldValue = "application/json"
+
+    public static let biometricKeychain = "DynamicStylingPOC"
 }

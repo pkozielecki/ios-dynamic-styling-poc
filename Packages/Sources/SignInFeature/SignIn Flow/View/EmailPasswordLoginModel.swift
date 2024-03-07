@@ -25,13 +25,16 @@ public protocol EmailPasswordLoginViewModel: Observable {
 @Observable public final class LiveEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
     public private(set) var viewState: EmailPasswordLoginViewState = .idle
     private let router: NavigationRouter
+    private let storage: InMemoryStorage
     private let authenticationService: EmailPasswordAuthenticationService
 
     public init(
         router: NavigationRouter,
+        storage: InMemoryStorage,
         authenticationService: EmailPasswordAuthenticationService = LiveEmailPasswordAuthenticationService()
     ) {
         self.router = router
+        self.storage = storage
         self.authenticationService = authenticationService
     }
 
@@ -43,14 +46,10 @@ public protocol EmailPasswordLoginViewModel: Observable {
         viewState = .loading
         Task { @MainActor in
             do {
-                let success = try await authenticationService.authenticate(email: email, password: password)
-                if success {
-                    viewState = .idle
-                    // TODO: Add Biometric setup view.
-                    router.show(route: MainAppRoute.lobby, withData: email, introspective: true)
-                } else {
-                    viewState = .error("Credentaials are invalid.")
-                }
+                let token = try await authenticationService.authenticate(email: email, password: password)
+                storage.setValue(token, forKey: .refreshToken)
+                viewState = .idle
+                router.show(route: MainAppRoute.biometricSetup, withData: nil, introspective: true)
             } catch {
                 let message = (error as? UserAuthenticationError)?.message ?? "Unknown error"
                 viewState = .error("Failed: \(message)")

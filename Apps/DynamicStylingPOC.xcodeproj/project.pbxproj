@@ -100,6 +100,7 @@
 		2ACB02822B8DEC5200748399 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB025B2B8DEC5200748399 /* Inter-UltraLight.ttf */; };
 		2ACB02832B8DEC5200748399 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB025B2B8DEC5200748399 /* Inter-UltraLight.ttf */; };
 		2ACB02852B91FD8200748399 /* LobbyFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2ACB02842B91FD8200748399 /* LobbyFeature */; };
+		2ACB02872B973F4500748399 /* BiometricAuthenticationFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2ACB02862B973F4500748399 /* BiometricAuthenticationFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 				2A9CA5F62B87827800827C80 /* VideoOnboardingFeature in Frameworks */,
 				2A9CA5E22B861E0500827C80 /* OnboardingFeature in Frameworks */,
 				2A9CA5E62B861E0500827C80 /* SignInFeature in Frameworks */,
+				2ACB02872B973F4500748399 /* BiometricAuthenticationFeature in Frameworks */,
 				2A9CA5E82B861E0500827C80 /* SignUpFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +501,7 @@
 				2A9CA5E72B861E0500827C80 /* SignUpFeature */,
 				2A9CA5F52B87827800827C80 /* VideoOnboardingFeature */,
 				2ACB02842B91FD8200748399 /* LobbyFeature */,
+				2ACB02862B973F4500748399 /* BiometricAuthenticationFeature */,
 			);
 			productName = DynamicStylingPOC;
 			productReference = 2A26D1D22B2B16E800F68A9E /* DynamicStylingPOC.app */;
@@ -975,7 +978,8 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = DynamicStylingPOC;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate with Biometrics";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
@@ -1018,7 +1022,8 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DynamicStylingPOC/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = DynamicStylingPOC;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate with Biometrics";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
@@ -1488,6 +1493,10 @@
 		2ACB02842B91FD8200748399 /* LobbyFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LobbyFeature;
+		};
+		2ACB02862B973F4500748399 /* BiometricAuthenticationFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BiometricAuthenticationFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
