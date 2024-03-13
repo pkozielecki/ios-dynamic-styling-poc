@@ -70,7 +70,7 @@ struct PasswordEntryView: View {
             isEditingPassword = false
             isConfirmingPassword = false
         }
-        .onChange(of: viewModel.viewState) { _, newState in
+        .onChange(of: viewState) { _, newState in
             if case .error = newState {
                 isEditingPassword = false
                 isConfirmingPassword = false

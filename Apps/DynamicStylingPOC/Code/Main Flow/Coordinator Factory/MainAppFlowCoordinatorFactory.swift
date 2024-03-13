@@ -33,7 +33,7 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
             )
 
         case MainAppRoute.biometricSetup.name:
-            BiometricAuthenticationFeature.makeBiometricAuthenticationFlowCoordinator(
+            BiometricAuthenticationFeatureFactory.makeBiometricAuthenticationFlowCoordinator(
                 workMode: .registration,
                 navigator: navigator,
                 parentFlow: parent,
@@ -42,7 +42,7 @@ struct MainAppFlowCoordinatorFactory: FlowCoordinatorFactory {
             )
 
         case MainAppRoute.biometricAuthentication.name:
-            BiometricAuthenticationFeature.makeBiometricAuthenticationFlowCoordinator(
+            BiometricAuthenticationFeatureFactory.makeBiometricAuthenticationFlowCoordinator(
                 workMode: .authentication,
                 navigator: navigator,
                 parentFlow: parent,

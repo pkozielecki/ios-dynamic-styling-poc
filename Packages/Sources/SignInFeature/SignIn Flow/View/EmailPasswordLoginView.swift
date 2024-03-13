@@ -77,7 +77,7 @@ struct EmailPasswordLoginView: View {
             isEditingEmail = false
             isEditingPassword = false
         }
-        .onChange(of: viewModel.viewState) { _, newState in
+        .onChange(of: viewState) { _, newState in
             if case .error = newState {
                 isEditingEmail = false
                 isEditingPassword = false

@@ -9,8 +9,8 @@ import Foundation
 import Observation
 
 enum BiometricAuthenticationViewState: Equatable {
-    case loading
-    case idle
+    case authenticating
+    case success
     case error(String)
 }
 
@@ -24,7 +24,7 @@ protocol BiometricAuthenticationViewModel: Observable {
 
 @Observable
 final class LiveBiometricAuthenticationViewModel: BiometricAuthenticationViewModel {
-    private(set) var viewState: BiometricAuthenticationViewState = .idle
+    private(set) var viewState: BiometricAuthenticationViewState = .authenticating
 
     private let router: NavigationRouter
     private let biometricStorage: BiometricStorage
@@ -80,7 +80,7 @@ private extension LiveBiometricAuthenticationViewModel {
     @MainActor func handle(refreshToken token: String?) {
         if let token {
             inMemoryStorage.setValue(token, forKey: .refreshToken)
-            viewState = .idle
+            viewState = .success
             router.show(route: MainAppRoute.lobby, withData: nil, introspective: true)
         } else {
             viewState = .error("Invlid token.")

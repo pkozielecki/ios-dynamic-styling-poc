@@ -12,7 +12,7 @@ public enum BiometricAuthenticationFeatureWorkMode: Equatable {
     case authentication
 }
 
-public enum BiometricAuthenticationFeature {
+public enum BiometricAuthenticationFeatureFactory {
     public static func makeBiometricAuthenticationFlowCoordinator(
         workMode: BiometricAuthenticationFeatureWorkMode,
         navigator: Navigator,

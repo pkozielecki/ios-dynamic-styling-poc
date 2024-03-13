@@ -14,6 +14,19 @@
 		2A2E9C4D2B62910D00C0D174 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
 		2A2E9C4F2B62911800C0D174 /* PlaybookFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A2E9C4E2B62911800C0D174 /* PlaybookFeature */; };
 		2A2E9C512B62998600C0D174 /* PlaybookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E9C502B62998600C0D174 /* PlaybookView.swift */; };
+		2A37DBE12B99E4AB00F97089 /* BiometricDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A37DBE02B99E4AB00F97089 /* BiometricDemoApp.swift */; };
+		2A37DBE52B99E4AE00F97089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A37DBE42B99E4AE00F97089 /* Assets.xcassets */; };
+		2A37DBED2B99E70D00F97089 /* BiometricAuthenticationFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A37DBEC2B99E70D00F97089 /* BiometricAuthenticationFeature */; };
+		2A37DBEE2B99E72700F97089 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC3D4432B35AE4200EF8777 /* Colors.xcassets */; };
+		2A37DBEF2B99E73200F97089 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB02542B8DEC5200748399 /* Inter-Regular.ttf */; };
+		2A37DBF02B99E73200F97089 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB02592B8DEC5200748399 /* Inter-Black.ttf */; };
+		2A37DBF12B99E73200F97089 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB02562B8DEC5200748399 /* Inter-Bold.ttf */; };
+		2A37DBF22B99E73200F97089 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB025A2B8DEC5200748399 /* Inter-Thin.ttf */; };
+		2A37DBF32B99E73200F97089 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB02552B8DEC5200748399 /* Inter-Light.ttf */; };
+		2A37DBF42B99E73200F97089 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB02582B8DEC5200748399 /* Inter-SemiBold.ttf */; };
+		2A37DBF52B99E73200F97089 /* Inter-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB025B2B8DEC5200748399 /* Inter-UltraLight.ttf */; };
+		2A37DBF62B99E73200F97089 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB02572B8DEC5200748399 /* Inter-Medium.ttf */; };
+		2A37DBF82B99E87000F97089 /* DesignSystemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D4412B35ADDE00EF8777 /* DesignSystemExtensions.swift */; };
 		2A3E09142B34582400B3C2CD /* SignUpFeatureDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */; };
 		2A3E09182B34582700B3C2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3E09172B34582700B3C2CD /* Assets.xcassets */; };
 		2A3E09202B345AEC00B3C2CD /* SignUpFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 2A3E091F2B345AEC00B3C2CD /* SignUpFeature */; };
@@ -119,6 +132,10 @@
 		2A2E9C392B62903900C0D174 /* PlaybookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookApp.swift; sourceTree = "<group>"; };
 		2A2E9C3D2B62903A00C0D174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A2E9C502B62998600C0D174 /* PlaybookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookView.swift; sourceTree = "<group>"; };
+		2A37DBDE2B99E4AB00F97089 /* DemoApp-Biometric.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoApp-Biometric.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A37DBE02B99E4AB00F97089 /* BiometricDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricDemoApp.swift; sourceTree = "<group>"; };
+		2A37DBE42B99E4AE00F97089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A37DBF72B99E75900F97089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2A3E09112B34582400B3C2CD /* DemoApp-SignUpFeature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoApp-SignUpFeature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A3E09132B34582400B3C2CD /* SignUpFeatureDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFeatureDemoApp.swift; sourceTree = "<group>"; };
 		2A3E09172B34582700B3C2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -192,6 +209,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2A37DBDB2B99E4AB00F97089 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A37DBED2B99E70D00F97089 /* BiometricAuthenticationFeature in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A3E090E2B34582400B3C2CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,6 +261,7 @@
 				2A9CA5C12B84E59D00827C80 /* DemoApp-Onboarding */,
 				2A2E9C382B62903900C0D174 /* PlaybookApp */,
 				2AC510472B7C9F270030B196 /* DynamicStylingPOCTests */,
+				2A37DBDF2B99E4AB00F97089 /* DemoApp-Biometric */,
 				2A26D1D32B2B16E800F68A9E /* Products */,
 				2A26D2052B2B295300F68A9E /* Frameworks */,
 			);
@@ -250,6 +276,7 @@
 				2A2E9C372B62903900C0D174 /* PlaybookApp.app */,
 				2AC510462B7C9F270030B196 /* DynamicStylingPOCTests.xctest */,
 				2A9CA5C02B84E59D00827C80 /* DemoApp-Onboarding.app */,
+				2A37DBDE2B99E4AB00F97089 /* DemoApp-Biometric.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,6 +320,16 @@
 				2A2E9C3D2B62903A00C0D174 /* Assets.xcassets */,
 			);
 			path = PlaybookApp;
+			sourceTree = "<group>";
+		};
+		2A37DBDF2B99E4AB00F97089 /* DemoApp-Biometric */ = {
+			isa = PBXGroup;
+			children = (
+				2A37DBF72B99E75900F97089 /* Info.plist */,
+				2A37DBE02B99E4AB00F97089 /* BiometricDemoApp.swift */,
+				2A37DBE42B99E4AE00F97089 /* Assets.xcassets */,
+			);
+			path = "DemoApp-Biometric";
 			sourceTree = "<group>";
 		};
 		2A3E09122B34582400B3C2CD /* DemoApp-SignUpFeature */ = {
@@ -527,6 +564,26 @@
 			productReference = 2A2E9C372B62903900C0D174 /* PlaybookApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2A37DBDD2B99E4AB00F97089 /* DemoApp-Biometric */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A37DBEB2B99E4AE00F97089 /* Build configuration list for PBXNativeTarget "DemoApp-Biometric" */;
+			buildPhases = (
+				2A37DBDA2B99E4AB00F97089 /* Sources */,
+				2A37DBDB2B99E4AB00F97089 /* Frameworks */,
+				2A37DBDC2B99E4AB00F97089 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DemoApp-Biometric";
+			packageProductDependencies = (
+				2A37DBEC2B99E70D00F97089 /* BiometricAuthenticationFeature */,
+			);
+			productName = "DemoApp-Biometric";
+			productReference = 2A37DBDE2B99E4AB00F97089 /* DemoApp-Biometric.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2A3E09102B34582400B3C2CD /* DemoApp-SignUpFeature */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A3E091C2B34582700B3C2CD /* Build configuration list for PBXNativeTarget "DemoApp-SignUpFeature" */;
@@ -624,6 +681,9 @@
 					2A2E9C362B62903900C0D174 = {
 						CreatedOnToolsVersion = 15.2;
 					};
+					2A37DBDD2B99E4AB00F97089 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					2A3E09102B34582400B3C2CD = {
 						CreatedOnToolsVersion = 15.1;
 					};
@@ -658,6 +718,7 @@
 				2A3E09102B34582400B3C2CD /* DemoApp-SignUpFeature */,
 				2AC3D4322B3477E600EF8777 /* DemoApp-SignInFeature */,
 				2A9CA5BF2B84E59D00827C80 /* DemoApp-Onboarding */,
+				2A37DBDD2B99E4AB00F97089 /* DemoApp-Biometric */,
 				2A2E9C362B62903900C0D174 /* PlaybookApp */,
 				2AC510452B7C9F270030B196 /* DynamicStylingPOCTests */,
 			);
@@ -696,6 +757,23 @@
 				2A2E9C3E2B62903A00C0D174 /* Assets.xcassets in Resources */,
 				2ACB02742B8DEC5200748399 /* Inter-SemiBold.ttf in Resources */,
 				2ACB02792B8DEC5200748399 /* Inter-Black.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A37DBDC2B99E4AB00F97089 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A37DBE52B99E4AE00F97089 /* Assets.xcassets in Resources */,
+				2A37DBF12B99E73200F97089 /* Inter-Bold.ttf in Resources */,
+				2A37DBF52B99E73200F97089 /* Inter-UltraLight.ttf in Resources */,
+				2A37DBF22B99E73200F97089 /* Inter-Thin.ttf in Resources */,
+				2A37DBEF2B99E73200F97089 /* Inter-Regular.ttf in Resources */,
+				2A37DBF42B99E73200F97089 /* Inter-SemiBold.ttf in Resources */,
+				2A37DBEE2B99E72700F97089 /* Colors.xcassets in Resources */,
+				2A37DBF02B99E73200F97089 /* Inter-Black.ttf in Resources */,
+				2A37DBF62B99E73200F97089 /* Inter-Medium.ttf in Resources */,
+				2A37DBF32B99E73200F97089 /* Inter-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +872,15 @@
 				2A2E9C512B62998600C0D174 /* PlaybookView.swift in Sources */,
 				2AC5105B2B7CE0A70030B196 /* BetaSettingsView.swift in Sources */,
 				2AC5106F2B7F57AC0030B196 /* PlaybookViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A37DBDA2B99E4AB00F97089 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A37DBF82B99E87000F97089 /* DesignSystemExtensions.swift in Sources */,
+				2A37DBE12B99E4AB00F97089 /* BiometricDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1123,6 +1210,78 @@
 			};
 			name = Release;
 		};
+		2A37DBE92B99E4AE00F97089 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 663KXV4GKQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DemoApp-Biometric/Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate using Face ID";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.whitehatgaming.DemoApp-Biometric";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2A37DBEA2B99E4AE00F97089 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 663KXV4GKQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DemoApp-Biometric/Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate using Face ID";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.whitehatgaming.DemoApp-Biometric";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		2A3E091D2B34582700B3C2CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1411,6 +1570,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		2A37DBEB2B99E4AE00F97089 /* Build configuration list for PBXNativeTarget "DemoApp-Biometric" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A37DBE92B99E4AE00F97089 /* Debug */,
+				2A37DBEA2B99E4AE00F97089 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2A3E091C2B34582700B3C2CD /* Build configuration list for PBXNativeTarget "DemoApp-SignUpFeature" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1453,6 +1621,10 @@
 		2A2E9C4E2B62911800C0D174 /* PlaybookFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PlaybookFeature;
+		};
+		2A37DBEC2B99E70D00F97089 /* BiometricAuthenticationFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BiometricAuthenticationFeature;
 		};
 		2A3E091F2B345AEC00B3C2CD /* SignUpFeature */ = {
 			isa = XCSwiftPackageProductDependency;

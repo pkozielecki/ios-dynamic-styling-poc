@@ -73,7 +73,7 @@ struct EmailEntryView: View {
         .dismissKeyboardToolbar {
             isEditing = false
         }
-        .onChange(of: viewModel.viewState) { _, newState in
+        .onChange(of: viewState) { _, newState in
             if case .error = newState {
                 isEditing = false
                 sendTapped = false

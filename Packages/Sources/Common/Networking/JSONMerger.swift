@@ -6,7 +6,10 @@
 import Foundation
 
 public enum JSONMerger {
-    public static func mergeDictionary(_ base: [String: AnyHashable], with merging: [String: AnyHashable]) -> [String: AnyHashable] {
+    public static func mergeDictionary(
+        _ base: [String: AnyHashable],
+        with merging: [String: AnyHashable]
+    ) -> [String: AnyHashable] {
         var baseCopy = base
         for (key, value) in merging {
             // Discussion: Codable enums are encoded into a very peculiar structure, e.g.

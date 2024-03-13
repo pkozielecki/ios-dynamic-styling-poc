@@ -6,11 +6,18 @@
 import Foundation
 
 enum AppButtonStyleFactory {
-    static func composeAppButtonStyles(components: AppComponentsStyles, designSystem: AppDesignSystem) -> [AppButtonType: AppButtonStyle.StyleGuide] {
+    static func composeAppButtonStyles(
+        components: AppComponentsStyles,
+        designSystem: AppDesignSystem
+    ) -> [AppButtonType: AppButtonStyle.StyleGuide] {
         var styles = [AppButtonType: AppButtonStyle.StyleGuide]()
         for (buttonName, buttonStyle) in components.button {
             if let buttonType = AppButtonType(rawValue: buttonName) {
-                styles[buttonType] = makeInitialButtonStyleGuide(buttonType: buttonType, buttonStyle: buttonStyle, designSystem: designSystem)
+                styles[buttonType] = makeInitialButtonStyleGuide(
+                    buttonType: buttonType,
+                    buttonStyle: buttonStyle,
+                    designSystem: designSystem
+                )
             }
         }
         return styles
@@ -18,7 +25,11 @@ enum AppButtonStyleFactory {
 }
 
 private extension AppButtonStyleFactory {
-    static func makeInitialButtonStyleGuide(buttonType: AppButtonType, buttonStyle: AppButtonStyle, designSystem: AppDesignSystem) -> AppButtonStyle.StyleGuide {
+    static func makeInitialButtonStyleGuide(
+        buttonType: AppButtonType,
+        buttonStyle: AppButtonStyle,
+        designSystem: AppDesignSystem
+    ) -> AppButtonStyle.StyleGuide {
         let shape = buttonStyle.shape
         let backgroundColor = designSystem.colors.getColor(named: buttonStyle.backgroundColor)
         let textColor = designSystem.colors.getColor(named: buttonStyle.textColor)

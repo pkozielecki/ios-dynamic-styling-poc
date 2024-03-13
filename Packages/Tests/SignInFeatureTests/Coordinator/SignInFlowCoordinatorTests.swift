@@ -29,7 +29,7 @@ final class SignUpFlowCoordinatorTests: XCTestCase {
                 "LocalStorage": fakeLocalStorage as Any,
                 "NavigationRouter": fakeNavigationRouter as Any,
                 "AppStyleProvider": FakeAppStyleProvider(),
-                "InMemoryStorage": fakeInMemeoryStorage as Any
+                "InMemoryStorage": fakeInMemeoryStorage as Any,
             ]
         )
         sut = SignInFeatureFactory.makeSignInFlowCoordinator(
