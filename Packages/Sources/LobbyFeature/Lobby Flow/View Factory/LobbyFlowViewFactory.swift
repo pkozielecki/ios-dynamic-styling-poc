@@ -27,7 +27,11 @@ struct LobbyFlowViewFactory: ViewComponentFactory {
 
 private extension LobbyFlowViewFactory {
     func makeLobbyScreen() -> UIViewController {
-        let viewModel = LiveLobbyViewModel(router: dependencyProvider.resolve())
+        let viewModel = LiveLobbyViewModel(
+            router: dependencyProvider.resolve(),
+            biometricStorage: dependencyProvider.resolve(),
+            inMemoryStorage: dependencyProvider.resolve()
+        )
         let appStyleProvider: AppStyleProvider = dependencyProvider.resolve()
         return LobbyView(viewModel: viewModel, appStyleProvider: appStyleProvider).viewController
     }

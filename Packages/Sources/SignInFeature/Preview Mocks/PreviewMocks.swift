@@ -11,7 +11,7 @@ import Foundation
 #if DEBUG
 
 final class PreviewEmailPasswordLoginViewModel: EmailPasswordLoginViewModel {
-    var viewState: EmailPasswordLoginViewState = .registering
+    var viewState: EmailPasswordLoginViewState = .loading
     func onViewAppeared() {}
     func onLoginRequested(email: String, password: String) {}
     func onSignUpRequested() {}

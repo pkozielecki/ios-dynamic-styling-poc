@@ -11,8 +11,8 @@ import Foundation
 #if DEBUG
 
 final class PreviewLobbyViewModel: LobbyViewModel {
-    var viewState: LobbyViewState = .registering
-    func onViewAppeared() {}
+    var viewState: LobbyViewState = .loggingOut
+    func didRequestLogOut() async {}
 }
 
 #endif
