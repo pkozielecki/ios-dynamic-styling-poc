@@ -9,21 +9,20 @@ import Foundation
 import Observation
 
 enum BiometricRegistrationViewState: Equatable {
-    case loading
-    case idle
+    case registering
+    case success
     case error(String)
 }
 
 protocol BiometricRegistrationViewModel: Observable {
     var viewState: BiometricRegistrationViewState { get }
-    func onViewAppeared()
     func didRequestRegisteringBiometrics() async
     func didRequestNotNow()
 }
 
 @Observable
 final class LiveBiometricRegistrationViewModel: BiometricRegistrationViewModel {
-    private(set) var viewState: BiometricRegistrationViewState = .loading
+    private(set) var viewState: BiometricRegistrationViewState = .registering
     private let router: NavigationRouter
     private let biometricStorage: BiometricStorage
     private let inMemoryStorage: InMemoryStorage
@@ -44,14 +43,14 @@ final class LiveBiometricRegistrationViewModel: BiometricRegistrationViewModel {
         self.biometricAccessProvider = biometricAccessProvider
     }
 
-    func onViewAppeared() {}
-
     @MainActor func didRequestRegisteringBiometrics() async {
         guard let token = inMemoryStorage.getValue(forKey: .refreshToken) as? String else {
             viewState = .error("Missing refresh token")
             router.show(route: MainAppRoute.signIn, withData: nil, introspective: true)
             return
         }
+
+        viewState = .registering
 
         let biometrics = biometricAccessProvider.getSupportedBiometricsType()
         guard biometrics.isBiometryEnabled else {
@@ -63,6 +62,7 @@ final class LiveBiometricRegistrationViewModel: BiometricRegistrationViewModel {
             if await biometricAccessProvider.requestPermissionToAccessBiometrics(for: biometrics) {
                 try await biometricStorage.store(value: token, at: .refreshToken)
                 try localStorage.setValue(true, forKey: StorageKeys.biometricsSetUp.rawValue)
+                viewState = .success
                 router.show(route: MainAppRoute.lobby, withData: nil, introspective: true)
             } else {
                 viewState = .error("Biometric authentication denied.")

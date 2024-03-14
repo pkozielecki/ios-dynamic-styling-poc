@@ -11,7 +11,7 @@ import Foundation
 #if DEBUG
 
 final class PreviewLobbyViewModel: LobbyViewModel {
-    var viewState: LobbyViewState = .loading
+    var viewState: LobbyViewState = .registering
     func onViewAppeared() {}
 }
 

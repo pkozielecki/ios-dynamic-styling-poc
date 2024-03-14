@@ -11,6 +11,7 @@ struct BiometricAuthenticationView: View {
     let viewModel: BiometricAuthenticationViewModel
     let appStyleProvider: AppStyleProvider
     @State private var retryTapped: Bool = false
+    @State private var didTryInitialAuthentication: Bool = false
 
     var body: some View {
         ZStack {
@@ -20,13 +21,14 @@ struct BiometricAuthenticationView: View {
 
                 Spacer()
 
-                Group {
-                    Text("An error has ocurred: \(error ?? "")")
-                        .appTextStyleFor(.error, appStyle: appStyleProvider.appStyle)
-                    Spacer()
+                if error != nil {
+                    Group {
+                        Text("Failed to log in: \(error ?? "")")
+                            .appTextStyleFor(.error, appStyle: appStyleProvider.appStyle)
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                    }
                 }
-                .opacity(error != nil ? 1 : 0)
-                .animation(.easeIn, value: error)
 
                 Button("Try again") {
                     guard !retryTapped else { return }
@@ -34,7 +36,7 @@ struct BiometricAuthenticationView: View {
                     Task { await viewModel.didRequestTryAgain() }
                 }
                 .appButtonStyleFor(.primary, appStyle: appStyleProvider.appStyle)
-                .opacity(error != nil ? 1 : 0)
+                .opacity(errorOpacity)
 
                 Spacer()
 
@@ -42,20 +44,22 @@ struct BiometricAuthenticationView: View {
                     viewModel.didRequestSignIn()
                 }
                 .appButtonStyleFor(.secondary, appStyle: appStyleProvider.appStyle)
-                .opacity(error != nil ? 1 : 0)
+                .opacity(errorOpacity)
             }
 
-            Image(systemName: "checkmark.circle.fill")
-                .renderingMode(.template)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 200)
-                .colorMultiply(appStyleProvider.appStyle.designSystem.colors.success500.color ?? .accentColor)
-                .opacity(isSuccess ? 1 : 0)
+            IconView(
+                iconName: "checkmark.circle.fill",
+                tintColor: colors.success500.color ?? .accentColor
+            )
+            .frame(height: 200)
+            .opacity(isSuccess ? 1 : 0)
         }
         .padding()
         .task {
-            await viewModel.onViewAppeared()
+            if !didTryInitialAuthentication {
+                didTryInitialAuthentication = true
+                await viewModel.onViewAppeared()
+            }
         }
         .onChange(of: viewState) { _, newState in
             if case .error = newState {
@@ -91,5 +95,13 @@ private extension BiometricAuthenticationView {
             return message
         }
         return nil
+    }
+
+    var colors: AppColors {
+        appStyleProvider.appStyle.designSystem.colors
+    }
+
+    var errorOpacity: Double {
+        error != nil ? 1 : 0
     }
 }
