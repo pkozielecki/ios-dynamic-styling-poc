@@ -32,8 +32,8 @@ The app utilizes the following technologies, frameworks, and utilities:
 
 ## Installation
 
-- Install [Sourcery](https://github.com/krzysztofzablocki/Sourcery).
-- Run Sourcery to generate any missing code from templates.
+- Install [Sourcery](https://github.com/krzysztofzablocki/Sourcery). I prefer Homebrew: `brew install sourcery`.
+- Run Sourcery from the commandline calling `sourcery` from the project root folder. It will generate any missing code from templates.
 - Open `DynamicStylingPOC.xcworkspace` in Xcode 15 or later.
 - Use the `DynamicStylingPOC` scheme to run the app or all project tests.
 - Use the `PlaybookApp` scheme to run the Playbook app.
